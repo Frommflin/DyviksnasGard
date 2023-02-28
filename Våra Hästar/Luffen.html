@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="/css/general.css">
         <script src="../javascript/navigation.js"></script>
     </head>
-    <body onload="findPage()">
+    <body>
         <div id="content" class="container">
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
@@ -22,19 +22,19 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <div class="navbar-nav">
-                            <a id="link1" class="nav-link spaLink" aria-current="page" href="#" onclick="showPage(1)">Hem</a>
-                            <a id="link2" class="nav-link spaLink" href="#" onclick="showPage(2)">Om oss</a>
-                            <a id="link3" class="nav-link spaLink" href="#" onclick="showPage(3)">Kontakta oss</a>
+                            <a class="nav-link" aria-current="page" href="../index.html" onclick="storePage(1)">Hem</a>
+                            <a class="nav-link" href="../index.html" onclick="storePage(2)">Om oss</a>
+                            <a class="nav-link" href="../index.html" onclick="storePage(3)">Kontakta oss</a>
                             <div class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Träffa våra hästar
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a id="link4" class="dropdown-item spaLink" href="#" onclick="showPage(4)">Alla Hästar</a>
+                                    <a class="dropdown-item" href="../index.html" onclick="storePage(4)">Alla Hästar</a>
                                     <hr class="dropdown-divider">
-                                    <a class="dropdown-item" href="Våra Hästar/Luffen.html">Luffen</a>
-                                    <a class="dropdown-item" href="Våra Hästar/Troll.html">Troll</a>
-                                    <a class="dropdown-item" href="Våra Hästar/Kotte.html">Kotte</a>
+                                    <a class="dropdown-item" href="#">Luffen</a>
+                                    <a class="dropdown-item" href="Troll.html">Troll</a>
+                                    <a class="dropdown-item" href="Kotte.html">Kotte</a>
                                 </div>
                             </div>
                         </div>
@@ -42,17 +42,8 @@
                 </div>
             </nav>
             <div class="container">
-                <div id="page1" class="page">
-                    <h1>Hem</h1>
-                </div>
-                <div id="page2" class="page">
-                    <h1>Om Oss</h1>
-                </div>
-                <div id="page3" class="page">
-                    <h1>Kontakta Oss</h1>
-                </div>
-                <div id="page4" class="page">
-                    <h1>Träffa våra hästar</h1>
+                <div>
+                    <h1>Luffen</h1>
                 </div>
             </div>
             <footer>
