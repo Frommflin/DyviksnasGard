@@ -17,16 +17,15 @@ footer {
 #bannerdiv {
   position: relative;
   width: 100%;
-  min-height: 100px;
-  max-height: 300px;
-  border: 1px solid black;
+  max-height: 200px;
   display: inline-block;
   overflow: hidden;
+  margin-bottom: -6px;
 }
 
 #banner {
   display: block;
-  min-height: 100%;
+  width: 100%;
 }
 
 /*# sourceMappingURL=general.css.map */

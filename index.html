@@ -11,39 +11,42 @@
     </head>
     <body onload="findPage()">
         <div id="content" class="container">
-            <div id="bannerdiv">
-                <img id="banner" src="Images/placeholderBanner.png">
-            </div>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
-                        <!-- Logga ska in här!! -->
-                        Dyviksnäs Gård
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <div class="navbar-nav">
-                            <a id="link1" class="nav-link spaLink" aria-current="page" href="#" onclick="showPage(1)">Hem</a>
-                            <a id="link2" class="nav-link spaLink" href="#" onclick="showPage(2)">Om oss</a>
-                            <a id="link3" class="nav-link spaLink" href="#" onclick="showPage(3)">Kontakta oss</a>
-                            <div class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Träffa våra hästar
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a id="link4" class="dropdown-item spaLink" href="#" onclick="showPage(4)">Alla Hästar</a>
-                                    <hr class="dropdown-divider">
-                                    <a class="dropdown-item" href="Våra Hästar/Luffen.html">Luffen</a>
-                                    <a class="dropdown-item" href="Våra Hästar/Troll.html">Troll</a>
-                                    <a class="dropdown-item" href="Våra Hästar/Kotte.html">Kotte</a>
+            <header>
+                <div id="bannerdiv">
+                    <img id="banner" src="Images/placeholderBanner.png">
+                </div>
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">
+                            <!-- Logga ska in här!! -->
+                            Dyviksnäs Gård
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <div class="navbar-nav">
+                                <a id="link1" class="nav-link spaLink" aria-current="page" href="#" onclick="showPage(1)">Hem</a>
+                                <a id="link2" class="nav-link spaLink" href="#" onclick="showPage(2)">Om oss</a>
+                                <a id="link3" class="nav-link spaLink" href="#" onclick="showPage(3)">Kontakta oss</a>
+                                <div class="nav-item dropdown">
+                                    <a id="link4" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Träffa våra hästar
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item spaLink" href="#" onclick="showPage(4)">Alla Hästar</a>
+                                        <hr class="dropdown-divider">
+                                        <a class="dropdown-item" href="Våra Hästar/Luffen.html">Luffen</a>
+                                        <a class="dropdown-item" href="Våra Hästar/Troll.html">Troll</a>
+                                        <a class="dropdown-item" href="Våra Hästar/Kotte.html">Kotte</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </header>
+            
             <div class="container">
                 <div id="page1" class="page">
                     <h1>Hem</h1>
