@@ -14,7 +14,7 @@ function showPage(p) {
 function findPage(){
     let page = localStorage.getItem('goTo');
     if(page === null){
-        showPage(4);
+        showPage(1);
     } else {
         showPage(page);
         localStorage.clear();
