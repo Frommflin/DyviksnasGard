@@ -1,17 +1,25 @@
 #content {
-  background-color: #eeac9e;
+  background-color: #d3d3d3;
   box-shadow: 5px 0px 8px 0px rgba(0, 0, 0, 0.2), -5px 0px 8px 0px rgba(0, 0, 0, 0.19);
   min-height: 100vh;
   padding: 0px 0px 120px 0px;
   position: relative;
+  overflow: hidden;
 }
 
 header {
   margin-bottom: 10px;
 }
 
+nav {
+  background-color: #801818;
+  box-shadow: 0px 1px 16px 7px rgba(0, 0, 0, 0.8);
+}
+
 footer {
-  background-color: #ffffff;
+  background-color: #801818;
+  box-shadow: 0px 1px 16px 7px rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.7);
   position: absolute;
   bottom: 0px;
   width: 100%;
