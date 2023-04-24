@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="./css/general.css">
         <link rel="stylesheet" href="./css/horses.css">
         <script src="./javascript/navigation.js"></script>
+        <script src="./javascript/horsePage.js"></script>
     </head>
     <body onload="findPage()">
         <div id="content" class="container">
@@ -32,15 +33,16 @@
                                 <a id="link2" class="nav-link spaLink" href="#" onclick="showPage(2)">Om oss</a>
                                 <a id="link3" class="nav-link spaLink" href="#" onclick="showPage(3)">Kontakta oss</a>
                                 <div class="nav-item dropdown">
-                                    <a id="link4" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a id="collectionLink" class="nav-link dropdown-toggle spaLink" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Träffa våra hästar
                                     </a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item spaLink" href="#" onclick="showPage(4)">Alla Hästar</a>
+                                        <a id="link4" class="dropdown-item spaLink" href="#" onclick="showPage(4,4)">Alla Hästar</a>
                                         <hr class="dropdown-divider">
-                                        <a class="dropdown-item" href="Våra Hästar/Luffen.html">Luffen</a>
-                                        <a class="dropdown-item" href="Våra Hästar/Troll.html">Troll</a>
-                                        <a class="dropdown-item" href="Våra Hästar/Kotte.html">Kotte</a>
+                                        <!-- TODO: Generate links dynamically for every horse -->
+                                        <a id="link5" class="dropdown-item spaLink" href="#" onclick="showPage(5,5); fillPage('Luffen')">Luffen</a>
+                                        <a id="link6" class="dropdown-item spaLink" href="#" onclick="showPage(5,6); fillPage('Troll')">Troll</a>
+                                        <a id="link7" class="dropdown-item spaLink" href="#" onclick="showPage(5,7); fillPage('Kotte')">Kotte</a>
                                     </div>
                                 </div>
                             </div>
@@ -51,16 +53,16 @@
             <div class="container">
                 <div id="page1" class="page">
                     <h1>Hem</h1>
-                </div>
+                </div> <!--  End of page 1 -->
                 <div id="page2" class="page">
                     <h1>Om Oss</h1>
-                </div>
+                </div> <!--  End of page 2 -->
                 <div id="page3" class="page">
                     <h1>Kontakta Oss</h1>
-                </div>
+                </div> <!--  End of page 3 -->
                 <div id="page4" class="page">
                     <h1>Träffa våra hästar</h1>
-                    <div id="cardcontainer">
+                    <div id="cardContainer">
                         <a class="card" href="./Våra Hästar/Luffen.html">
                             <img src="./Images/placeholderSmallImg.png" class="card-img-top" alt="Luffen">
                             <div class="card-body">
@@ -83,7 +85,42 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div> <!--  End of page 4 -->
+                <div id="page5" class="page">
+                    <div id="horseContainer">
+                        <div id="carouselContainer">
+                            <div id="carouselExampleIndicators" class="carousel slide">
+                                <div class="carousel-indicators">
+                                    <!-- TODO: Add buttons dynamically for each image -->
+                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <!-- TODO: Add images dynamically with javascript -->
+                                    <div class="carousel-item active">
+                                        <img src="../Images/PlaceholderBigImg.png" class="d-block" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../Images/PlaceholderBigImg.png" class="d-block" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../Images/PlaceholderBigImg.png" class="d-block" alt="...">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div> <!--  End of carousel -->
+                        <div id="horseInfo"></div>
+                    </div>
+                </div> <!--  End of page 5 -->
             </div>
             <footer>
                 Links to FB, Insta m.m here
