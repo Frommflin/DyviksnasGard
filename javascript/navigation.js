@@ -19,17 +19,3 @@ function showPage(p, h) {
         document.getElementById("link" + p).classList.add("active");
     }
 }
-
-function findPage(){
-    let page = localStorage.getItem('goTo');
-    if(page === null){
-        showPage(1);
-    } else {
-        showPage(page);
-        localStorage.clear();
-    }
-}
-
-function storePage(p){
-    localStorage.setItem('goTo', p);
-}
