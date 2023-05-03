@@ -29,7 +29,7 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <div class="navbar-nav">
-                                <a id="link1" class="nav-link spaLink" aria-current="page" href="#" onclick="showPage(1)">Hem</a>
+                                <a id="link1" class="nav-link spaLink" aria-current="page" href="#" onclick="showPage(1)">Nyheter</a>
                                 <a id="link2" class="nav-link spaLink" href="#" onclick="showPage(2)">Om oss</a>
                                 <a id="link3" class="nav-link spaLink" href="#" onclick="showPage(3)">Kontakta oss</a>
                                 <div class="nav-item dropdown">
@@ -37,14 +37,15 @@
                                         Träffa våra hästar
                                     </a>
                                     <div class="dropdown-menu">
-                                        <a id="link4" class="dropdown-item spaLink" href="#" onclick="showPage(4,4)">Alla Hästar</a>
+                                        <a id="nestedLink1" class="dropdown-item spaLink" href="#" onclick="showPage(4,1)">Alla Hästar</a>
                                         <hr class="dropdown-divider">
                                         <!-- TODO: Generate links dynamically for every horse -->
-                                        <a id="link5" class="dropdown-item spaLink" href="#" onclick="showPage(5,5); fillPage('Luffen')">Luffen</a>
-                                        <a id="link6" class="dropdown-item spaLink" href="#" onclick="showPage(5,6); fillPage('Troll')">Troll</a>
-                                        <a id="link7" class="dropdown-item spaLink" href="#" onclick="showPage(5,7); fillPage('Kotte')">Kotte</a>
+                                        <a id="nestedLink2" class="dropdown-item spaLink" href="#" onclick="showPage(5,2); fillPage('Luffen')">Luffen</a>
+                                        <a id="nestedLink3" class="dropdown-item spaLink" href="#" onclick="showPage(5,3); fillPage('Troll')">Troll</a>
+                                        <a id="nestedLink4" class="dropdown-item spaLink" href="#" onclick="showPage(5,4); fillPage('Kotte')">Kotte</a>
                                     </div>
                                 </div>
+                                <a id="link6" class="nav-link spaLink" href="#" onclick="showPage(6)">Galleri</a>
                             </div>
                         </div>
                     </div>
@@ -52,7 +53,7 @@
             </header>
             <div class="container">
                 <div id="page1" class="page">
-                    <h1>Hem</h1>
+                    <h1>Nyheter</h1>
                 </div> <!--  End of page 1 -->
                 <div id="page2" class="page">
                     <h1>Om Oss</h1>
@@ -121,6 +122,9 @@
                         <div id="horseInfo"></div>
                     </div>
                 </div> <!--  End of page 5 -->
+                <div id="page6" class="page">
+                    <h1>Galleri</h1>
+                </div> <!--  End of page 1 -->
             </div>
             <footer>
                 Links to FB, Insta m.m here

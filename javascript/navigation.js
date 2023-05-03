@@ -14,7 +14,7 @@ function showPage(p, h) {
 
     if(p == 4 || p == 5){
         document.getElementById("collectionLink").classList.add("active");
-        document.getElementById("link" + h).classList.add("active");
+        document.getElementById("nestedLink" + h).classList.add("active");
     } else {
         document.getElementById("link" + p).classList.add("active");
     }
