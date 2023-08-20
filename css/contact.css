@@ -12,4 +12,9 @@
   height: 200px;
 }
 
+#gmap_iframe {
+  height: 400px;
+  width: 100%;
+}
+
 /*# sourceMappingURL=contact.css.map */
