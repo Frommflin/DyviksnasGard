@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../sass/_colors.sass","../sass/horses.sass"],"names":[],"mappings":"AACA;AAKA;AAKA;ACPA;EACI;EACA;EACA;EACA;EACA;EACA;;;AAEJ;EACI,ODDI;ECEJ;EACA;;;AAEJ;EACI;EACA;;;AAIJ;EACI;EACA;;;AAEJ;EACI;EACA;;;AAIA;EACI","file":"horses.css"}
+{"version":3,"sourceRoot":"","sources":["../sass/_colors.sass","../sass/horses.sass"],"names":[],"mappings":"AACA;AAMA;ACHA;EACI;EACA;EACA;EACA;EACA;EACA;;;AAEJ;EACI,ODLI;ECMJ;EACA;;;AAEJ;EACI;EACA;;;AAIJ;EACI;EACA;;;AAEJ;EACI;EACA;;;AAIA;EACI","file":"horses.css"}
