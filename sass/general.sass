@@ -1,20 +1,16 @@
 @use 'colors'
 
 body
-    background-color: colors.$grey-light
-    // background-color: colors.$white
-
-#content
-    background-color: colors.$white
-    // background-color: colors.$grey-light
-    box-shadow: 5px 0px 8px 0px rgba(0, 0, 0, 0.4), -5px 0px 8px 0px rgba(0, 0, 0, 0.4)
     min-height: 100vh
-    padding: 0px 0px 120px 0px
-    position: relative
-    overflow: hidden
+    display: flex
+    flex-direction: column
+    justify-content: space-between
 
 header
     margin-bottom: 10px
+
+#content
+  margin-bottom: 2rem
 
 #logoBanner
     display: flex
@@ -62,13 +58,14 @@ nav
     background-color: colors.$falured
     border-color: colors.$falured-light
     
-    
+#footer
+    align-self: flex-end 
+    width: 100%  
     
 footer
+    margin-top: auto
     background-color: colors.$falured
     box-shadow: 0px 1px 16px 7px rgba(0, 0, 0, 0.8)
-    position: absolute
-    bottom: 0px
     width: 100%
     height: 100px
     display: flex

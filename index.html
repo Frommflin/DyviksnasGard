@@ -15,223 +15,221 @@
         <script src="./javascript/horsePage.js"></script>
     </head>
     <body onload="showPage(1)">
-        <div id="content" class="container">
-            <header>
-                <div id="logoBanner">
-                    <img id="bannerLogo" src="./Icons/DyviksnäsLogga.png" alt="Dyviksnäs Gårds Logga" />
-                    <h1>Dyviksnäs Gård</h1>
-                </div>
-                <div id="imgBanner">
-                    <img id="bannerImg" src="./Images/summerBanner.png" alt="Dyviksnäs Gårds Banner" />
-                </div>
-                <nav class="navbar navbar-dark navbar-expand-lg">
-                    <div class="container-fluid">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <div class="navbar-nav">
-                                <a id="link1" class="nav-link spaLink" aria-current="page" href="#" onclick="showPage(1)">Nyheter</a>
-                                <a id="link2" class="nav-link spaLink" href="#" onclick="showPage(2)">Om oss</a>
-                                <div class="nav-item dropdown">
-                                    <a id="collectionLink" class="nav-link dropdown-toggle spaLink" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Träffa hästarna
-                                    </a>
-                                    <div class="dropdown-menu">
-                                        <a id="nestedLink1" class="dropdown-item spaLink" href="#" onclick="showPage(4,1)">Alla Hästar</a>
-                                        <hr class="dropdown-divider">
-                                        <!-- TODO: Generate links dynamically for every horse -->
-                                        <a id="nestedLink2" class="dropdown-item spaLink" href="#" onclick="showPage(5,2); fillPage('Luffen')">Luffen</a>
-                                        <a id="nestedLink3" class="dropdown-item spaLink" href="#" onclick="showPage(5,3); fillPage('Troll')">Troll</a>
-                                        <a id="nestedLink4" class="dropdown-item spaLink" href="#" onclick="showPage(5,4); fillPage('Kotte')">Kotte</a>
-                                    </div>
-                                </div>
-                                <a id="link6" class="nav-link spaLink" href="#" onclick="showPage(6)">Galleri</a>
-                                <a id="link3" class="nav-link spaLink" href="#" onclick="showPage(3)">Kontakt</a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </header>
-            <div class="container">
-                <div id="page1" class="page"> <!-- Nyheter -->
-                    <h1>Nyheter</h1>
-                    <div id="newsLetter">
-                        <div id="local" class="news">
-                            <div class="newsCard"> <!-- TODO: Will be created dynamically -->
-                                <div class="postDetails">
-                                    <!-- post details; date, name of poster? -->
-                                    <span>Date of post</span>
-                                    <span>Name of author</span>
-                                </div>
-                                <hr>
-                                <div class="postContent">
-                                    <!-- post content -->
-                                    <h3>Post alternative 1</h3>
-                                    <div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque mauris pellentesque pulvinar pellentesque habitant. Egestas congue quisque egestas diam in arcu cursus. Quisque id diam vel quam elementum pulvinar. Nulla porttitor massa id neque aliquam vestibulum. Semper feugiat nibh sed pulvinar proin. Nisl nisi scelerisque eu ultrices. Penatibus et magnis dis parturient montes nascetur. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et. Sapien et ligula ullamcorper malesuada proin libero. Lobortis mattis aliquam faucibus purus in massa tempor nec feugiat.</p>
-                                    </div>
-                                    <img src="./Images/PlaceholderBigImg.png" />
-                                </div>
-                            </div>
-                            <div class="newsCard"> <!-- Will be created dynamically -->
-                                <div class="postDetails">
-                                    <!-- post details; date, name of poster? -->
-                                    <span>Date of post</span>
-                                    <span>Name of author</span>
-                                </div>
-                                <hr>
-                                <div class="postContent">
-                                    <!-- post content -->
-                                    <img src="./Images/PlaceholderBigImg.png" />
-                                    <h3>Post alterntive 2</h3>
-                                    <div>
-                                        <p>Felis eget nunc lobortis mattis aliquam. Est ullamcorper eget nulla facilisi etiam dignissim. Tortor at auctor urna nunc id. Duis convallis convallis tellus id interdum velit laoreet id. Pellentesque habitant morbi tristique senectus et netus. Blandit cursus risus at ultrices mi tempus. Imperdiet nulla malesuada pellentesque elit eget gravida. Proin sed libero enim sed faucibus turpis in eu mi. Sagittis purus sit amet volutpat consequat. Aliquet lectus proin nibh nisl. Varius morbi enim nunc faucibus a pellentesque sit amet porttitor. Eu lobortis elementum nibh tellus molestie. At tempor commodo ullamcorper a. Velit euismod in pellentesque massa placerat duis. Fermentum iaculis eu non diam phasellus vestibulum. Egestas egestas fringilla phasellus faucibus scelerisque eleifend. Nunc scelerisque viverra mauris in aliquam sem fringilla. Sed lectus vestibulum mattis ullamcorper velit sed.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="socialMedia" class="news">
-                            <!-- Instagram flow? -->
-                        </div>
-                    </div>
-                    
-                </div> <!--  End of page 1 -->
-                <div id="page2" class="page"> <!-- Om oss -->
-                    <h1>Om Oss</h1>
-                </div> <!--  End of page 2 -->
-                <div id="page3" class="page"> <!-- Kontakt -->
-                    <div class="container">
-                        <div class="row">
-                            <div id="contact" class="col-12 col-md-6">
-                                <h1>Kontakta Oss</h1>
-                                <p>Email: stallet@dyviksnas.se</p>
-                                <form id="contactForm" class="col col-xs-6" method="post">
-                                    <div class="input-group">
-                                        <div class="contactInput input-group-prepend">
-                                            <span class="input-group-text">Namn</span>
-                                        </div>
-                                        <input type="text" class="form-control" name="senderName" placeholder="Ditt namn" required>
-                                    </div>
-                                    <div class="input-group">
-                                        <div class="contactInput input-group-prepend">
-                                            <span class="input-group-text">Email</span>
-                                        </div>
-                                        <input type="email" class="form-control" name="senderEmail" placeholder="Din email" required>
-                                    </div>
-                                    <div class="input-group">
-                                        <div class="contactInput input-group-prepend">
-                                            <span class="input-group-text">Ämne</span>
-                                        </div>
-                                        <input type="text" class="form-control" name="subject" placeholder="Ämne på mailet" required>
-                                    </div>
-                                    <div class="input-group">
-                                        <div class="contactInput input-group-prepend">
-                                            <span class="input-group-text">Meddelande</span>
-                                        </div>
-                                        <textarea class="form-control" name="message" placeholder="Skriv ditt meddelande här" required></textarea>
-                                    </div>
-                                    <input type="submit" value="Skicka" class="btn" />
-                                </form>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <h1>Hitta hit</h1>
-                                <div>
-                                    <p>
-                                        Stallet har ingen adress men ligger på Södra Rörängsslingan, väl synligt från Dyviksvägen.
-                                        Den adress som kan användas som riktlinje är Dyviksvägen 110.
-                                    </p>
-                                    <p>
-                                        Om ni åker från Åkersberga kör ni 276:an mot Norrtälje. Tag höger vid Åsättra mot Dyvik. Vägen svänger 90grader åt vänster vid Bammarboda korsningen. Stallet ligger på höger sida i en svacka innan marinan.
-                                    </p>
-                                    <p>
-                                        Kommer ni från Norrtälje så kan ni även svänga av 276:an vid Björnhuvud och följa skyltarna mot Dyvik. (Tag 90 grader höger när ni kommer till Dyviksvägen. Tydlig T-korsning.) Då passerar ni Marinan, sen ligger stallet i nästa svacka på vänster sida.
-                                    </p>
-                                    <p>
-                                        Åker ni buss så stannar buss 620 Norrtälje/Åkersberga precis intill stallet på hållplatsen Fåfängan. På SL appen eller hemsidan söker ni på Fåfängan(Österåker).
-                                    </p>
-                                    <p>
-                                        Välkomna! 🤗
-                                    </p>
-                                </div>
-                                <iframe id="gmap_iframe" src="https://maps.google.com/maps?q=59.521576, 18.499326&amp;hl=sv&amp;t=m&amp;z=16&amp;iwloc=B&amp;output=embed" title="Dyviksnäs Gård, Åkersberga" aria-label="Dyviksnäs Gård, Åkersberga"></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!--  End of page 3 -->
-                <div id="page4" class="page"> <!-- Alla hästar -->
-                    <h1>Träffa våra hästar</h1>
-                    <div id="cardContainer">
-                        <a class="card" href="./Våra Hästar/Luffen.html">
-                            <img src="./Images/placeholderSmallImg.png" class="card-img-top" alt="Luffen">
-                            <div class="card-body">
-                                <h5 class="card-title">Luffen</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </a>
-                        <a class="card" href="./Våra Hästar/Kotte.html">
-                            <img src="./Images/placeholderSmallImg.png" class="card-img-top" alt="Kotte">
-                            <div class="card-body">
-                                <h5 class="card-title">Kotte</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </a>
-                        <a class="card" href="./Våra Hästar/Troll.html">
-                            <img src="./Images/placeholderSmallImg.png" class="card-img-top" alt="Troll">
-                            <div class="card-body">
-                                <h5 class="card-title">Troll</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div> <!--  End of page 4 -->
-                <div id="page5" class="page"> <!-- Vald häst -->
-                    <div id="horseContainer">
-                        <div id="carouselContainer">
-                            <div id="carouselExampleIndicators" class="carousel slide">
-                                <div class="carousel-indicators">
-                                    <!-- TODO: Add buttons dynamically for each image -->
-                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                </div>
-                                <div class="carousel-inner">
-                                    <!-- TODO: Add images dynamically with javascript -->
-                                    <div class="carousel-item active">
-                                        <img src="./Images/PlaceholderBigImg.png" class="d-block" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./Images/PlaceholderBigImg.png" class="d-block" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./Images/PlaceholderBigImg.png" class="d-block" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                        </div> <!--  End of carousel -->
-                        <div id="horseInfo"></div>
-                    </div>
-                </div> <!--  End of page 5 -->
-                <div id="page6" class="page"> <!-- Galleri -->
-                    <h1>Galleri</h1>
-                </div> <!--  End of page 6 -->
+        <header>
+            <div id="logoBanner">
+                <img id="bannerLogo" src="./Icons/DyviksnäsLogga.png" alt="Dyviksnäs Gårds Logga" />
+                <h1>Dyviksnäs Gård</h1>
             </div>
-            <footer>
+            <div id="imgBanner">
+                <img id="bannerImg" src="./Images/summerBanner.png" alt="Dyviksnäs Gårds Banner" />
+            </div>
+            <nav class="navbar navbar-dark navbar-expand-lg">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <div class="navbar-nav">
+                            <a id="link1" class="nav-link spaLink" aria-current="page" href="#" onclick="showPage(1)">Nyheter</a>
+                            <a id="link2" class="nav-link spaLink" href="#" onclick="showPage(2)">Om oss</a>
+                            <div class="nav-item dropdown">
+                                <a id="collectionLink" class="nav-link dropdown-toggle spaLink" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Träffa hästarna
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a id="nestedLink1" class="dropdown-item spaLink" href="#" onclick="showPage(4,1)">Alla Hästar</a>
+                                    <hr class="dropdown-divider">
+                                    <!-- TODO: Generate links dynamically for every horse -->
+                                    <a id="nestedLink2" class="dropdown-item spaLink" href="#" onclick="showPage(5,2); fillPage('Luffen')">Luffen</a>
+                                    <a id="nestedLink3" class="dropdown-item spaLink" href="#" onclick="showPage(5,3); fillPage('Troll')">Troll</a>
+                                    <a id="nestedLink4" class="dropdown-item spaLink" href="#" onclick="showPage(5,4); fillPage('Kotte')">Kotte</a>
+                                </div>
+                            </div>
+                            <a id="link6" class="nav-link spaLink" href="#" onclick="showPage(6)">Galleri</a>
+                            <a id="link3" class="nav-link spaLink" href="#" onclick="showPage(3)">Kontakt</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div id="content" class="container">
+            <div id="page1" class="page"> <!-- Nyheter -->
+                <h1>Nyheter</h1>
+                <div id="newsLetter">
+                    <div id="local" class="news">
+                        <div class="newsCard"> <!-- TODO: Will be created dynamically -->
+                            <div class="postDetails">
+                                <!-- post details; date, name of poster? -->
+                                <span>Date of post</span>
+                                <span>Name of author</span>
+                            </div>
+                            <hr>
+                            <div class="postContent">
+                                <!-- post content -->
+                                <h3>Post alternative 1</h3>
+                                <div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque mauris pellentesque pulvinar pellentesque habitant. Egestas congue quisque egestas diam in arcu cursus. Quisque id diam vel quam elementum pulvinar. Nulla porttitor massa id neque aliquam vestibulum. Semper feugiat nibh sed pulvinar proin. Nisl nisi scelerisque eu ultrices. Penatibus et magnis dis parturient montes nascetur. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et. Sapien et ligula ullamcorper malesuada proin libero. Lobortis mattis aliquam faucibus purus in massa tempor nec feugiat.</p>
+                                </div>
+                                <img src="./Images/PlaceholderBigImg.png" />
+                            </div>
+                        </div>
+                        <div class="newsCard"> <!-- Will be created dynamically -->
+                            <div class="postDetails">
+                                <!-- post details; date, name of poster? -->
+                                <span>Date of post</span>
+                                <span>Name of author</span>
+                            </div>
+                            <hr>
+                            <div class="postContent">
+                                <!-- post content -->
+                                <img src="./Images/PlaceholderBigImg.png" />
+                                <h3>Post alterntive 2</h3>
+                                <div>
+                                    <p>Felis eget nunc lobortis mattis aliquam. Est ullamcorper eget nulla facilisi etiam dignissim. Tortor at auctor urna nunc id. Duis convallis convallis tellus id interdum velit laoreet id. Pellentesque habitant morbi tristique senectus et netus. Blandit cursus risus at ultrices mi tempus. Imperdiet nulla malesuada pellentesque elit eget gravida. Proin sed libero enim sed faucibus turpis in eu mi. Sagittis purus sit amet volutpat consequat. Aliquet lectus proin nibh nisl. Varius morbi enim nunc faucibus a pellentesque sit amet porttitor. Eu lobortis elementum nibh tellus molestie. At tempor commodo ullamcorper a. Velit euismod in pellentesque massa placerat duis. Fermentum iaculis eu non diam phasellus vestibulum. Egestas egestas fringilla phasellus faucibus scelerisque eleifend. Nunc scelerisque viverra mauris in aliquam sem fringilla. Sed lectus vestibulum mattis ullamcorper velit sed.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="socialMedia" class="news">
+                        <!-- Instagram flow? -->
+                    </div>
+                </div>
+                
+            </div> <!--  End of page 1 -->
+            <div id="page2" class="page"> <!-- Om oss -->
+                <h1>Om Oss</h1>
+            </div> <!--  End of page 2 -->
+            <div id="page3" class="page"> <!-- Kontakt -->
+                <div class="container">
+                    <div class="row">
+                        <div id="contact" class="col-12 col-md-6">
+                            <h1>Kontakta Oss</h1>
+                            <p>Email: stallet@dyviksnas.se</p>
+                            <form id="contactForm" class="col col-xs-6" method="post">
+                                <div class="input-group">
+                                    <div class="contactInput input-group-prepend">
+                                        <span class="input-group-text">Namn</span>
+                                    </div>
+                                    <input type="text" class="form-control" name="senderName" placeholder="Ditt namn" required>
+                                </div>
+                                <div class="input-group">
+                                    <div class="contactInput input-group-prepend">
+                                        <span class="input-group-text">Email</span>
+                                    </div>
+                                    <input type="email" class="form-control" name="senderEmail" placeholder="Din email" required>
+                                </div>
+                                <div class="input-group">
+                                    <div class="contactInput input-group-prepend">
+                                        <span class="input-group-text">Ämne</span>
+                                    </div>
+                                    <input type="text" class="form-control" name="subject" placeholder="Ämne på mailet" required>
+                                </div>
+                                <div class="input-group">
+                                    <div class="contactInput input-group-prepend">
+                                        <span class="input-group-text">Meddelande</span>
+                                    </div>
+                                    <textarea class="form-control" name="message" placeholder="Skriv ditt meddelande här" required></textarea>
+                                </div>
+                                <input type="submit" value="Skicka" class="btn" />
+                            </form>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <h1>Hitta hit</h1>
+                            <div>
+                                <p>
+                                    Stallet har ingen adress men ligger på Södra Rörängsslingan, väl synligt från Dyviksvägen.
+                                    Den adress som kan användas som riktlinje är Dyviksvägen 110.
+                                </p>
+                                <p>
+                                    Om ni åker från Åkersberga kör ni 276:an mot Norrtälje. Tag höger vid Åsättra mot Dyvik. Vägen svänger 90grader åt vänster vid Bammarboda korsningen. Stallet ligger på höger sida i en svacka innan marinan.
+                                </p>
+                                <p>
+                                    Kommer ni från Norrtälje så kan ni även svänga av 276:an vid Björnhuvud och följa skyltarna mot Dyvik. (Tag 90 grader höger när ni kommer till Dyviksvägen. Tydlig T-korsning.) Då passerar ni Marinan, sen ligger stallet i nästa svacka på vänster sida.
+                                </p>
+                                <p>
+                                    Åker ni buss så stannar buss 620 Norrtälje/Åkersberga precis intill stallet på hållplatsen Fåfängan. På SL appen eller hemsidan söker ni på Fåfängan(Österåker).
+                                </p>
+                                <p>
+                                    Välkomna! 🤗
+                                </p>
+                            </div>
+                            <iframe id="gmap_iframe" src="https://maps.google.com/maps?q=59.521576, 18.499326&amp;hl=sv&amp;t=m&amp;z=16&amp;iwloc=B&amp;output=embed" title="Dyviksnäs Gård, Åkersberga" aria-label="Dyviksnäs Gård, Åkersberga"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div> <!--  End of page 3 -->
+            <div id="page4" class="page"> <!-- Alla hästar -->
+                <h1>Träffa våra hästar</h1>
+                <div id="cardContainer">
+                    <a class="card" href="./Våra Hästar/Luffen.html">
+                        <img src="./Images/placeholderSmallImg.png" class="card-img-top" alt="Luffen">
+                        <div class="card-body">
+                            <h5 class="card-title">Luffen</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </a>
+                    <a class="card" href="./Våra Hästar/Kotte.html">
+                        <img src="./Images/placeholderSmallImg.png" class="card-img-top" alt="Kotte">
+                        <div class="card-body">
+                            <h5 class="card-title">Kotte</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </a>
+                    <a class="card" href="./Våra Hästar/Troll.html">
+                        <img src="./Images/placeholderSmallImg.png" class="card-img-top" alt="Troll">
+                        <div class="card-body">
+                            <h5 class="card-title">Troll</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </a>
+                </div>
+            </div> <!--  End of page 4 -->
+            <div id="page5" class="page"> <!-- Vald häst -->
+                <div id="horseContainer">
+                    <div id="carouselContainer">
+                        <div id="carouselExampleIndicators" class="carousel slide">
+                            <div class="carousel-indicators">
+                                <!-- TODO: Add buttons dynamically for each image -->
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <!-- TODO: Add images dynamically with javascript -->
+                                <div class="carousel-item active">
+                                    <img src="./Images/PlaceholderBigImg.png" class="d-block" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./Images/PlaceholderBigImg.png" class="d-block" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./Images/PlaceholderBigImg.png" class="d-block" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div> <!--  End of carousel -->
+                    <div id="horseInfo"></div>
+                </div>
+            </div> <!--  End of page 5 -->
+            <div id="page6" class="page"> <!-- Galleri -->
+                <h1>Galleri</h1>
+            </div> <!--  End of page 6 -->
+        </div>
+        <footer>
                 <a href="#">
                     <img src="./Icons/instagram-white.png" alt="Instagram" /> Följ oss på Instagram
                 </a>
                 <a href="#">
                     <img src="./Icons/facebook-white.png" alt="Facebook" /> Följ oss på Facebook
                 </a>
-            </footer>
-        </div>
+        </footer>
     </body>
 </html>
