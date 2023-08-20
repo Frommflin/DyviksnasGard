@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="./css/general.css">
         <link rel="stylesheet" href="./css/news.css">
         <link rel="stylesheet" href="./css/horses.css">
+        <link rel="stylesheet" href="./css/contact.css">
         <script src="./javascript/navigation.js"></script>
         <script src="./javascript/horsePage.js"></script>
     </head>
@@ -102,11 +103,58 @@
                 <div id="page3" class="page"> <!-- Kontakt -->
                     <div class="container">
                         <div class="row">
-                            <div class="contactpage col-12 col-md-6">
+                            <div id="contact" class="col-12 col-md-6">
                                 <h1>Kontakta Oss</h1>
+                                <p>Email: stallet@dyviksnas.se</p>
+                                <form id="contactForm" class="col col-xs-6" method="post">
+                                    <div class="input-group">
+                                        <div class="contactInput input-group-prepend">
+                                            <span class="input-group-text">Namn</span>
+                                        </div>
+                                        <input type="text" class="form-control" name="senderName" placeholder="Ditt namn" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="contactInput input-group-prepend">
+                                            <span class="input-group-text">Email</span>
+                                        </div>
+                                        <input type="email" class="form-control" name="senderEmail" placeholder="Din email" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="contactInput input-group-prepend">
+                                            <span class="input-group-text">Ämne</span>
+                                        </div>
+                                        <input type="text" class="form-control" name="subject" placeholder="Ämne på mailet" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="contactInput input-group-prepend">
+                                            <span class="input-group-text">Meddelande</span>
+                                        </div>
+                                        <textarea class="form-control" name="message" placeholder="Skriv ditt meddelande här" required></textarea>
+                                    </div>
+                                    <input type="submit" value="Skicka" class="btn" />
+                                </form>
                             </div>
-                            <div class="contactpage col-12 col-md-6">
+                            <div class="col-12 col-md-6">
                                 <h1>Hitta hit</h1>
+                                <div>
+                                    <p>
+                                        Stallet har ingen adress men ligger på Södra Rörängsslingan, väl synligt från Dyviksvägen.
+                                        Den adress som kan användas som riktlinje är Dyviksvägen 110.
+                                    </p>
+                                    <p>
+                                        Om ni åker från Åkersberga kör ni 276:an mot Norrtälje. Tag höger vid Åsättra mot Dyvik. Vägen svänger 90grader åt vänster vid Bammarboda korsningen. Stallet ligger på höger sida i en svacka innan marinan.
+                                    </p>
+                                    <p>
+                                        Kommer ni från Norrtälje så kan ni även svänga av 276:an vid Björnhuvud och följa skyltarna mot Dyvik. (Tag 90 grader höger när ni kommer till Dyviksvägen. Tydlig T-korsning.) Då passerar ni Marinan, sen ligger stallet i nästa svacka på vänster sida.
+                                    </p>
+                                    <p>
+                                        Åker ni buss så stannar buss 620 Norrtälje/Åkersberga precis intill stallet på hållplatsen Fåfängan. På SL appen eller hemsidan söker ni på Fåfängan(Österåker).
+                                    </p>
+                                    <p>
+                                        Välkomna! 🤗
+                                    </p>
+                                </div>
+                                <iframe id="gmap_iframe" src="https://maps.google.com/maps?q=59.521576, 18.499326&amp;hl=sv&amp;t=m&amp;z=16&amp;iwloc=B&amp;output=embed" title="Dyviksnäs Gård, Åkersberga" aria-label="Dyviksnäs Gård, Åkersberga"></iframe>
                             </div>
                         </div>
                     </div>
