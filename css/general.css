@@ -66,7 +66,7 @@ nav {
 }
 
 .btn:active {
-  color: rgba(255, 255, 255, 0.7);
+  color: #ffffff;
   background-color: #661313;
   border-color: #801818;
 }
@@ -76,7 +76,7 @@ nav {
 }
 
 .btn:hover {
-  color: rgba(255, 255, 255, 0.7);
+  color: #ffffff;
   background-color: #801818;
   border-color: #a01e1e;
 }
