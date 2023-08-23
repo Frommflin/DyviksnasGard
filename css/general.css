@@ -59,6 +59,11 @@ nav {
   height: 50px;
 }
 
+.navbar-collapse {
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
 .btn {
   color: rgba(255, 255, 255, 0.7);
   background-color: #a01e1e;
