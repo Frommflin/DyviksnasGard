@@ -1,0 +1,20 @@
+/* Primary */
+/* Backgrounds, Texts */
+.activeBtn, .galleryBtn:hover {
+  color: #801818;
+  background-color: #ffffff;
+  border-color: rgba(128, 24, 24, 0.2);
+}
+
+.activeBtn, .galleryBtn:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem rgba(128, 24, 24, 0.2);
+}
+
+.galleryBtn {
+  border-radius: 15px;
+  font-size: 12px;
+  line-height: 12px;
+  margin: 5px;
+}
+
+/*# sourceMappingURL=gallery.css.map */

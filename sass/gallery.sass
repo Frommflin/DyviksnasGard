@@ -1,0 +1,23 @@
+@use 'colors'
+
+%galleryBtnColor
+    color: colors.$falured
+    background-color: colors.$white
+    border-color: colors.$falured-20
+
+%galleryBoxshadow
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem colors.$falured-20
+
+.galleryBtn
+    border-radius: 15px
+    font-size: 12px
+    line-height: 12px
+    margin: 5px
+    &:focus
+        @extend %galleryBoxshadow
+    &:hover
+        @extend %galleryBtnColor
+
+.activeBtn
+    @extend %galleryBtnColor
+    @extend %galleryBoxshadow

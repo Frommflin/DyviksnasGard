@@ -11,8 +11,10 @@
         <link rel="stylesheet" href="./css/news.css">
         <link rel="stylesheet" href="./css/horses.css">
         <link rel="stylesheet" href="./css/contact.css">
+        <link rel="stylesheet" href="./css/gallery.css">
         <script src="./javascript/navigation.js"></script>
         <script src="./javascript/horsePage.js"></script>
+        <script src="./javascript/gallery.js"></script>
     </head>
     <body onload="showPage(1)">
         <header>
@@ -206,10 +208,14 @@
             </div> <!--  End of page 5 -->
             <div id="page6" class="page"> <!-- Galleri -->
                 <h1>Galleri</h1>
-                <div id="wip">
-                    <h1>Sidan är under uppbyggnad</h1>
-                    <hr />
-                    <h6>Vi jobbar hårt med att bygga upp den här sidan med roligt innehåll för er</h6>
+                <div id="galleryNav">
+                    <!-- TODO: Generate dynamically based on DB content -->
+                    <button id="album1" class="btn galleryBtn" onclick="showAlbum(1)">Album 1</button>
+                    <button id="album2" class="btn galleryBtn" onclick="showAlbum(2)">Album 2</button>
+                    <button id="album3" class="btn galleryBtn" onclick="showAlbum(3)">Album 3</button>
+                    <button id="album4" class="btn galleryBtn" onclick="showAlbum(4)">Album 4</button>
+                    <button id="album5" class="btn galleryBtn" onclick="showAlbum(5)">Album 5</button>
+                    <button id="album6" class="btn galleryBtn" onclick="showAlbum(6)">Album 6</button>
                 </div>
             </div> <!--  End of page 6 -->
             <div id="page7" class="page"> <!-- Aktiviteter -->
