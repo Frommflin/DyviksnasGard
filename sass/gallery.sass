@@ -8,6 +8,10 @@
 %galleryBoxshadow
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem colors.$falured-20
 
+%galleryImgFrame
+    border: 1px solid colors.$falured
+    box-shadow: 0 4px 8px 0 colors.$black, 0 6px 20px 0 colors.$black-20
+
 #galleryNav
     margin-bottom: 10px
 
@@ -32,10 +36,16 @@
     align-items: center
     position: relative
     img
-        max-height: 250px
+        height: 250px
         position: relative
         max-width: 100%
-        margin-bottom: 10px
+        margin: 10px 5px
+        @extend %galleryImgFrame
+        
+
+.stopScroll
+    height: 100%
+    overflow: hidden
 
 #galleryPopup
     display: none
@@ -55,15 +65,22 @@
     padding: 25px
     border-radius: 20px
     max-height: 90vh
+    max-width: 90vw
+    text-align: center
 
     div
+        color: colors.$falured-dark
         text-align: right
         font-size: 30px
         position: relative
         top: -15px
         right: -15px
         line-height: 15px
+        span
+            cursor: pointer  
 
     img
         max-width: 100%
         max-height: 85%
+        @extend %galleryImgFrame
+        
