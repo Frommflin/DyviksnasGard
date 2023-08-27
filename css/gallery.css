@@ -10,11 +10,28 @@
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem rgba(128, 24, 24, 0.2);
 }
 
+#galleryNav {
+  margin-bottom: 10px;
+}
+
 .galleryBtn {
   border-radius: 15px;
   font-size: 12px;
   line-height: 12px;
   margin: 5px;
+}
+#gallery {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+#gallery img {
+  max-height: 250px;
+  position: relative;
+  max-width: 100%;
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=gallery.css.map */

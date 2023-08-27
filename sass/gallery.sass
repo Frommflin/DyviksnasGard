@@ -8,6 +8,9 @@
 %galleryBoxshadow
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem colors.$falured-20
 
+#galleryNav
+    margin-bottom: 10px
+
 .galleryBtn
     border-radius: 15px
     font-size: 12px
@@ -21,3 +24,15 @@
 .activeBtn
     @extend %galleryBtnColor
     @extend %galleryBoxshadow
+
+#gallery
+    display: flex
+    flex-flow: wrap
+    justify-content: space-around
+    align-items: center
+    position: relative
+    img
+        max-height: 250px
+        position: relative
+        max-width: 100%
+        margin-bottom: 10px
