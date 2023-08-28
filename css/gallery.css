@@ -10,13 +10,25 @@
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem rgba(128, 24, 24, 0.2);
 }
 
-#popupContent img, #gallery img {
+#popupImage img, #gallery img {
   border: 1px solid #801818;
   box-shadow: 0 4px 8px 0 #000000, 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 #galleryNav {
   margin-bottom: 10px;
+}
+
+#albumBtn {
+  background-color: rgba(128, 24, 24, 0.2);
+  color: #801818;
+  border-color: #801818;
+}
+#albumBtn:active {
+  box-shadow: 0 0 0 0;
+}
+#albumBtn:hover {
+  border-color: rgba(128, 24, 24, 0.2);
 }
 
 .galleryBtn {
@@ -58,7 +70,7 @@
   z-index: 99999;
 }
 
-#popupContent {
+.popupBox {
   background-color: #ffffff;
   padding: 25px;
   border-radius: 20px;
@@ -66,7 +78,8 @@
   max-width: 90vw;
   text-align: center;
 }
-#popupContent div {
+
+#close {
   color: #661313;
   text-align: right;
   font-size: 30px;
@@ -75,10 +88,21 @@
   right: -15px;
   line-height: 15px;
 }
-#popupContent div span {
+#close span {
   cursor: pointer;
 }
-#popupContent img {
+
+#newAlbumForm .input-group {
+  margin-bottom: 5px;
+}
+#newAlbumForm .input-group-text {
+  color: rgba(255, 255, 255, 0.7);
+  background-color: #801818;
+  border-color: #661313;
+  width: 10rem;
+}
+
+#popupImage img {
   max-width: 100%;
   max-height: 85%;
 }

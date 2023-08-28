@@ -15,6 +15,15 @@
 #galleryNav
     margin-bottom: 10px
 
+#albumBtn
+    background-color: colors.$falured-20
+    color: colors.$falured
+    border-color: colors.$falured
+    &:active
+        box-shadow: 0 0 0 0
+    &:hover
+        border-color: colors.$falured-20
+   
 .galleryBtn
     border-radius: 15px
     font-size: 12px
@@ -60,7 +69,7 @@
     background-color: colors.$black-90
     z-index: 99999
 
-#popupContent
+.popupBox
     background-color: colors.$white
     padding: 25px
     border-radius: 20px
@@ -68,16 +77,27 @@
     max-width: 90vw
     text-align: center
 
-    div
-        color: colors.$falured-dark
-        text-align: right
-        font-size: 30px
-        position: relative
-        top: -15px
-        right: -15px
-        line-height: 15px
-        span
-            cursor: pointer  
+#close
+    color: colors.$falured-dark
+    text-align: right
+    font-size: 30px
+    position: relative
+    top: -15px
+    right: -15px
+    line-height: 15px
+    span
+        cursor: pointer 
+
+#newAlbumForm
+    .input-group
+        margin-bottom: 5px
+    .input-group-text
+        color: colors.$white-70
+        background-color: colors.$falured
+        border-color: colors.$falured-dark
+        width: 10rem
+
+#popupImage 
 
     img
         max-width: 100%

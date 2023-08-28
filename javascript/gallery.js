@@ -1,3 +1,4 @@
+
 function showAlbum(a) {
     // Reset all to 'normal' button look
     buttons = document.getElementsByClassName("galleryBtn");
@@ -11,27 +12,60 @@ function showAlbum(a) {
 
 }
 
-function showImage(img){
-    let popup = document.getElementById('galleryPopup');
+function showAlbumForm(){
     let str = '';
 
-    str += `<div id="popupContent">`;
-    str += `<div><span onclick='closeImage()'>X</span></div>`;
+    str += `<div class="popupBox">`;
+    str += `<div id="close"><span onclick='closePopup()'>X</span></div>`;
+    str += `<form id="newAlbumForm" class="col col-xs-6" method="post">`;
+    str += `<div class="input-group">`;
+    str += `<div class="input-group-prepend">`;
+    str += `<span class="input-group-text">Namn på album</span>`;
+    str += `</div>`;
+    str += `<input type="text" class="form-control" name="albumName" maxlength="30" placeholder="Album" required>`;
+    str += `</div>`;
+    str += `<div class="input-group">`;
+    str += `<div class="input-group-prepend">`;
+    str += `<span class="input-group-text">Kort beskrivning</span>`;
+    str += `</div>`;
+    str += `<input type="text" class="form-control" name="albumDescription" maxlength="50" placeholder="Beskrivning">`;
+    str += `</div>`;
+    str += `<button class="btn">Skapa album</button>`;
+    str += `</form>`;
+    str += `</div>`;
+
+    showPopup(str);
+}
+
+function showImage(img){
+    let str = '';
+
+    str += `<div id="popupImage" class="popupBox">`;
+    str += `<div id='close'><span onclick='closePopup()'>X</span></div>`;
     str += `<img src="./images/${img}" />`;
     str += `<p>Kort beskrivning av bilden här</p>`;
     str += `</div>`;
 
+    showPopup(str);
+}
+
+function showPopup(str){
+    let popup = document.getElementById('galleryPopup');
     popup.style.display='flex';
     popup.innerHTML = str;
 
-    //Preventing page from scrolling while image is in focus
+    disableScrolling();
+}
+
+function disableScrolling(){
+    //Preventing page from scrolling while popup is in focus
     document.body.classList.add('stopScroll');
     document.body.bind('touchmove', function(e){
         e.preventDefault()
     });
 }
 
-function closeImage(){
+function closePopup(){
     document.getElementById('galleryPopup').style.display='none';
     document.getElementById('galleryPopup').innerHTML = '';
 
