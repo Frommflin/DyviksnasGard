@@ -60,9 +60,6 @@ function showPopup(str){
 function disableScrolling(){
     //Preventing page from scrolling while popup is in focus
     document.body.classList.add('stopScroll');
-    document.body.bind('touchmove', function(e){
-        e.preventDefault()
-    });
 }
 
 function closePopup(){
@@ -71,5 +68,4 @@ function closePopup(){
 
     //Enabling scrolling on page when image is closed
     document.body.classList.remove('stopScroll')
-    document.body.unbind('touchmove')
 }
