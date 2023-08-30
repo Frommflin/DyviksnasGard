@@ -49,6 +49,10 @@
   line-height: 12px;
   margin: 5px;
 }
+#addImgBox {
+  text-align: right;
+}
+
 #gallery {
   display: flex;
   flex-flow: wrap;
