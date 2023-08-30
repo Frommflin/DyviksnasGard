@@ -86,8 +86,12 @@ nav {
   border-color: #a01e1e;
 }
 
+form input:focus, form textarea {
+  box-shadow: 0 0 6px 0.25rem rgba(128, 24, 24, 0.2) !important;
+  border-color: rgba(128, 24, 24, 0.2) !important;
+}
 form .input-group {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 form .input-group-text {
   color: rgba(255, 255, 255, 0.7);

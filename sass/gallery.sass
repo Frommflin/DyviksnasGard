@@ -117,3 +117,14 @@
         max-height: 85%
         @extend %galleryImgFrame
         
+#addImgForm
+    position: relative
+    label
+        z-index: 2
+    input[type="file"]
+        position: absolute
+        top: -1px
+        z-index: 1
+        width: 100%
+        font-size: 17px
+        color: colors.$grey-dark

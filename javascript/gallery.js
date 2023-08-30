@@ -37,6 +37,30 @@ function showAlbumForm(){
     showPopup(str);
 }
 
+function showImageForm(){
+    let str = '';
+
+    str += `<div class="popupBox">`;
+    str += `<div id="close"><span onclick='closePopup()'>X</span></div>`;
+    str += `<form id="addImgForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
+    str += `<div class="input-group">`;
+    str += `<label class="input-group-text" for="upload">Välj bild</label>`;
+    str += `<input type="file" class="form-control" name="upload" required>`;
+    str += `</div>`;
+    str += `<div class="input-group">`;
+    str += `<div class="input-group-prepend">`;
+    str += `<span class="input-group-text">Kort beskrivning</span>`;
+    str += `</div>`;
+    str += `<input type="text" class="form-control" name="imgDescription" maxlength="100" placeholder="Beskrivning">`;
+    str += `</div>`;
+    str += `<input type="hidden" name="toAlbum" value="albumName" />`;
+    str += `<button class="btn">Spara</button>`;
+    str += `</form>`;
+    str += `</div>`;
+
+    showPopup(str);
+}
+
 function showImage(img){
     let str = '';
 

@@ -117,4 +117,19 @@
   max-height: 85%;
 }
 
+#addImgForm {
+  position: relative;
+}
+#addImgForm label {
+  z-index: 2;
+}
+#addImgForm input[type=file] {
+  position: absolute;
+  top: -1px;
+  z-index: 1;
+  width: 100%;
+  font-size: 17px;
+  color: #5f5f5f;
+}
+
 /*# sourceMappingURL=gallery.css.map */
