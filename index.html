@@ -16,7 +16,7 @@
         <script src="./javascript/horsePage.js"></script>
         <script src="./javascript/gallery.js"></script>
     </head>
-    <body onload="showPage(1)">
+    <body onload="showPage(6)">
         <header>
             <div id="logoBanner">
                 <img id="bannerLogo" src="./icons/DyviksnäsLogga.png" alt="Dyviksnäs Gårds Logga" />
@@ -210,7 +210,7 @@
                 <h1>Galleri</h1>
                 <!-- TODO: Show #albumBtn only for admin user -->
                 <button id="albumBtn" class="btn galleryBtn" onclick="showAlbumForm()">
-                    <img src="./icons/addalbum-black.png" />
+                    <img src="./icons/addalbum-white.png" />
                     Nytt album
                 </button>
                 <div id="galleryNav">
@@ -222,20 +222,28 @@
                     <button id="album5" class="btn galleryBtn" onclick="showAlbum(5)">Album 5</button>
                     <button id="album6" class="btn galleryBtn" onclick="showAlbum(6)">Album 6</button>
                 </div>
-                <div id="gallery">
+                <div id="galleryBox">
+                    <div>
+                        <button id="imgBtn" class="btn galleryBtn">
+                            <img src="./icons/addimage-white.png" />
+                            Lägg till bilder
+                        </button>
+                    </div>
+                    <div id="gallery">
 
-                    <img src="./images/PlaceholderBigImg.png" onclick="showImage('PlaceholderBigImg.png')" />
-                    <img src="./images/PlaceholderBigImg.png" onclick="showImage('PlaceholderBigImg.png')" />
-                    <img src="./images/placeholderSmallImg.png" onclick="showImage('placeholderSmallImg.png')" />
-                    <img src="./images/PlaceholderBigImg.png" onclick="showImage('PlaceholderBigImg.png')" />
-                    <img src="./images/placeholderSmallImg.png" onclick="showImage('placeholderSmallImg.png')" />
-                    <img src="./images/placeholderSmallImg.png" onclick="showImage('placeholderSmallImg.png')" />
-                    <img src="./images/PlaceholderBigImg.png" onclick="showImage('PlaceholderBigImg.png')" />
-                    <img src="./images/placeholderSmallImg.png" onclick="showImage('placeholderSmallImg.png')" />
-                    <img src="./images/placeholderSmallImg.png" onclick="showImage('placeholderSmallImg.png')" />
-                    <img src="./images/PlaceholderBigImg.png" onclick="showImage('PlaceholderBigImg.png')" />
-                    <img src="./images/PlaceholderBigImg.png" onclick="showImage('PlaceholderBigImg.png')" />
-                    
+                        <img src="./images/PlaceholderBigImg.png" onclick="showImage('PlaceholderBigImg.png')" />
+                        <img src="./images/PlaceholderBigImg.png" onclick="showImage('PlaceholderBigImg.png')" />
+                        <img src="./images/placeholderSmallImg.png" onclick="showImage('placeholderSmallImg.png')" />
+                        <img src="./images/PlaceholderBigImg.png" onclick="showImage('PlaceholderBigImg.png')" />
+                        <img src="./images/placeholderSmallImg.png" onclick="showImage('placeholderSmallImg.png')" />
+                        <img src="./images/placeholderSmallImg.png" onclick="showImage('placeholderSmallImg.png')" />
+                        <img src="./images/PlaceholderBigImg.png" onclick="showImage('PlaceholderBigImg.png')" />
+                        <img src="./images/placeholderSmallImg.png" onclick="showImage('placeholderSmallImg.png')" />
+                        <img src="./images/placeholderSmallImg.png" onclick="showImage('placeholderSmallImg.png')" />
+                        <img src="./images/PlaceholderBigImg.png" onclick="showImage('PlaceholderBigImg.png')" />
+                        <img src="./images/PlaceholderBigImg.png" onclick="showImage('PlaceholderBigImg.png')" />
+                        
+                    </div>
                 </div>
                 <div id="galleryPopup"></div>
             </div> <!--  End of page 6 -->

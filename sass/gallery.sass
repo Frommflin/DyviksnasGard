@@ -12,12 +12,9 @@
     border: 1px solid colors.$falured
     box-shadow: 0 4px 8px 0 colors.$black, 0 6px 20px 0 colors.$black-20
 
-#galleryNav
-    margin-bottom: 10px
-
-#albumBtn
-    background-color: colors.$falured-20
-    color: colors.$black-50
+%addBtns
+    background-color: colors.$falured
+    color: colors.$white-70
     border-color: colors.$falured-20
     padding: 0px 10px
     img
@@ -27,12 +24,20 @@
         box-shadow: 0 0 0 0
     &:hover
         border-color: colors.$falured
-        color: colors.$black
+        background-color: colors.$grey
+        color: colors.$white
         transition: 800ms
         img
             opacity: 1
             transition: 800ms
    
+
+#galleryNav
+    margin-bottom: 10px
+
+#albumBtn
+    @extend %addBtns
+        
 .galleryBtn
     border-radius: 15px
     font-size: 12px
@@ -46,6 +51,9 @@
 .activeBtn
     @extend %galleryBtnColor
     @extend %galleryBoxshadow
+
+#imgBtn
+    @extend %addBtns
 
 #gallery
     display: flex

@@ -15,31 +15,32 @@
   box-shadow: 0 4px 8px 0 #000000, 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
-#galleryNav {
-  margin-bottom: 10px;
-}
-
-#albumBtn {
-  background-color: rgba(128, 24, 24, 0.2);
-  color: rgba(0, 0, 0, 0.5);
+#imgBtn, #albumBtn {
+  background-color: #801818;
+  color: rgba(255, 255, 255, 0.7);
   border-color: rgba(128, 24, 24, 0.2);
   padding: 0px 10px;
 }
-#albumBtn img {
+#imgBtn img, #albumBtn img {
   height: 30px;
   opacity: 0.5;
 }
-#albumBtn:active {
+#imgBtn:active, #albumBtn:active {
   box-shadow: 0 0 0 0;
 }
-#albumBtn:hover {
+#imgBtn:hover, #albumBtn:hover {
   border-color: #801818;
-  color: #000000;
+  background-color: #777777;
+  color: #ffffff;
   transition: 800ms;
 }
-#albumBtn:hover img {
+#imgBtn:hover img, #albumBtn:hover img {
   opacity: 1;
   transition: 800ms;
+}
+
+#galleryNav {
+  margin-bottom: 10px;
 }
 
 .galleryBtn {
