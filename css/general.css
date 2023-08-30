@@ -86,6 +86,15 @@ nav {
   border-color: #a01e1e;
 }
 
+form .input-group {
+  margin-bottom: 5px;
+}
+form .input-group-text {
+  color: rgba(255, 255, 255, 0.7);
+  background-color: #801818;
+  border-color: #661313;
+}
+
 footer {
   margin-top: auto;
   background-color: #801818;

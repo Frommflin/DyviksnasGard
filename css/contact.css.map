@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../sass/_colors.sass","../sass/contact.sass"],"names":[],"mappings":"AACA;AAMA;ACLA;EACI;;;AAGA;EACI;;AACJ;EACI;;AACJ;EACI,ODEG;ECDH,kBDRE;ECSF,cDRO;;ACSX;EACI;;;AAER;EACI;EACA","file":"contact.css"}
+{"version":3,"sourceRoot":"","sources":["../sass/_colors.sass","../sass/contact.sass"],"names":[],"mappings":"AACA;AAMA;ACLA;EACI;;;AAGA;EACI;;AACJ;EACI;;;AAER;EACI;EACA","file":"contact.css"}

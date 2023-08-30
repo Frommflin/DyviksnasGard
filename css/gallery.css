@@ -108,13 +108,7 @@
   cursor: pointer;
 }
 
-#newAlbumForm .input-group {
-  margin-bottom: 5px;
-}
 #newAlbumForm .input-group-text {
-  color: rgba(255, 255, 255, 0.7);
-  background-color: #801818;
-  border-color: #661313;
   width: 10rem;
 }
 
