@@ -21,14 +21,25 @@
 
 #albumBtn {
   background-color: rgba(128, 24, 24, 0.2);
-  color: #801818;
-  border-color: #801818;
+  color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(128, 24, 24, 0.2);
+  padding: 0px 10px;
+}
+#albumBtn img {
+  height: 30px;
+  opacity: 0.5;
 }
 #albumBtn:active {
   box-shadow: 0 0 0 0;
 }
 #albumBtn:hover {
-  border-color: rgba(128, 24, 24, 0.2);
+  border-color: #801818;
+  color: #000000;
+  transition: 800ms;
+}
+#albumBtn:hover img {
+  opacity: 1;
+  transition: 800ms;
 }
 
 .galleryBtn {

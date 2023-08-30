@@ -17,12 +17,21 @@
 
 #albumBtn
     background-color: colors.$falured-20
-    color: colors.$falured
-    border-color: colors.$falured
+    color: colors.$black-50
+    border-color: colors.$falured-20
+    padding: 0px 10px
+    img
+        height: 30px
+        opacity: .5
     &:active
         box-shadow: 0 0 0 0
     &:hover
-        border-color: colors.$falured-20
+        border-color: colors.$falured
+        color: colors.$black
+        transition: 800ms
+        img
+            opacity: 1
+            transition: 800ms
    
 .galleryBtn
     border-radius: 15px

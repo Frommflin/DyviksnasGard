@@ -209,7 +209,10 @@
             <div id="page6" class="page"> <!-- Galleri -->
                 <h1>Galleri</h1>
                 <!-- TODO: Show #albumBtn only for admin user -->
-                <button id="albumBtn" class="btn galleryBtn" onclick="showAlbumForm()">Nytt album</button>
+                <button id="albumBtn" class="btn galleryBtn" onclick="showAlbumForm()">
+                    <img src="./icons/addalbum-black.png" />
+                    Nytt album
+                </button>
                 <div id="galleryNav">
                     <!-- TODO: Generate dynamically based on DB content -->
                     <button id="album1" class="btn galleryBtn" onclick="showAlbum(1)">Album 1</button>
