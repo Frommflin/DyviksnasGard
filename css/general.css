@@ -86,6 +86,9 @@ nav {
   border-color: #a01e1e;
 }
 
+form input, form textarea {
+  border-color: #801818 !important;
+}
 form input:focus, form textarea:focus {
   box-shadow: 0 0 6px 0.25rem rgba(128, 24, 24, 0.2) !important;
   border-color: rgba(128, 24, 24, 0.2) !important;
@@ -97,6 +100,7 @@ form .input-group-text {
   color: rgba(255, 255, 255, 0.7);
   background-color: #801818;
   border-color: #661313;
+  border-radius: 0.375rem 0 0 0.375rem;
 }
 
 footer {
