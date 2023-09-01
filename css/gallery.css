@@ -117,11 +117,17 @@
   max-height: 85%;
 }
 
+#addImages {
+  width: 90vw;
+  max-width: 500px;
+}
+
 #addImgForm {
   position: relative;
 }
 #addImgForm label {
   z-index: 2;
+  width: 90px;
 }
 #addImgForm input[type=file] {
   position: absolute;
@@ -131,6 +137,10 @@
   font-size: 17px;
   color: #5f5f5f;
   border-radius: 0.375rem;
+}
+#addImgForm #ImgBtnBox {
+  display: flex;
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=gallery.css.map */

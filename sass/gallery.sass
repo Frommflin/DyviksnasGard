@@ -116,11 +116,16 @@
         max-width: 100%
         max-height: 85%
         @extend %galleryImgFrame
-        
+
+#addImages
+    width: 90vw
+    max-width: 500px
+
 #addImgForm
     position: relative
     label
         z-index: 2
+        width: 90px
     input[type="file"]
         position: absolute
         top: -1px
@@ -129,3 +134,6 @@
         font-size: 17px
         color: colors.$grey-dark
         border-radius: .375rem
+    #ImgBtnBox
+        display: flex
+        justify-content: space-between
