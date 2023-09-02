@@ -95,6 +95,7 @@
     max-height: 90vh
     max-width: 90vw
     text-align: center
+    overflow: auto
 
 #close
     color: colors.$falured-dark
@@ -137,3 +138,40 @@
     #ImgBtnBox
         display: flex
         justify-content: space-between
+
+
+#addDescForm
+    color: colors.$falured-dark
+    overflow: auto
+    #hint
+        text-align: left
+    #cardBox
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+    .imageCard
+        border: 2px dotted colors.$falured
+        padding: 5px
+        margin-bottom: 10px
+        img
+            max-width: 100%
+            height: 150px
+            margin: 0 0 10px 0
+            @extend %galleryImgFrame
+        .input-group
+            margin: 0
+
+@media (min-width: 768px)
+    .imageCard
+        margin: 5px
+        display: flex
+        align-items: center
+        width: 100%
+        img
+            margin: 0 10px 5px 0 !important
+
+@media (min-width: 1200px)
+    #cardBox
+        justify-content: space-evenly !important
+        .imageCard
+            width: 505px
