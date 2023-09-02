@@ -11,32 +11,9 @@
 %galleryImgFrame
     border: 1px solid colors.$falured
     box-shadow: 0 4px 8px 0 colors.$black, 0 6px 20px 0 colors.$black-20
-
-%addBtns
-    background-color: colors.$falured
-    color: colors.$white-70
-    border-color: colors.$falured-20
-    padding: 0px 10px
-    img
-        height: 30px
-        opacity: .5
-    &:active
-        box-shadow: 0 0 0 0
-    &:hover
-        border-color: colors.$falured
-        background-color: colors.$grey
-        color: colors.$white
-        transition: 800ms
-        img
-            opacity: 1
-            transition: 800ms
    
-
 #galleryNav
     margin-bottom: 10px
-
-#albumBtn
-    @extend %addBtns
         
 .galleryBtn
     border-radius: 15px
@@ -54,8 +31,6 @@
 
 #addImgBox
     text-align: right
-#imgBtn
-    @extend %addBtns
 
 #gallery
     display: flex
@@ -69,44 +44,6 @@
         max-width: 100%
         margin: 10px 5px
         @extend %galleryImgFrame
-        
-
-.stopScroll
-    height: 100%
-    overflow: hidden
-
-#galleryPopup
-    display: none
-    flex-flow: column
-    justify-content: center
-    align-items: center
-    position: fixed
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    background-color: colors.$black-90
-    z-index: 99999
-
-.popupBox
-    background-color: colors.$white
-    padding: 25px
-    border-radius: 20px
-    max-height: 90vh
-    max-width: 90vw
-    text-align: center
-    overflow: auto
-
-#close
-    color: colors.$falured-dark
-    text-align: right
-    font-size: 30px
-    position: relative
-    top: -15px
-    right: -15px
-    line-height: 15px
-    span
-        cursor: pointer 
 
 #newAlbumForm
     .input-group-text

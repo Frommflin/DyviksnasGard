@@ -20,6 +20,13 @@
   transition: 1s;
 }
 
+#newHorseForm .input-group-text {
+  width: 7rem;
+}
+#newHorseForm textarea {
+  height: 200px;
+}
+
 #carouselContainer {
   display: flex;
   justify-content: center;

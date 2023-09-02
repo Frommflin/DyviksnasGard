@@ -15,30 +15,6 @@
   box-shadow: 0 4px 8px 0 #000000, 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
-#imgBtn, #albumBtn {
-  background-color: #801818;
-  color: rgba(255, 255, 255, 0.7);
-  border-color: rgba(128, 24, 24, 0.2);
-  padding: 0px 10px;
-}
-#imgBtn img, #albumBtn img {
-  height: 30px;
-  opacity: 0.5;
-}
-#imgBtn:active, #albumBtn:active {
-  box-shadow: 0 0 0 0;
-}
-#imgBtn:hover, #albumBtn:hover {
-  border-color: #801818;
-  background-color: #777777;
-  color: #ffffff;
-  transition: 800ms;
-}
-#imgBtn:hover img, #albumBtn:hover img {
-  opacity: 1;
-  transition: 800ms;
-}
-
 #galleryNav {
   margin-bottom: 10px;
 }
@@ -65,48 +41,6 @@
   position: relative;
   max-width: 100%;
   margin: 10px 5px;
-}
-
-.stopScroll {
-  height: 100%;
-  overflow: hidden;
-}
-
-#galleryPopup {
-  display: none;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 99999;
-}
-
-.popupBox {
-  background-color: #ffffff;
-  padding: 25px;
-  border-radius: 20px;
-  max-height: 90vh;
-  max-width: 90vw;
-  text-align: center;
-  overflow: auto;
-}
-
-#close {
-  color: #661313;
-  text-align: right;
-  font-size: 30px;
-  position: relative;
-  top: -15px;
-  right: -15px;
-  line-height: 15px;
-}
-#close span {
-  cursor: pointer;
 }
 
 #newAlbumForm .input-group-text {

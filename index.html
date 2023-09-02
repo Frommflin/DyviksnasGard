@@ -12,11 +12,12 @@
         <link rel="stylesheet" href="./css/horses.css">
         <link rel="stylesheet" href="./css/contact.css">
         <link rel="stylesheet" href="./css/gallery.css">
+        <script src="./javascript/functions.js"></script>
         <script src="./javascript/navigation.js"></script>
         <script src="./javascript/horsePage.js"></script>
         <script src="./javascript/gallery.js"></script>
     </head>
-    <body onload="showPage(6)">
+    <body onload="showPage(4,1)">
         <header>
             <div id="logoBanner">
                 <img id="bannerLogo" src="./icons/DyviksnäsLogga.png" alt="Dyviksnäs Gårds Logga" />
@@ -147,6 +148,10 @@
             </div> <!--  End of page 3 -->
             <div id="page4" class="page"> <!-- Alla hästar -->
                 <h1>Träffa våra hästar</h1>
+                <button class="openFormBtn" onclick="showPopup('horse', '')">
+                    <img src="./icons/addhorse-white.png" />
+                    Lägg till ny häst
+                </button>
                 <div id="cardContainer">
                     <a class="card" href="./Våra Hästar/Luffen.html">
                         <img src="./images/placeholderSmallImg.png" class="card-img-top" alt="Luffen">
@@ -169,6 +174,57 @@
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </a>
+                </div>
+                <div id="horsePopup" class="popup">
+                    <div class="popupBox">
+                        <div class="close"><span onclick='closePopup("horse")'>X</span></div>
+                        <form id="newHorseForm" class="col col-xs-6" method="post">
+                            <h1>Ny häst</h1>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Namn</span>
+                                </div>
+                                <input type="text" class="form-control" name="horseName" maxlength="30" required>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Smeknamn</span>
+                                </div>
+                                <input type="text" class="form-control" name="nickname" maxlength="15">
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Färg</span>
+                                </div>
+                                <input type="text" class="form-control" name="color" maxlength="15" required>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Ras</span>
+                                </div>
+                                <input type="text" class="form-control" name="breed" maxlength="20">
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Mankhöjd</span>
+                                </div>
+                                <input type="number" class="form-control" name="height" min="0" placeholder="i centimeter" required>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Födelseår</span>
+                                </div>
+                                <input type="text" class="form-control" name="dateOfBirth" maxlength="4" placeholder="ÅÅÅÅ">
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Beskrivning</span>
+                                </div>
+                                <textarea class="form-control" name="description" placeholder="Berätta om hästen här"></textarea>
+                            </div>
+                            <button class="btn">Spara häst</button>
+                        </form>
+                    </div>
                 </div>
             </div> <!--  End of page 4 -->
             <div id="page5" class="page"> <!-- Vald häst -->
@@ -209,7 +265,7 @@
             <div id="page6" class="page"> <!-- Galleri -->
                 <h1>Galleri</h1>
                 <!-- TODO: Show #albumBtn only for admin user -->
-                <button id="albumBtn" class="btn galleryBtn" onclick="showAlbumForm()">
+                <button id="albumBtn" class="openFormBtn" onclick="showAlbumForm()">
                     <img src="./icons/addalbum-white.png" />
                     Nytt album
                 </button>
@@ -224,7 +280,7 @@
                 </div>
                 <div id="galleryBox">
                     <div id="addImgBox">
-                        <button id="imgBtn" class="btn galleryBtn" onclick="showImageForm()">
+                        <button id="imgBtn" class="openFormBtn" onclick="showImageForm()">
                             <img src="./icons/addimage-white.png" />
                             Lägg till bilder
                         </button>
@@ -245,7 +301,7 @@
                         
                     </div>
                 </div>
-                <div id="galleryPopup"></div>
+                <div id="galleryPopup" class="popup"></div>
             </div> <!--  End of page 6 -->
             <div id="page7" class="page"> <!-- Aktiviteter -->
                 <h1>Aktiviteter på Dyviksnäs Gård</h1>

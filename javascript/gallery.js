@@ -16,7 +16,7 @@ function showAlbumForm(){
     let str = '';
 
     str += `<div class="popupBox">`;
-    str += `<div id="close"><span onclick='closePopup()'>X</span></div>`;
+    str += `<div class="close"><span onclick='closePopup("gallery")'>X</span></div>`;
     str += `<form id="newAlbumForm" class="col col-xs-6" method="post">`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
@@ -34,14 +34,14 @@ function showAlbumForm(){
     str += `</form>`;
     str += `</div>`;
 
-    showPopup(str);
+    showPopup('gallery', str);
 }
 
 function showImageForm(){
     let str = '';
 
     str += `<div id="addImages" class="popupBox">`;
-    str += `<div id="close"><span onclick='closePopup()'>X</span></div>`;
+    str += `<div class="close"><span onclick='closePopup("gallery")'>X</span></div>`;
     str += `<form id="addImgForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
     str += `<div class="input-group">`;
     str += `<label class="input-group-text" for="upload">Välj bild</label>`;
@@ -55,14 +55,14 @@ function showImageForm(){
     str += `</form>`;
     str += `</div>`;
 
-    showPopup(str);
+    showPopup('gallery', str);
 }
 
 function addImageDescription(){
     let str = '';
 
     str += `<div class="popupBox">`;
-    str += `<div id="close"><span onclick='closePopup()'>X</span></div>`;
+    str += `<div class="close"><span onclick='closePopup("gallery")'>X</span></div>`;
     str += `<form id="addDescForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
     str += `<div id="hint">Max 100 tecken per bildbeskrivning.</div>`;
     str += `<div id="cardBox">`;
@@ -81,38 +81,17 @@ function addImageDescription(){
     str += `</form>`;
     str += `</div>`;
 
-    showPopup(str);
+    showPopup('gallery', str);
 }
 
 function showImage(img){
     let str = '';
 
     str += `<div id="popupImage" class="popupBox">`;
-    str += `<div id='close'><span onclick='closePopup()'>X</span></div>`;
+    str += `<div class='close'><span onclick='closePopup("gallery")'>X</span></div>`;
     str += `<img src="./images/${img}" />`;
     str += `<p>Kort beskrivning av bilden här</p>`;
     str += `</div>`;
 
-    showPopup(str);
-}
-
-function showPopup(str){
-    let popup = document.getElementById('galleryPopup');
-    popup.style.display='flex';
-    popup.innerHTML = str;
-
-    disableScrolling();
-}
-
-function disableScrolling(){
-    //Preventing page from scrolling while popup is in focus
-    document.body.classList.add('stopScroll');
-}
-
-function closePopup(){
-    document.getElementById('galleryPopup').style.display='none';
-    document.getElementById('galleryPopup').innerHTML = '';
-
-    //Enabling scrolling on page when image is closed
-    document.body.classList.remove('stopScroll')
+    showPopup('gallery', str);
 }
