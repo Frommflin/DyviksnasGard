@@ -1,7 +1,8 @@
 @use 'colors'
 
-
-// All-horses page styling
+// ------------------------------------------
+// --------- All-horses page styling --------
+// ------------------------------------------
 #cardContainer
     display: flex
     flex-wrap: wrap
@@ -27,17 +28,37 @@
     textarea
         height: 200px
 
+// ------------------------------------------
+// ------- Horse-specific page styling ------
+// ------------------------------------------
 
-// Horse-specific page styling
+#horseContainer
+    margin: 10px 0
+
 #carouselContainer
     display: flex
     justify-content: center
-
-#carouselExampleIndicators
+    margin: 10px auto
     width: 100%
     max-width: 700px
-
-
-.carousel-item
-    img
+    aspect-ratio: 16/9
+    #carouselExampleIndicators
         width: 100%
+    .carousel-inner
+        height: 100%
+        display: flex
+        .carousel-item
+            img
+                max-width: 100%
+                height: 100%
+                margin: auto
+    
+@media screen and ( min-width: 992px )
+    #carouselContainer
+        float: left
+        margin: 10px 10px 2px 0
+        width: 600px
+
+@media screen and ( min-width: 1400px )
+    #carouselContainer
+        width: 700px
