@@ -1,6 +1,10 @@
 @use 'colors'
 @use 'fonts'
 
+%titleStylings
+    font-family: fonts.$tangerine
+    color: colors.$falured
+
 body
     min-height: 100vh
     display: flex
@@ -10,8 +14,10 @@ body
 
 h1
     font-size: 2.5rem
-    font-family: fonts.$tangerine
-    color: colors.$falured
+    @extend %titleStylings
+
+h2
+    @extend %titleStylings
 
 header
     margin-bottom: 10px

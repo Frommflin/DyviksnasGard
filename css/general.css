@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Tangerine&display=swap");
 /* Primary */
 /* Backgrounds, Texts */
+h2, h1 {
+  font-family: "Tangerine", cursive;
+  color: #801818;
+}
+
 body {
   min-height: 100vh;
   display: flex;
@@ -11,8 +16,6 @@ body {
 
 h1 {
   font-size: 2.5rem;
-  font-family: "Tangerine", cursive;
-  color: #801818;
 }
 
 header {
