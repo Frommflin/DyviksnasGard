@@ -44,7 +44,9 @@ function showImageForm(){
     str += `<div class="close"><span onclick='closePopup("gallery")'>X</span></div>`;
     str += `<form id="addImgForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
     str += `<div class="input-group">`;
-    str += `<label class="input-group-text" for="upload">Välj bilder</label>`;
+    str += `<div class="input-group-prepend">`;
+    str += `<span class="input-group-text">Bilder</span>`;
+    str += `</div>`;
     str += `<input type="file" class="form-control" name="upload[]" id="upload" multiple required>`;
     str += `</div>`;
     str += `<input type="hidden" name="toAlbum" value="albumName" />`;
