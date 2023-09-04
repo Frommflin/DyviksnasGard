@@ -175,7 +175,7 @@
                 <div id="horsePopup" class="popup">
                     <div class="popupBox">
                         <div class="close"><span onclick='closePopup("horse")'>X</span></div>
-                        <form id="newHorseForm" class="col col-xs-6" method="post">
+                        <form id="newHorseForm" class="col col-xs-6" method="post" enctype="multipart/form-data">
                             <h1>Ny häst</h1>
                             <div class="input-group">
                                 <div class="input-group-prepend">
@@ -215,6 +215,12 @@
                             </div>
                             <div class="input-group">
                                 <div class="input-group-prepend">
+                                    <span class="input-group-text">Bild</span>
+                                </div>
+                                <input type="file" class="form-control" name="profileImg" >
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
                                     <span class="input-group-text">Beskrivning</span>
                                 </div>
                                 <textarea class="form-control" name="description" placeholder="Berätta om hästen här"></textarea>
@@ -226,31 +232,33 @@
             </div> <!--  End of page 4 -->
             <div id="page5" class="page"> <!-- Vald häst -->
                 <div id="horseContainer">
+                    <div id="btnBox">
+                        <button class="openFormBtn">
+                            <img src="./icons/addimage-white.png" />
+                            Lägg till bilder
+                        </button>
+                    </div>
                     <div id="carouselContainer">
-                        <div id="carouselExampleIndicators" class="carousel slide carousel-dark">
+                        <div id="carouselIndicators" class="carousel slide carousel-dark">
                             <div class="carousel-indicators">
                                 <!-- TODO: Add buttons dynamically for each image -->
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                             </div>
                             <div class="carousel-inner">
                                 <!-- TODO: Add images dynamically with javascript -->
                                 <div class="carousel-item active">
-                                    <img src="./images/PlaceholderSmallImg.png" class="d-block" alt="...">
+                                    <img src="./images/noimage.png" class="d-block" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="./images/PlaceholderBigImg.png" class="d-block" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="./images/PlaceholderBigImg.png" class="d-block" alt="...">
+                                    <img src="./images/noimage.png" class="d-block" alt="...">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>

@@ -32,6 +32,12 @@
 
 #horseContainer {
   margin: 10px 0;
+  position: relative;
+}
+
+#btnBox {
+  position: relative;
+  text-align: right;
 }
 
 #carouselContainer {
@@ -42,20 +48,25 @@
   max-width: 700px;
   aspect-ratio: 16/9;
 }
-#carouselContainer #carouselExampleIndicators {
+#carouselContainer #carouselIndicators {
   width: 100%;
 }
 #carouselContainer .carousel-inner {
   height: 100%;
   display: flex;
+  align-items: center;
 }
 #carouselContainer .carousel-inner .carousel-item img {
   max-width: 100%;
-  height: 100%;
+  max-height: 100%;
   margin: auto;
 }
 
 @media screen and (min-width: 992px) {
+  #btnBox {
+    position: absolute;
+    right: 0px;
+  }
   #carouselContainer {
     float: left;
     margin: 10px 10px 2px 0;
