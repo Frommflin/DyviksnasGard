@@ -1,0 +1,17 @@
+#loginbox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+@media screen and (min-width: 992px) {
+  #loginbox {
+    flex-direction: row;
+  }
+}
+#page8 .input-group-text {
+  width: 6rem;
+}
+
+/*# sourceMappingURL=login.css.map */
