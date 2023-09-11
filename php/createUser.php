@@ -6,9 +6,10 @@
     $pwd = $_POST('createPwd');
 
     try{
-        $query="INSERT INTO users(email,userName,pwd) values (:EMAIL,:FNAME,:LNAME,:PWD);";
+        $query="INSERT INTO users(email,userName,pwd) values (:EMAIL,:USER,:PWD);";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(':EMAIL',$email);
+        $stmt->bindParam(':USER',$name);
         $stmt->bindParam(':PWD',$pwd);
         $stmt->execute();
 
