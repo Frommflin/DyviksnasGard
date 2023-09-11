@@ -18,7 +18,7 @@
         <script src="./javascript/horsePage.js"></script>
         <script src="./javascript/gallery.js"></script>
     </head>
-    <body onload="showPage(8)">
+    <body onload="showPage(1)">
         <header>
             <div id="logoBanner">
                 <img id="bannerLogo" src="./icons/DyviksnäsLogga.png" alt="Dyviksnäs Gårds Logga" />
@@ -59,55 +59,6 @@
             </nav>
         </header>
         <div id="content" class="container">
-            <div id="page8" class="page"> <!-- Logga in / Skapa konto -->
-                <div id="loginbox">
-                    <form id="loginForm" class="item" method="post">
-                        <h1>Logga in</h1>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Email</span>
-                            </div>
-                            <input type="email" class="form-control" name="loginEmail" required>
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Lösenord</span>
-                            </div>
-                            <input type="password" class="form-control" name="loginPwd" required>
-                        </div>
-                        <button class="btn"> Logga in </button>
-                    </form>
-                    <h1 class="item"> eller </h1>
-                    <form id="newAccountForm" class="item" method="post">
-                        <h1>Skapa ett konto</h1>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Email</span>
-                            </div>
-                            <input type="email" class="form-control" name="createEmail" required>
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Förnamn</span>
-                            </div>
-                            <input type="text" class="form-control" name="fName" maxlength="20">
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Efternamn</span>
-                            </div>
-                            <input type="text" class="form-control" name="lName" maxlength="30">
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Lösenord</span>
-                            </div>
-                            <input type="password" class="form-control" name="createPwd" required>
-                        </div>
-                        <button class="btn"> Skapa och logga in </button>
-                    </form>
-                </div>
-            </div> <!--  End of page 8 -->
             <div id="page1" class="page"> <!-- Aktuellt -->
                 <h1>Aktuellt på Dyviksnäs Gård</h1>
                 <div id="newsLetter">
@@ -387,6 +338,55 @@
                     <h6>Vi jobbar hårt med att bygga upp den här sidan med roligt innehåll för er</h6>
                 </div>
             </div> <!--  End of page 7 -->
+            <div id="page8" class="page"> <!-- Logga in / Skapa konto -->
+                <div id="loginbox">
+                    <form id="loginForm" class="item" method="post">
+                        <h1>Logga in</h1>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Email</span>
+                            </div>
+                            <input type="email" class="form-control" name="loginEmail" required>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Lösenord</span>
+                            </div>
+                            <input type="password" class="form-control" name="loginPwd" required>
+                        </div>
+                        <button class="btn"> Logga in </button>
+                    </form>
+                    <h1 class="item"> eller </h1>
+                    <form id="newAccountForm" class="item" method="post">
+                        <h1>Skapa ett konto</h1>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Email</span>
+                            </div>
+                            <input type="email" class="form-control" name="createEmail" required>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Förnamn</span>
+                            </div>
+                            <input type="text" class="form-control" name="createFName" maxlength="20">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Efternamn</span>
+                            </div>
+                            <input type="text" class="form-control" name="createLName" maxlength="30">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Lösenord</span>
+                            </div>
+                            <input type="password" class="form-control" name="createPwd" required>
+                        </div>
+                        <button class="btn"> Skapa och logga in </button>
+                    </form>
+                </div>
+            </div> <!--  End of page 8 -->
         </div>
         <footer>
                 <a href="https://www.instagram.com/dyviksnas_gard/" target="_blank">
