@@ -163,6 +163,14 @@ nav .navbar-collapse {
   cursor: pointer;
 }
 
+.error {
+  display: none;
+  padding: 5px;
+  margin-bottom: 5px;
+  color: #661313;
+  border: 1px solid #661313;
+}
+
 form input, form textarea {
   border-color: #801818 !important;
 }

@@ -35,7 +35,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div id="loginNav" class="navbar-nav">
-                        <a id="link8" class="nav-link spaLink" href="#" onclick="showPage(8)">Logga in / Skapa konto</a>
+                        <a id="link8" class="nav-link spaLink" href="#" onclick="showPage(8);showLogin()">Logga in / Skapa konto</a>
                     </div>
                     <div id="navbarNav" class="collapse navbar-collapse navbar-nav">
                         <a id="link1" class="nav-link spaLink" aria-current="page" href="#" onclick="showPage(1)">Aktuellt</a>
@@ -380,9 +380,16 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Lösenord</span>
                             </div>
-                            <input type="password" class="form-control" name="createPwd" required>
+                            <input type="password" class="form-control" name="createAccPwd1" id="createAccPwd1" onchange="comparePwds('createAcc')" required>
                         </div>
-                        <button class="btn"> Skapa och logga in </button>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Bekräfta lösenord</span>
+                            </div>
+                            <input type="password" class="form-control" name="createAccPwd2" id="createAccPwd2" onchange="comparePwds('createAcc')" required>
+                        </div>
+                        <div id="createAccPwdError" class="error">Lösenorden matchar inte</div>
+                        <button id="createAccBtn" class="btn" disabled> Skapa och logga in </button>
                     </form>
                 </div>
                 <div id="forgotPwdBox">
@@ -395,15 +402,22 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Email</span>
                             </div>
-                            <input type="email" class="form-control" name="forgotEmail" placeholder="Email på användar-kontot">
+                            <input type="email" class="form-control" name="forgotEmail" required>
                         </div>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Lösenord</span>
                             </div>
-                            <input type="password" class="form-control" name="forgotPwd" placeholder="Nytt lösenord">
+                            <input type="password" class="form-control" name="forgotPwd1" id="forgotPwd1" onchange="comparePwds('forgot')" required>
                         </div>
-                        <button class="btn">Spara nytt lösenord</button>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Bekräfta Lösenord</span>
+                            </div>
+                            <input type="password" class="form-control" name="forgotPwd2" id="forgotPwd2" onchange="comparePwds('forgot')" required>
+                        </div>
+                        <div id="forgotPwdError" class="error">Lösenorden matchar inte</div>
+                        <button id="forgotBtn" class="btn" disabled>Spara nytt lösenord</button>
                     </form>
                 </div>
             </div> <!--  End of page 8 -->

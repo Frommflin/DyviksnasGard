@@ -1,8 +1,7 @@
 @use 'colors'
 
-#page8
-    .input-group-text
-        width: 6rem
+%wideFormLabel
+    width: 9rem
 
 #loginBox
     display: flex
@@ -10,6 +9,14 @@
     flex-direction: column
     justify-content: space-evenly
 
+    #loginForm
+        .input-group-text
+            width: 6rem
+
+    #newAccountForm
+        .input-group-text
+            @extend %wideFormLabel
+            
     #forgotPwdLink
         margin-top: -8px
         text-align: right
@@ -28,3 +35,5 @@
 #forgotPwdBox
     display: none
     max-width: 500px
+    .input-group-text
+        @extend %wideFormLabel

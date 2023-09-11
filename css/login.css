@@ -1,7 +1,7 @@
 /* Primary */
 /* Backgrounds, Texts */
-#page8 .input-group-text {
-  width: 6rem;
+#forgotPwdBox .input-group-text, #loginBox #newAccountForm .input-group-text {
+  width: 9rem;
 }
 
 #loginBox {
@@ -9,6 +9,9 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
+}
+#loginBox #loginForm .input-group-text {
+  width: 6rem;
 }
 #loginBox #forgotPwdLink {
   margin-top: -8px;
