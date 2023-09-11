@@ -1,17 +1,37 @@
-#loginbox {
+/* Primary */
+/* Backgrounds, Texts */
+#page8 .input-group-text {
+  width: 6rem;
+}
+
+#loginBox {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
 }
+#loginBox #forgotPwdLink {
+  margin-top: -8px;
+  text-align: right;
+  font-size: 12px;
+  padding-right: 10px;
+}
+#loginBox #forgotPwdLink a {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+#loginBox #forgotPwdLink a:hover {
+  text-decoration: underline;
+}
 
 @media screen and (min-width: 992px) {
-  #loginbox {
+  #loginBox {
     flex-direction: row;
   }
 }
-#page8 .input-group-text {
-  width: 6rem;
+#forgotPwdBox {
+  display: none;
+  max-width: 500px;
 }
 
 /*# sourceMappingURL=login.css.map */
