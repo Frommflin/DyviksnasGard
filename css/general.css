@@ -71,6 +71,16 @@ nav .navbar-collapse {
     flex-direction: row-reverse;
   }
 }
+.topRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 30px;
+}
+.topRow button {
+  align-self: center;
+}
+
 .btn {
   color: rgba(255, 255, 255, 0.7);
   background-color: #a01e1e;

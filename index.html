@@ -62,11 +62,13 @@
         </header>
         <div id="content" class="container">
             <div id="page1" class="page"> <!-- Aktuellt -->
-                <h1>Aktuellt på Dyviksnäs Gård</h1>
-                <button class="openFormBtn" onclick="showPopup('news', '')">
-                    <img src="./icons/addpost-white.png" />
-                    Lägg till nyhet
-                </button>
+                <div class="topRow">
+                    <h1>Aktuellt på Dyviksnäs Gård</h1>
+                    <button class="openFormBtn" onclick="showPopup('news', '')">
+                        <img src="./icons/addpost-white.png" />
+                        Lägg till nyhet
+                    </button>
+                </div>
                 <div id="newsLetter">
                     <div class="newsCard">
                         <!-- Will be created dynamically -->
@@ -182,11 +184,13 @@
                 </div>
             </div> <!--  End of page 3 -->
             <div id="page4" class="page"> <!-- Alla hästar -->
-                <h1>Träffa våra hästar</h1>
-                <button class="openFormBtn" onclick="showPopup('horses', '')">
-                    <img src="./icons/addhorse-white.png" />
-                    Lägg till ny häst
-                </button>
+                <div class="topRow">
+                    <h1>Träffa våra hästar</h1>
+                    <button class="openFormBtn" onclick="showPopup('horses', '')">
+                        <img src="./icons/addhorse-white.png" />
+                        Lägg till ny häst
+                    </button>
+                </div>
                 <div id="cardContainer">
                     <div class="card">
                         <img src="./images/placeholderSmallImg.png" class="card-img-top" alt="Luffen">
@@ -321,12 +325,14 @@
                 <div id="horsePopup" class="popup"></div>
             </div> <!--  End of page 5 -->
             <div id="page6" class="page"> <!-- Galleri -->
-                <h1>Galleri</h1>
-                <!-- TODO: Show #albumBtn only for admin user -->
-                <button id="albumBtn" class="openFormBtn" onclick="showAlbumForm()">
-                    <img src="./icons/addalbum-white.png" />
-                    Nytt album
-                </button>
+                <div class="topRow">
+                    <h1>Galleri</h1>
+                    <!-- TODO: Show #albumBtn only for admin user -->
+                    <button id="albumBtn" class="openFormBtn" onclick="showAlbumForm()">
+                        <img src="./icons/addalbum-white.png" />
+                        Nytt album
+                    </button>
+                </div>
                 <div id="galleryNav">
                     <!-- TODO: Generate dynamically based on DB content -->
                     <button id="album1" class="btn galleryBtn" onclick="showAlbum(1)">Album 1</button>
