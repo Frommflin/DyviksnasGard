@@ -87,7 +87,7 @@
                 </div>
                 <div id="newsPopup" class="popup">
                     <div class="popupBox">
-                        <div class="close"><span onclick='closePopup("news")'>X</span></div>
+                        <div class="close" onclick="closePopup('news')">&times;</div>
                         <form id="addNewsForm" class="col col-xs-6" method="post" enctype="multipart/form-data">
                             <h1>Nytt på Dyviksnäs Gård</h1>
                             <div class="input-group">
@@ -183,7 +183,7 @@
             </div> <!--  End of page 3 -->
             <div id="page4" class="page"> <!-- Alla hästar -->
                 <h1>Träffa våra hästar</h1>
-                <button class="openFormBtn" onclick="showPopup('horse', '')">
+                <button class="openFormBtn" onclick="showPopup('horses', '')">
                     <img src="./icons/addhorse-white.png" />
                     Lägg till ny häst
                 </button>
@@ -209,7 +209,7 @@
                 </div>
                 <div id="horsesPopup" class="popup">
                     <div class="popupBox">
-                        <div class="close"><span onclick='closePopup("horses")'>X</span></div>
+                        <div class="close" onclick="closePopup('horses')">&times;</div>
                         <form id="newHorseForm" class="col col-xs-6" method="post" enctype="multipart/form-data">
                             <h1>Ny häst</h1>
                             <div class="input-group">

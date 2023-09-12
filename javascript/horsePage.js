@@ -7,7 +7,7 @@ function showHorseImgForm(){
     let str = '';
 
     str += `<div class="popupBox">`;
-    str += `<div class="close"><span onclick='closePopup("horse")'>X</span></div>`;
+    str += `<div class="close" onclick="closePopup('horse')">&times;</div>`;
     str += `<form id="HorseImageForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
     str += `<h1>Lägg till bilder på {name}</h1>`;
     str += `<div class="input-group">`;

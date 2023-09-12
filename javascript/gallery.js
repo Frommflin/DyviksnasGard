@@ -16,7 +16,7 @@ function showAlbumForm(){
     let str = '';
 
     str += `<div class="popupBox">`;
-    str += `<div class="close"><span onclick='closePopup("gallery")'>X</span></div>`;
+    str += `<div class="close" onclick="closePopup('gallery')">&times;</div>`;
     str += `<form id="newAlbumForm" class="col col-xs-6" method="post">`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
@@ -41,7 +41,7 @@ function showImageForm(){
     let str = '';
 
     str += `<div id="addImages" class="popupBox">`;
-    str += `<div class="close"><span onclick='closePopup("gallery")'>X</span></div>`;
+    str += `<div class="close" onclick="closePopup('gallery')">&times;</div>`;
     str += `<form id="addImgForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
@@ -64,7 +64,7 @@ function addImageDescription(){
     let str = '';
 
     str += `<div class="popupBox">`;
-    str += `<div class="close"><span onclick='closePopup("gallery")'>X</span></div>`;
+    str += `<div class="close" onclick="closePopup('gallery')">&times;</div>`;
     str += `<form id="addDescForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
     str += `<div id="hint">Max 100 tecken per bildbeskrivning.</div>`;
     str += `<div id="cardBox">`;
