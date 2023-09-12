@@ -63,25 +63,54 @@
         <div id="content" class="container">
             <div id="page1" class="page"> <!-- Aktuellt -->
                 <h1>Aktuellt på Dyviksnäs Gård</h1>
+                <button class="openFormBtn" onclick="showPopup('news', '')">
+                    <img src="./icons/addpost-white.png" />
+                    Lägg till nyhet
+                </button>
                 <div id="newsLetter">
-                    <div id="local">
-                        <div class="newsCard">
-                            <!-- Will be created dynamically -->
-                            <div class="postDetails">
-                                <!-- post details; date, name of author? -->
-                                <span>Datum för nyhet</span>
-                                <span>Författare</span>
-                            </div>
-                            <hr>
-                            <div class="postContent">
-                                <!-- post content -->
-                                <img src="./images/PlaceholderBigImg.png" />
-                                <h3>Nyhetstitel</h3>
-                                <div>
-                                    <p>Felis eget nunc lobortis mattis aliquam. Est ullamcorper eget nulla facilisi etiam dignissim. Tortor at auctor urna nunc id. Duis convallis convallis tellus id interdum velit laoreet id. Pellentesque habitant morbi tristique senectus et netus. Blandit cursus risus at ultrices mi tempus. Imperdiet nulla malesuada pellentesque elit eget gravida. Proin sed libero enim sed faucibus turpis in eu mi. Sagittis purus sit amet volutpat consequat. Aliquet lectus proin nibh nisl. Varius morbi enim nunc faucibus a pellentesque sit amet porttitor. Eu lobortis elementum nibh tellus molestie. At tempor commodo ullamcorper a. Velit euismod in pellentesque massa placerat duis. Fermentum iaculis eu non diam phasellus vestibulum. Egestas egestas fringilla phasellus faucibus scelerisque eleifend. Nunc scelerisque viverra mauris in aliquam sem fringilla. Sed lectus vestibulum mattis ullamcorper velit sed.</p>
-                                </div>
+                    <div class="newsCard">
+                        <!-- Will be created dynamically -->
+                        <div class="postDetails">
+                            <!-- post details; date, name of author? -->
+                            <span>Datum för nyhet</span>
+                            <span>Författare</span>
+                        </div>
+                        <hr>
+                        <div class="postContent">
+                            <img src="./images/PlaceholderBigImg.png" />
+                            <h3>Nyhetstitel</h3>
+                            <div>
+                                <p>Felis eget nunc lobortis mattis aliquam. Est ullamcorper eget nulla facilisi etiam dignissim. Tortor at auctor urna nunc id. Duis convallis convallis tellus id interdum velit laoreet id. Pellentesque habitant morbi tristique senectus et netus. Blandit cursus risus at ultrices mi tempus. Imperdiet nulla malesuada pellentesque elit eget gravida. Proin sed libero enim sed faucibus turpis in eu mi. Sagittis purus sit amet volutpat consequat. Aliquet lectus proin nibh nisl. Varius morbi enim nunc faucibus a pellentesque sit amet porttitor. Eu lobortis elementum nibh tellus molestie. At tempor commodo ullamcorper a. Velit euismod in pellentesque massa placerat duis. Fermentum iaculis eu non diam phasellus vestibulum. Egestas egestas fringilla phasellus faucibus scelerisque eleifend. Nunc scelerisque viverra mauris in aliquam sem fringilla. Sed lectus vestibulum mattis ullamcorper velit sed.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div id="newsPopup" class="popup">
+                    <div class="popupBox">
+                        <div class="close"><span onclick='closePopup("news")'>X</span></div>
+                        <form id="addNewsForm" class="col col-xs-6" method="post" enctype="multipart/form-data">
+                            <h1>Nytt på Dyviksnäs Gård</h1>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Titel</span>
+                                </div>
+                                <input type="text" class="form-control" name="newsName" maxlength="50">
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Bild</span>
+                                </div>
+                                <input type="file" class="form-control" name="profileImg" >
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Meddelande</span>
+                                </div>
+                                <textarea class="form-control" name="nickname" placeholder="Berätta om nyheten här" required></textarea>
+                            </div>
+                            <input type="hidden" name="author" value="USERNAME" />
+                            <button class="btn">Publicera</button>
+                        </form>
                     </div>
                 </div>
             </div> <!--  End of page 1 -->

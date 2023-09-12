@@ -1,13 +1,5 @@
 /* Primary */
 /* Backgrounds, Texts */
-#newsLetter {
-  display: flex;
-}
-
-#local {
-  width: 100%;
-}
-
 .newsCard {
   margin: 0px 10px 30px 10px;
   background-color: rgba(128, 24, 24, 0.2);
@@ -20,14 +12,9 @@
   padding: 0px 20px;
 }
 .newsCard hr {
-  margin: 0;
-  margin-bottom: 5px;
+  margin: 0 0 5px 0;
 }
-.newsCard img {
-  margin: auto;
-}
-
-.postContent {
+.newsCard .postContent {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -35,9 +22,14 @@
   padding: 0px 25px;
   color: #801818;
 }
-.postContent img {
+.newsCard .postContent img {
+  margin: auto;
   max-width: 100%;
   max-height: 25rem;
+}
+
+#addNewsForm .input-group-text {
+  width: 7rem;
 }
 
 /*# sourceMappingURL=news.css.map */
