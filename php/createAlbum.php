@@ -1,8 +1,8 @@
 <?php
     include 'dbConnect.php';
 
-    $name = $_POST('albumName');
-    $description = $_POST('albumDescription');
+    $name = $_POST['albumName'];
+    $description = $_POST['albumDescription'];
 
     try{
         $query="INSERT INTO albums(albumName,albumDescription) values (:ALBUM,:ALBUMDESC);";

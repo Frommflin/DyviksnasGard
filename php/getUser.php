@@ -1,8 +1,8 @@
 <?php
     include 'dbConnect.php';
 
-    $email = $_POST('loginEmail');
-    $pwd = $_POST('loginPwd');
+    $email = $_POST['loginEmail'];
+    $pwd = $_POST['loginPwd'];
 
     try
     {

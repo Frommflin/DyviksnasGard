@@ -1,10 +1,10 @@
 <?php
     include 'dbConnect.php';
 
-    $title = $_POST('newsName');
-    $image = $_FILES('newsImg');
-    $description = $_POST('newsDescription');
-    $author = $_POST('author');
+    $title = $_POST['newsName'];
+    $image = $_FILES['newsImg'];
+    $description = $_POST['newsDescription'];
+    $author = $_POST['author'];
     $postDate = date('Y-m-d');
 
     try{

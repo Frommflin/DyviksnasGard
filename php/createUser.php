@@ -1,9 +1,9 @@
 <?php
     include 'dbConnect.php';
 
-    $email = $_POST('createEmail');
-    $name = $_POST('createName');
-    $pwd = $_POST('createPwd');
+    $email = $_POST['createEmail'];
+    $name = $_POST['createName'];
+    $pwd = $_POST['createPwd'];
 
     try{
         $query="INSERT INTO users(email,userName,pwd) values (:EMAIL,:USER,:PWD);";
