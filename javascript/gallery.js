@@ -90,7 +90,7 @@ function showImage(img){
     let str = '';
 
     str += `<div id="popupImage" class="popupBox">`;
-    str += `<div class='close'><span onclick='closePopup("gallery")'>X</span></div>`;
+    str += `<div class="close" onclick='closePopup("gallery")'>&times;</div>`;
     str += `<img src="./images/${img}" />`;
     str += `<p>Kort beskrivning av bilden här</p>`;
     str += `</div>`;
