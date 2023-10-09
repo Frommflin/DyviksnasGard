@@ -15,7 +15,7 @@
         echo '<created status="OK"/>';
 
     } catch (PDOException $e) {
-            err("Error!: ".$e->getMessage()."<br/>");
-            die();
+        err("Error!: ".$e->getMessage()."<br/>");
+        die();
     }
 ?>
