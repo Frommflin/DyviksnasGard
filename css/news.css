@@ -3,7 +3,7 @@
 .newsCard {
   margin: 0px 10px 30px 10px;
   background-color: rgba(128, 24, 24, 0.2);
-  padding: 5px;
+  padding: 5px 5px 15px 5px;
 }
 .newsCard .postDetails {
   color: #801818;
@@ -17,8 +17,8 @@
 .newsCard .postContent {
   position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   padding: 0px 25px;
   color: #801818;
 }
@@ -28,6 +28,14 @@
   max-height: 25rem;
 }
 
+@media screen and (min-width: 1200px) {
+  .newsCard .postContent {
+    flex-wrap: nowrap;
+  }
+  .newsCard .postContent img {
+    margin: 0 20px 0 0 !important;
+  }
+}
 #addNewsForm .input-group-text {
   width: 7rem;
 }
