@@ -18,6 +18,7 @@
         <script src="./javascript/navigation.js"></script>
         <script src="./javascript/horsePage.js"></script>
         <script src="./javascript/gallery.js"></script>
+        <script src="./javascript/news.js"></script>
         <script src="./javascript/login.js"></script>
     </head>
     <body onload="showPage(1)">
@@ -87,34 +88,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="newsPopup" class="popup">
-                    <div class="popupBox">
-                        <div class="close" onclick="closePopup('news')">&times;</div>
-                        <form id="addNewsForm" class="col col-xs-6" method="post" enctype="multipart/form-data">
-                            <h1>Nytt på Dyviksnäs Gård</h1>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Titel</span>
-                                </div>
-                                <input type="text" class="form-control" name="newsName" maxlength="50">
-                            </div>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Bild</span>
-                                </div>
-                                <input type="file" class="form-control" name="newsImg" >
-                            </div>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Meddelande</span>
-                                </div>
-                                <textarea class="form-control" name="newsDescription" placeholder="Berätta om nyheten här" required></textarea>
-                            </div>
-                            <input type="hidden" name="author" value="USERNAME" />
-                            <button class="btn">Publicera</button>
-                        </form>
-                    </div>
-                </div>
+                <div id="newsPopup" class="popup"></div>
             </div> <!--  End of page 1 -->
             <div id="page2" class="page"> <!-- Om oss -->
                 <h1>Om Oss</h1>
