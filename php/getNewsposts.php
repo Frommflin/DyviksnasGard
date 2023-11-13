@@ -10,6 +10,7 @@
         $output="<newsposts>\n";
         foreach($stmt as $key => $row){
                 $output.="<post \n";
+                $output.="    id='".$row['id']."'\n";
                 $output.="    title='".$row['title']."'\n";
                 $output.="    article='".$row['article']."'\n";
                 $output.="    author='".$row['author']."'\n";
