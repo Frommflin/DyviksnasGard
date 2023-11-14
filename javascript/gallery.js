@@ -13,7 +13,7 @@ function showAlbum(a) {
 }
 
 function showAlbumForm(){
-    let str = '';
+    let str = ``;
 
     str += `<div class="popupBox">`;
     str += `<div class="close" onclick="closePopup('gallery')">&times;</div>`;
@@ -34,11 +34,11 @@ function showAlbumForm(){
     str += `</form>`;
     str += `</div>`;
 
-    showPopup('gallery', str);
+    showPopup("gallery", str);
 }
 
 function showImageForm(){
-    let str = '';
+    let str = ``;
 
     str += `<div id="addImages" class="popupBox">`;
     str += `<div class="close" onclick="closePopup('gallery')">&times;</div>`;
@@ -57,11 +57,11 @@ function showImageForm(){
     str += `</form>`;
     str += `</div>`;
 
-    showPopup('gallery', str);
+    showPopup("gallery", str);
 }
 
 function addImageDescription(){
-    let str = '';
+    let str = ``;
 
     str += `<div class="popupBox">`;
     str += `<div class="close" onclick="closePopup('gallery')">&times;</div>`;
@@ -83,25 +83,24 @@ function addImageDescription(){
     str += `</form>`;
     str += `</div>`;
 
-    showPopup('gallery', str);
+    showPopup("gallery", str);
 }
 
 function showImage(img){
-    let str = '';
+    let str = ``;
 
     str += `<div id="popupImage" class="popupBox">`;
-        str += `<div class="close" onclick='closePopup("gallery")'>&times;</div>`;
+        str += `<div class="close" onclick="closePopup('gallery')">&times;</div>`;
         str += `<div>`;
             str += `<img id="selectedImg" src="./images/${img}" />`;
             str += `<p>Kort beskrivning av bilden här</p>`;
             str += `<hr>`;
-            str += `<div class='crudBox'>`;
-                str += `<button class='crudBtn'>`;
+            str += `<div class="crudBox">`;
+                str += `<button class="crudBtn">`;
                 str += `<img src="./icons/editimage-white.png" />`;
                 str += `Redigera`;
                 str += `</button>`;
-
-                str += `<button class='crudBtn'>`;
+                str += `<button class="crudBtn">`;
                 str += `<img src="./icons/bin-white.png" />`;
                 str += `Ta bort`;
                 str += `</button>`;
@@ -109,5 +108,5 @@ function showImage(img){
         str += `</div>`;
     str += `</div>`;
 
-    showPopup('gallery', str);
+    showPopup("gallery", str);
 }

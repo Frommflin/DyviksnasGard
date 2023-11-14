@@ -1,5 +1,5 @@
 <?php
-    include 'dbConnect.php';
+    include "dbConnect.php";
 
     try
     {
@@ -10,9 +10,9 @@
         $output="<albums>\n";
         foreach($stmt as $key => $row){
                 $output.="<album \n";
-                $output.="    id='".$row['id']."'\n";
-                $output.="    name='".$row['albumName']."'\n";
-                $output.="    description='".$row['albumDescription']."'\n";
+                $output.="    id='".$row["id"]."'\n";
+                $output.="    name='".$row["albumName"]."'\n";
+                $output.="    description='".$row["albumDescription"]."'\n";
                 $output.=" />\n";
         }
         $output.="</albums>";

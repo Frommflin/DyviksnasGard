@@ -1,19 +1,19 @@
 <?php
-    include 'dbConnect.php';
+    include "dbConnect.php";
 
-    $horse = $_POST['horseID'];
+    $horse = $_POST["horseID"];
 
     try
     {
         $query = "SELECT * FROM `photos` WHERE horse=:ID";
         $stmt = $pdo->prepare($query);
-        $stmt->bindParam(':ID',$horse);
+        $stmt->bindParam(":ID",$horse);
         $stmt->execute();
 
         $output="<photos>\n";
         foreach($stmt as $key => $row){
                 $output.="<image \n";
-                $output.="    file='".$row['img']."'\n";
+                $output.="    file='".$row["img"]."'\n";
                 $output.=" />\n";
         }
         $output.="</photos>";

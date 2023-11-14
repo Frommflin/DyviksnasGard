@@ -1,5 +1,5 @@
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
     // When the user scrolls the page, execute stickyNav
     window.onscroll = function() {stickyNav()};
 

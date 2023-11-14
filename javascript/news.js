@@ -29,5 +29,5 @@ function showNewsForm(){
     str += `</form>`;
     str += `</div>`;
 
-    showPopup('news', str);
+    showPopup("news", str);
 }

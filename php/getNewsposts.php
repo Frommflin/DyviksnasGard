@@ -1,5 +1,5 @@
 <?php
-    include 'dbConnect.php';
+    include "dbConnect.php";
 
     try
     {
@@ -10,12 +10,12 @@
         $output="<newsposts>\n";
         foreach($stmt as $key => $row){
                 $output.="<post \n";
-                $output.="    id='".$row['id']."'\n";
-                $output.="    title='".$row['title']."'\n";
-                $output.="    article='".$row['article']."'\n";
-                $output.="    author='".$row['author']."'\n";
-                $output.="    date='".$row['postDate']."'\n";
-                $output.="    image='".$row['img']."'\n";
+                $output.="    id='".$row["id"]."'\n";
+                $output.="    title='".$row["title"]."'\n";
+                $output.="    article='".$row["article"]."'\n";
+                $output.="    author='".$row["author"]."'\n";
+                $output.="    date='".$row["postDate"]."'\n";
+                $output.="    image='".$row["img"]."'\n";
                 $output.=" />\n";
         }
         $output.="</newsposts>";

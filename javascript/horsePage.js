@@ -1,10 +1,10 @@
 function fillPage(name){
     // TODO: Create and connect to database for filling page dynamically
-    document.getElementById('name').innerHTML = name;
+    document.getElementById("name").innerHTML = name;
 }
 
 function showHorseImgForm(){
-    let str = '';
+    let str = ``;
 
     str += `<div class="popupBox">`;
     str += `<div class="close" onclick="closePopup('horse')">&times;</div>`;
@@ -21,5 +21,5 @@ function showHorseImgForm(){
     str += `</form>`;
     str += `</div>`;
 
-    showPopup('horse', str);
+    showPopup("horse", str);
 }
