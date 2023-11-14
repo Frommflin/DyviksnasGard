@@ -90,9 +90,23 @@ function showImage(img){
     let str = '';
 
     str += `<div id="popupImage" class="popupBox">`;
-    str += `<div class="close" onclick='closePopup("gallery")'>&times;</div>`;
-    str += `<img src="./images/${img}" />`;
-    str += `<p>Kort beskrivning av bilden här</p>`;
+        str += `<div class="close" onclick='closePopup("gallery")'>&times;</div>`;
+        str += `<div>`;
+            str += `<img id="selectedImg" src="./images/${img}" />`;
+            str += `<p>Kort beskrivning av bilden här</p>`;
+            str += `<hr>`;
+            str += `<div class='crudBox'>`;
+                str += `<button class='crudBtn'>`;
+                str += `<img src="./icons/editimage-white.png" />`;
+                str += `Redigera`;
+                str += `</button>`;
+
+                str += `<button class='crudBtn'>`;
+                str += `<img src="./icons/bin-white.png" />`;
+                str += `Ta bort`;
+                str += `</button>`;
+            str += `</div>`;
+        str += `</div>`;
     str += `</div>`;
 
     showPopup('gallery', str);

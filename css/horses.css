@@ -38,10 +38,13 @@
   margin: 10px 0;
   position: relative;
 }
+#horseContainer .btn {
+  height: 36px;
+  line-height: 31px;
+}
 
-#btnBox {
-  position: relative;
-  text-align: right;
+#btnBox hr {
+  margin-bottom: 0;
 }
 
 #carouselContainer {
@@ -67,10 +70,6 @@
 }
 
 @media screen and (min-width: 992px) {
-  #btnBox {
-    position: absolute;
-    right: 0px;
-  }
   #carouselContainer {
     float: left;
     margin: 10px 10px 2px 0;

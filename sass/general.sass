@@ -80,34 +80,37 @@ nav
     button
         align-self: center
     
+button
+    img
+        height: 30px
+        opacity: .5
+    &:hover
+        img
+            opacity: 1
 
 .btn
     color: colors.$white-70
     background-color: colors.$falured-light
     border-color: colors.$falured-dark
-.btn:active
-    color: colors.$white
-    background-color: colors.$falured-dark
-    border-color: colors.$falured
-.btn:focus
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem colors.$falured-light
-.btn:hover
-    color: colors.$white
-    background-color: colors.$falured
-    border-color: colors.$falured-light
+    &:active
+        color: colors.$white
+        background-color: colors.$falured-dark
+        border-color: colors.$falured
+    &:focus
+        box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem colors.$falured-light
+    &:hover
+        color: colors.$white
+        background-color: colors.$falured
+        border-color: colors.$falured-light
 
-.openFormBtn
+.crudBtn
     background-color: colors.$falured
     color: colors.$white-70
     border-color: colors.$falured-20
     padding: 0px 10px
     border-radius: 15px
     font-size: 12px
-    line-height: 12px
     margin: 5px
-    img
-        height: 30px
-        opacity: .5
     &:active
         box-shadow: 0 0 0 0
     &:hover
@@ -116,8 +119,14 @@ nav
         color: colors.$white
         transition: 800ms
         img
-            opacity: 1
             transition: 800ms
+
+.crudBox
+    display: flex
+    justify-content: flex-end
+    flex-wrap: wrap
+    .crudBtn
+        margin-right: 10px
 
 .stopScroll
     height: 100%
