@@ -15,8 +15,10 @@ function showAlbum(a) {
 function showAlbumForm(){
     let str = ``;
 
-    str += `<div class="popupBox">`;
-    str += `<div class="close" onclick="closePopup('gallery')">&times;</div>`;
+    str += `<div class="topRow">`;
+    str += `<h1>Skapa nytt album</h1>`;
+    str += `<button class="btn" onclick="showPage(6)">Avbryt</button>`;
+    str += `</div>`;
     str += `<form id="newAlbumForm" class="col col-xs-6" method="post">`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
@@ -32,16 +34,18 @@ function showAlbumForm(){
     str += `</div>`;
     str += `<button class="btn">Skapa album</button>`;
     str += `</form>`;
-    str += `</div>`;
 
-    showPopup("gallery", str);
+    document.getElementById("formBox").innerHTML = str;
+    showPage(9);
 }
 
 function showImageForm(){
     let str = ``;
 
-    str += `<div id="addImages" class="popupBox">`;
-    str += `<div class="close" onclick="closePopup('gallery')">&times;</div>`;
+    str += `<div class="topRow">`;
+    str += `<h1>Lägg till bilder</h1>`;
+    str += `<button class="btn" onclick="showPage(6)">Avbryt</button>`;
+    str += `</div>`;
     str += `<form id="addImgForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
@@ -55,16 +59,18 @@ function showImageForm(){
     str += `<button class="btn" onclick="addImageDescription()">Lägg till beskrivningar</button>`;
     str += `</div>`;
     str += `</form>`;
-    str += `</div>`;
 
-    showPopup("gallery", str);
+    document.getElementById("formBox").innerHTML = str;
+    showPage(9);
 }
 
 function addImageDescription(){
     let str = ``;
 
-    str += `<div class="popupBox">`;
-    str += `<div class="close" onclick="closePopup('gallery')">&times;</div>`;
+    str += `<div class="topRow">`;
+    str += `<h1>Lägg till bildtext</h1>`;
+    str += `<button class="btn" onclick="showPage(6)">Avbryt</button>`;
+    str += `</div>`;
     str += `<form id="addDescForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
     str += `<div id="hint">Max 100 tecken per bildbeskrivning.</div>`;
     str += `<div id="cardBox">`;
@@ -81,9 +87,9 @@ function addImageDescription(){
     str += `<input type="hidden" name="toAlbum" value="albumName" />`;
     str += `<button class="btn">Spara</button>`;
     str += `</form>`;
-    str += `</div>`;
 
-    showPopup("gallery", str);
+    document.getElementById("formBox").innerHTML = str;
+    showPage(9);
 }
 
 function showImage(img){

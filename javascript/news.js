@@ -2,8 +2,10 @@
 function showNewsForm(){
     let str = ``;
 
-    str += `<div class="popupBox">`;
-    str += `<div class="close" onclick="closePopup('news')">&times;</div>`;
+    str += `<div class="topRow">`;
+    str += `<h1>Nytt på Dyviksnäs Gård</h1>`;
+    str += `<button class="btn" onclick="showPage(1)">Avbryt</button>`;
+    str += `</div>`;
     str += `<form id="addNewsForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
     str += `<h1>Nytt på Dyviksnäs Gård</h1>`;
     str += `<div class="input-group">`;
@@ -27,7 +29,7 @@ function showNewsForm(){
     str += `<input type="hidden" name="author" value="USERNAME" />`;
     str += `<button class="btn">Publicera</button>`;
     str += `</form>`;
-    str += `</div>`;
 
-    showPopup("news", str);
+    document.getElementById("formBox").innerHTML = str;
+    showPage(9);
 }
