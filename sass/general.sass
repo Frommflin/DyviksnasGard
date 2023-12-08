@@ -19,12 +19,26 @@ h1
 h2
     @extend %titleStylings
 
-header
-    margin-bottom: 10px
-
 #content
     margin-bottom: 2rem
     margin-top: 10px
+
+.topRow
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    column-gap: 30px
+    button
+        align-self: center
+
+
+
+// ------------------------------------------
+// ----------------- Header -----------------
+// ------------------------------------------
+
+header
+    margin-bottom: 10px
 
 #logoBanner
     display: flex
@@ -72,14 +86,12 @@ nav
 .stickyPadding
     padding-top: 80px
 
-.topRow
-    display: flex
-    flex-wrap: wrap
-    justify-content: space-between
-    column-gap: 30px
-    button
-        align-self: center
-    
+
+
+// ------------------------------------------
+// ---------------- Buttons -----------------
+// ------------------------------------------
+
 button
     img
         height: 30px
@@ -128,6 +140,12 @@ button
     .crudBtn
         margin-right: 10px
 
+
+
+// ------------------------------------------
+// ----------------- Popups -----------------
+// ------------------------------------------
+
 .stopScroll
     height: 100%
     overflow: hidden
@@ -171,6 +189,12 @@ button
     color: colors.$falured-dark
     border: 1px solid colors.$falured-dark
 
+
+
+// ------------------------------------------
+// ------------------ Forms -----------------
+// ------------------------------------------
+
 form
     input, textarea
         border-color: colors.$falured !important
@@ -185,6 +209,10 @@ form
         border-color: colors.$falured-dark
         border-radius: .375rem 0 0 .375rem
 
+
+// ------------------------------------------
+// ----------------- Footer -----------------
+// ------------------------------------------
 footer
     margin-top: auto
     background-color: colors.$falured
