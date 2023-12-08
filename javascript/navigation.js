@@ -23,23 +23,29 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 
 function showPage(p, h) {
-    // Step 1 - Hide all pages and clear active-tags on navlinks
     pageArr = document.getElementsByClassName("page");
     linkArr = document.getElementsByClassName("spaLink");
+
+    // Step 1 - Hide all pages
     for (let i = 0; i < pageArr.length; i++) {
         pageArr[i].style.display = "none";
     }
-    for (let i = 0; i < linkArr.length; i++) {
-        linkArr[i].classList.remove("active");
-    }
 
-    // Step 2 - Show the selected page and mark navlink as active
+    // Step 2 - Show the selected page
     document.getElementById("page" + p).style.display = "block";
 
-    if(p == 4 || p == 5){
-        document.getElementById("collectionLink").classList.add("active");
-        document.getElementById("nestedLink" + h).classList.add("active");
-    } else {
-        document.getElementById("link" + p).classList.add("active");
+    if(p != 9){ //When form-page is open, continue showing original page as active link
+        // Step 3 - Clear active-tags on navlinks
+        for (let i = 0; i < linkArr.length; i++) {
+            linkArr[i].classList.remove("active");
+        }
+
+        // Step 4 - Mark selected navlink as active
+        if(p == 4 || p == 5){
+            document.getElementById("collectionLink").classList.add("active");
+            document.getElementById("nestedLink" + h).classList.add("active");
+        } else {
+            document.getElementById("link" + p).classList.add("active");
+        }
     }
 }
