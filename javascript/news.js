@@ -7,7 +7,6 @@ function showNewsForm(){
     str += `<button class="btn" onclick="showPage(1)">Avbryt</button>`;
     str += `</div>`;
     str += `<form id="addNewsForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
-    str += `<h1>Nytt på Dyviksnäs Gård</h1>`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
     str += `<span class="input-group-text">Titel</span>`;
