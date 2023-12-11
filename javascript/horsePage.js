@@ -70,11 +70,10 @@ function showHorseImgForm(){
     let str = ``;
 
     str += `<div class="topRow">`;
-    str += `<h1>Ny häst på gården</h1>`;
+    str += `<h1>Lägg till bilder på {namn}</h1>`;
     str += `<button class="btn" onclick="showPage(5,2)">Avbryt</button>`; //TODO: Adjust second parameter to show to previously clicked horse
     str += `</div>`;
     str += `<form id="HorseImageForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
-    str += `<h1>Lägg till bilder på {name}</h1>`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
     str += `<span class="input-group-text">Bilder</span>`;
