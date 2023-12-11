@@ -7,9 +7,6 @@
 #contactForm .input-group-text {
   width: 7rem;
 }
-#contactForm textarea {
-  height: 200px;
-}
 
 #gmapIframe {
   height: 400px;

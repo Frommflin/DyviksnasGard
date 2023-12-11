@@ -30,9 +30,6 @@
 #newHorseForm .input-group-text {
   width: 7rem;
 }
-#newHorseForm textarea {
-  height: 200px;
-}
 
 #horseContainer {
   margin: 10px 0;
