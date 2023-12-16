@@ -96,7 +96,7 @@ function showImage(img){
     let str = ``;
 
     str += `<div id="popupImage" class="popupBox">`;
-        str += `<div class="close" onclick="closePopup('gallery')">&times;</div>`;
+        str += `<div class="close" onclick="closePopup()">&times;</div>`;
         str += `<div>`;
             str += `<img id="selectedImg" src="./images/${img}" />`;
             str += `<p>Kort beskrivning av bilden här</p>`;
