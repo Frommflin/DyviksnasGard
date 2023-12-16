@@ -114,5 +114,5 @@ function showImage(img){
         str += `</div>`;
     str += `</div>`;
 
-    showPopup("gallery", str);
+    showPopup(str);
 }
