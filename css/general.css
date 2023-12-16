@@ -155,7 +155,7 @@ button:hover img {
   overflow: hidden;
 }
 
-.popup {
+#popup {
   display: none;
   flex-flow: column;
   justify-content: center;
