@@ -13,6 +13,7 @@
         $output="<gallery>\n";
         foreach($stmt as $key => $row){
                 $output.="<image \n";
+                $output.="    id='".$row["id"]."'\n";
                 $output.="    name='".$row["img"]."'\n";
                 $output.="    description='".$row["imgDescription"]."'\n";
                 $output.=" />\n";
