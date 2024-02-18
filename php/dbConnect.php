@@ -1,4 +1,9 @@
 <?php
+    require_once '../vendor/autoload.php';
+
+    $dotenv = Dotenv\Dotenv::createImmutable("../");
+    $dotenv->load();
+    
     //--------------------------------------------------------------------------
     // Displays nicely formatted error and exits
     //--------------------------------------------------------------------------
@@ -12,10 +17,10 @@
     // Try connecting to database, else print errormessage
     //--------------------------------------------------------------------------
     global $pdo;
-    $host = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "dng_testing";
+    $host = $_ENV['DB_HOST'];
+    $username = $_ENV['DB_USER'];
+    $password = $_ENV['DB_PASSWORD'];
+    $dbname = $_ENV['DB_NAME'];
 
     try
     {
