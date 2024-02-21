@@ -1,5 +1,6 @@
 <?php
     include "dbConnect.php";
+    include "functions.php";
 
     try{
         //Array to store image file-names
@@ -8,11 +9,12 @@
         //looping through all incoming images
         foreach($_FILES["galleryUploads"]["name"] as $key=>$val){
             if($_FILES["galleryUploads"]["name"] != ""){
-                $extension = explode(".", $_FILES["galleryUploads"]["name"][$key]);
-                $newName = rand() . "." . $extension[1];
-                $destination = "../images/galleryUploads/" . $newName;
-                if(move_uploaded_file($_FILES["galleryUploads"]["tmp_name"][$key], $destination)){
-                    array_push($imageArray,$newName);
+
+                $fileName = set_image_name("galleryUploads", $_FILES["galleryUploads"]["name"][$key]);
+                $filePath = "../images/galleryUploads/" . $fileName;
+                
+                if(move_uploaded_file($_FILES["galleryUploads"]["tmp_name"][$key], $filePath)){
+                    array_push($imageArray,$fileName);
                 };
             }
         }

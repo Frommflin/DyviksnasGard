@@ -1,5 +1,6 @@
 <?php
     include "dbConnect.php";
+    include "functions.php";
 
     $name = $_POST["horseName"];
     $nickname = $_POST["nickname"];
@@ -12,12 +13,11 @@
 
     try{
         if($_FILES["profileImg"]["name"] != ""){
-            $extension = explode(".", $_FILES["profileImg"]["name"]);
-            $newName = rand() . "." . $extension[1];
-            $destination = "../images/horseProfiles/" . $newName;
-            move_uploaded_file($_FILES["profileImg"]["tmp_name"], $destination);
+            $fileName = set_image_name("horseProfiles", $_FILES["profileImg"]["name"]);
+            $filePath = "../images/horseProfiles/" . $fileName;
+            move_uploaded_file($_FILES["profileImg"]["tmp_name"], $filePath);
 
-            $img = $newName;
+            $img = $fileName;
         }
 
         $query="INSERT INTO horses(horseName,nickname,color,breed,height,yearOfBirth,img,longInfo) values (:HORSE,:NICK,:COLOR,:BREED,:HEIGHT,:YOB,:IMG,:INFO);";

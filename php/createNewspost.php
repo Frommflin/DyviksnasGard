@@ -1,5 +1,6 @@
 <?php
     include "dbConnect.php";
+    include "functions.php";
 
     if(isset($_POST["newsName"]) ? $title = $_POST["newsName"] : $title = "");
     $image = "";
@@ -9,11 +10,10 @@
 
     try{
         if($_FILES["newsImg"]["name"] != ""){
-            $extension = explode(".", $_FILES["newsImg"]["name"]);
-            $newName = rand() . "." . $extension[1];
-            $destination = "../images/newsUploads/" . $newName;
-            move_uploaded_file($_FILES["newsImg"]["tmp_name"], $destination);
-            $image = $newName;
+            $fileName = set_image_name("newsUploads", $_FILES["newsImg"]["name"]);
+            $filePath = "../images/newsUploads/" . $fileName;
+            move_uploaded_file($_FILES["newsImg"]["tmp_name"], $filePath);
+            $image = $fileName;
         }
 
         $query="INSERT INTO newsposts(title,article,author,postDate,img) values (:TITLE,:ARTICLE,:AUTHOR,:POSTDATE,:IMG);";
