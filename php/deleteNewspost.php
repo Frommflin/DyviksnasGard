@@ -2,9 +2,14 @@
     include "dbConnect.php";
 
     $id = $_POST["postId"];
+    $fileName = $_POST["image"];
 
     try
     {
+        //Removing image from folder
+        unlink("../images/newsUploads/" . $fileName);
+
+        //Removing newspost from db
         $query = "DELETE FROM `newsposts` WHERE id=:ID";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":ID",$id);

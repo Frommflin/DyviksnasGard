@@ -1,13 +1,17 @@
 <?php
     include "dbConnect.php";
 
-    $id = $_POST["imgId"];
+    $img = $_POST["image"];
 
     try
     {
-        $query = "DELETE FROM `galleries` WHERE id=:ID";
+        //Removing image from folder
+        unlink("../images/galleryUploads/" . $img);
+
+        //Removing image from db
+        $query = "DELETE FROM `galleries` WHERE img=:IMG";
         $stmt = $pdo->prepare($query);
-        $stmt->bindParam(":ID",$id);
+        $stmt->bindParam(":IMG",$img);
         $stmt->execute();
 
         header ("Content-Type:text/xml; charset=utf-8");
