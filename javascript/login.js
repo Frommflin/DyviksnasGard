@@ -9,6 +9,7 @@ function showLogin(){
 }
 
 $(document).on("submit", "#forgotPwdForm", function(event){
+    // TODO: Add functionality to save new password
     event.preventDefault();
     showLogin();
 });
@@ -27,3 +28,24 @@ function comparePwds(name){
         errorMessage.style.display="block";
     }
 }
+
+
+// --------------------------------------------------
+// --------------      AJAX CALLS      --------------
+// --------------------------------------------------
+
+//Create account
+$(document).on("submit", "#newAccountForm", function(event){
+    event.preventDefault();
+
+    $.ajax({
+        url: "./php/createUser.php",
+        method: "POST",
+        data: new FormData(this),
+        contentType:false,
+        processData:false,
+        success: function(data){
+            //TODO: Add functionality for logging in upon creation of account 
+        }
+    })
+});
