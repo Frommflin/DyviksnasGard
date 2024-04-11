@@ -16,11 +16,10 @@
                 $stmt->bindParam(":IMG",$fileName);
                 $stmt->bindParam(":ALBUM",$album);
                 $stmt->execute();
-
-                header ("Content-Type:text/xml; charset=utf-8");  
-                echo "<created status='OK'/>";
             }
         }
+        header ("Content-Type:text/xml; charset=utf-8");  
+        echo "<created status='OK'/>";
     } 
     catch (PDOException $e) {
         err("Error!: ".$e->getMessage()."<br/>");

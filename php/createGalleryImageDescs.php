@@ -4,7 +4,7 @@
     $album = $_POST["sendToAlbum"];
     $images = $_POST["images"];
 
-    //Decoding json string and conver to php array
+    //Decoding json string and convert to php array
     $decodedImages = json_decode($images, true);
 
     try{
@@ -19,9 +19,9 @@
                 $stmt->execute();
 
             }
-            header ("Content-Type:text/xml; charset=utf-8");  
-            echo "<created status='OK'/>";
         }
+        header ("Content-Type:text/xml; charset=utf-8");  
+        echo "<created status='OK'/>";
     } 
     catch (PDOException $e) {
         err("Error!: ".$e->getMessage()."<br/>");

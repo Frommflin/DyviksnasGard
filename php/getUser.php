@@ -6,18 +6,25 @@
 
     try
     {
-        $query = "SELECT * FROM `users` WHERE email=:EMAIL AND pwd=:PWD";
+        $query = "SELECT * FROM `users` WHERE email=:EMAIL";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":EMAIL",$email);
-        $stmt->bindParam(":PWD",$pwd);
         $stmt->execute();
+
 
         $output="<users>\n";
         foreach($stmt as $key => $row){
+            if(password_verify($pwd,$row["pwd"])){
                 $output.="<user \n";
                 $output.="    email='".$row["email"]."'\n";
                 $output.="    name='".$row["userName"]."'\n";
+                if($row["isAdmin"]){
+                    $output.="    role='Admin'\n";
+                } else {
+                    $output.="    role='Guest'\n";
+                }
                 $output.=" />\n";
+            }
         }
         $output.="</users>";
 
@@ -26,6 +33,6 @@
     }
     catch(PDOException $error)
     {
-        console.log("Error: ".$error->getMessage()."<br/>");
+        echo "Error: ".$error->getMessage()."<br/>";
     }
 ?>
