@@ -29,6 +29,48 @@ function comparePwds(name){
     }
 }
 
+function logIn(user){
+    //Navigate back to start-page
+    showPage(1); 
+
+    // Saving user role
+    localStorage.setItem("userRole",user.role);
+    localStorage.setItem("userName",user.name);
+
+    checkUser();
+}
+
+function logOut(){
+    //Navigate back to start-page
+    showPage(1); 
+
+    // Removing user from storage
+    localStorage.removeItem("userRole");
+    localStorage.removeItem("userName");
+    
+    checkUser();
+}
+
+function checkUser(){
+    let welcome = document.getElementById("welcomeUser");
+    if(("userName" in localStorage)){
+        let user = localStorage.getItem("userName");
+
+        //Toggling which button is shown
+        document.getElementById("link8").style.display = "none";
+        document.getElementById("logOutLink").style.display = "block";
+
+        // Printing welcome text
+        welcome.innerHTML = `Välkommen ${user}!`;
+    } else {
+        //Toggling which button is shown
+        document.getElementById("link8").style.display = "block";
+        document.getElementById("logOutLink").style.display = "none";
+
+        // Removing welcome text
+        welcome.innerHTML = "";
+    }
+}
 
 // --------------------------------------------------
 // --------------      AJAX CALLS      --------------
@@ -38,6 +80,14 @@ function comparePwds(name){
 $(document).on("submit", "#newAccountForm", function(event){
     event.preventDefault();
 
+    // Collecting neccesary data from form to log in after creation
+    let email = document.getElementById("createEmail").value;
+    let pwd = document.getElementById("createAccPwd1").value;
+
+    let userLogin = new FormData();
+    userLogin.append("loginEmail", email);
+    userLogin.append("loginPwd", pwd);
+
     $.ajax({
         url: "./php/createUser.php",
         method: "POST",
@@ -45,7 +95,45 @@ $(document).on("submit", "#newAccountForm", function(event){
         contentType:false,
         processData:false,
         success: function(data){
-            //TODO: Add functionality for logging in upon creation of account 
+            for (i = 0; i < data.childNodes.length; i++) {
+                if(data.childNodes.item(i).nodeName=="created"){
+                    getUser(userLogin);
+                }
+            } 
         }
     })
 });
+
+//Sign in to existing account
+$(document).on("submit", "#loginForm", function(event){
+    event.preventDefault();
+    let userLogin = new FormData(this);
+    getUser(userLogin);
+});
+
+function getUser(incomingLogin){
+    $.ajax({
+        url: "./php/getUser.php",
+        method: "POST",
+        data: incomingLogin,
+        contentType:false,
+        processData:false,
+        success: function(data){
+            let resultset=data.childNodes[0];
+            let user;
+
+            // Iterate over all nodes in root node (i.e. users)
+            for (i = 0; i < resultset.childNodes.length; i++){
+                if(resultset.childNodes.item(i).nodeName=="user"){
+                    let userXML =  resultset.childNodes.item(i);
+                    user = {
+                        email: userXML.attributes["email"].nodeValue,
+                        name: userXML.attributes["name"].nodeValue,
+                        role: userXML.attributes["role"].nodeValue
+                    };
+                }
+            }
+            logIn(user);
+        }
+    })
+}
