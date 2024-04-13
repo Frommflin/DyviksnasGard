@@ -1,3 +1,4 @@
+let horseImageArray = [];
 
 function showNewHorseForm(){
     let str = ``;
@@ -190,6 +191,12 @@ function getHorse(id){
                     document.getElementById("height").innerHTML = horseData.height;
                     document.getElementById("description").innerHTML = horseData.info;
 
+                    getHorseImages(horseData.id);
+
+                    // Storing id and name for changes on active horse
+                    let details = `${horseData.id},${horseData.name}`;
+                    sessionStorage.setItem("horse", details);
+
                     let str = ``;
                     if(localStorage.getItem("userRole") == "Admin"){
                         str += `<hr>`;
@@ -220,6 +227,74 @@ function getHorse(id){
                     document.getElementById("btnBox").innerHTML = str;
                 }
             }
+        }
+    })
+}
+
+function getHorseImages(id){
+    horseImageArray = []; //Clearing out any previously saved images
+    $.ajax({
+        url: "./php/getHorseImages.php",
+        method: "POST",
+        data: { 
+            horseID: id
+        },
+        success: function(data){
+            let resultset = data.childNodes[0];
+            let arrayLength = resultset.childNodes.length;
+
+            let storedHorse = sessionStorage.getItem("horse").split(",");
+            // id: horse[0], name: horse[1]
+            let horse = storedHorse[1];
+
+            let indicator = ``;
+            let images = ``;
+
+            if(arrayLength == 1){ // If no image has been added to this horse yet
+                indicator += `<button type="button" data-bs-target="#carouselIndicators" `;
+                indicator += `data-bs-slide-to="0" class="active" `;
+                indicator += `aria-current="true" aria-label="Slide 1">`;
+                indicator += `</button>`;
+
+                images += `<div class="carousel-item active">`;
+                images += `<img src="./images/noimage.png" class="d-block" alt="No image">`;
+                images += `</div>`;
+
+                document.getElementById("deleteHorseImages").disabled = true;
+            } else {
+                // Iterate over all nodes in root node (i.e. photos)
+                let slide = 0;
+                for (i = 0; i < arrayLength; i++){
+                    if(resultset.childNodes.item(i).nodeName=="image"){
+                        let image = resultset.childNodes.item(i);
+                        let filename = image.attributes["file"].nodeValue;
+                        horseImageArray.push(filename);
+
+                        // Creating indicator for each image
+                        indicator += `<button type="button" data-bs-target="#carouselIndicators" `;
+                        indicator += `data-bs-slide-to="${slide}" `;
+                        if(slide == 0){ // First image will be active on load
+                            indicator += `class="active" aria-current="true" `;
+                        }
+                        indicator += `aria-label="Slide ${slide+1}">`;
+                        indicator += `</button>`;
+
+                        //Creating image div for carousel
+                        images += `<div class="carousel-item`;
+                        if(slide == 0){ // First image will have the class 'active' on load
+                            images += ` active`;
+                        }
+                        images += `">`;
+                        images += `<img src="./images/horseUploads/${filename}" class="d-block" alt="Image ${slide+1} of ${horse}">`;
+                        images += `</div>`;
+
+                        slide++;
+                    }
+                }
+                document.getElementById("deleteHorseImages").disabled = false;
+            }
+            document.getElementById("indicators").innerHTML = indicator;
+            document.getElementById("carouselImages").innerHTML = images;
         }
     })
 }
