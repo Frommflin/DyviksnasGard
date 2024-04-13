@@ -112,6 +112,39 @@ $(document).on("click", "#cancelHorseDelete", function(event){
     closePopup();
 });
 
+function showDeleteHorseImgForm(){
+    let horse = sessionStorage.getItem("horse").split(",");
+    // id: horse[0], name: horse[1]
+
+    let str = "";
+
+    str += `<hr>`;
+    str += `<h2>Välj bilder att ta bort</h2>`;
+    str += `<form id="deleteHorseImgForm">`;
+    str += `<div id="imgDeletionContainer">`;
+    for( i = 0; i < horseImageArray.length; i++ ) {
+        str += `<div class="deleteCard card">`;
+        str += `<input type="checkbox" id="img${i+1}" name="deleteImages[]" value="${horseImageArray[i]}">`;
+        str += `<label for="img${i+1}">`;
+        str += `<img src="./images/horseUploads/${horseImageArray[i]}" alt="Image ${i+1} of ${horse[1]}">`;
+        str += `</label>`;
+        str += `</div>`;
+    };
+    str += `</div>`;
+    str += `<input type="hidden" name="horseID" id="horseID" value="${horse[0]}">`;
+    str += `<div class="confirmBtns">`;
+    str += `<input type="submit" id="cancelImgDelete" class="btn" value="Avbryt">`;
+    str += `<input type="submit" id="confirmImgDelete" class="btn" value="Ta bort markerade bilder">`;
+    str += `</div>`;
+    str += `</form>`;
+
+    document.getElementById("imgDeleteBox").innerHTML = str;
+}
+
+$(document).on("click", "#cancelImgDelete", function(event){
+    event.preventDefault();
+    document.getElementById("imgDeleteBox").innerHTML = "";
+});
 
 // --------------------------------------------------
 // --------------      AJAX CALLS      --------------
@@ -272,7 +305,7 @@ function getHorse(id){
                         str += `Ta bort häst`;
                         str += `</button>`;
 
-                        str += `<button id="deleteHorseImages" class="crudBtn">`;
+                        str += `<button id="deleteHorseImages" class="crudBtn" onclick="showDeleteHorseImgForm()">`;
                         str += `<img src="./icons/bin-white.png" />`;
                         str += `Ta bort bilder`;
                         str += `</button>`;
@@ -385,4 +418,32 @@ $(document).on("click", "#confirmHorseDelete", function(event){
             })
         }
     }) 
+});
+
+// Delete images on active horse
+$(document).on("click", "#confirmImgDelete", function(event){
+    event.preventDefault();
+    let id = document.getElementById("horseID").value;
+
+    var imagesToDelete = [];
+    var checkboxes = document.getElementsByName("deleteImages[]");
+    for( i = 0; i<checkboxes.length; i++ ){
+        if(checkboxes[i].checked){
+            imagesToDelete.push(checkboxes[i].value);
+        }
+    }
+
+    $.ajax({
+        url: "./php/deleteHorseImage.php",
+        method: "POST",
+        data: {
+            horseId: id,
+            images: JSON.stringify(imagesToDelete)
+        },
+        success: function(data){
+            document.getElementById("imgDeleteBox").innerHTML = "";
+            getHorseImages(id);
+        }
+    })
+
 });

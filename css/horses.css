@@ -81,5 +81,24 @@
     width: 700px;
   }
 }
+#imgDeleteBox {
+  margin-top: 30px;
+}
+
+#imgDeletionContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.deleteCard {
+  width: 280px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.confirmBtns {
+  display: flex;
+  justify-content: space-between;
+}
 
 /*# sourceMappingURL=horses.css.map */
