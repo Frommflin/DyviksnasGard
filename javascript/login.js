@@ -53,8 +53,9 @@ function logOut(){
 
 function checkUser(){
     let welcome = document.getElementById("welcomeUser");
-    if(("userName" in localStorage)){
+    if(("userName" in localStorage) && ("userRole" in localStorage)){
         let user = localStorage.getItem("userName");
+        let role = localStorage.getItem("userRole");
 
         //Toggling which button is shown
         document.getElementById("link8").style.display = "none";
@@ -62,6 +63,19 @@ function checkUser(){
 
         // Printing welcome text
         welcome.innerHTML = `Välkommen ${user}!`;
+        if(role === "Admin"){
+            //Print admin buttons
+            let str = ``;
+
+            // Creating button for adding news, Page 1
+            str += `<button class="crudBtn" onclick="showNewsForm('${user}')">`;
+            str += `<img src="./icons/addpost-white.png" />`;
+            str += `Lägg till nyhet`;
+            str += `</button>`;
+            document.getElementById("post").innerHTML = str;
+        } else {
+            hideAdmins();
+        }
     } else {
         //Toggling which button is shown
         document.getElementById("link8").style.display = "block";
@@ -69,7 +83,13 @@ function checkUser(){
 
         // Removing welcome text
         welcome.innerHTML = "";
+
+        hideAdmins();
     }
+}
+
+function hideAdmins(){
+    document.getElementById("post").innerHTML = "";
 }
 
 // --------------------------------------------------

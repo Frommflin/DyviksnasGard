@@ -1,5 +1,5 @@
 
-function showNewsForm(){
+function showNewsForm(user){
     let str = ``;
 
     str += `<div class="topRow">`;
@@ -11,7 +11,7 @@ function showNewsForm(){
     str += `<div class="input-group-prepend">`;
     str += `<span class="input-group-text">Titel</span>`;
     str += `</div>`;
-    str += `<input type="text" class="form-control" name="newsName" maxlength="50">`;
+    str += `<input type="text" class="form-control" name="newsName" maxlength="50" required>`;
     str += `</div>`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
@@ -25,10 +25,31 @@ function showNewsForm(){
     str += `</div>`;
     str += `<textarea class="form-control" name="newsDescription" placeholder="Berätta om nyheten här" required></textarea>`;
     str += `</div>`;
-    str += `<input type="hidden" name="author" value="USERNAME" />`;
+    str += `<input type="hidden" name="author" value="${user}" />`;
     str += `<button class="btn">Publicera</button>`;
     str += `</form>`;
 
     document.getElementById("formBox").innerHTML = str;
     showPage(9);
 }
+
+
+// --------------------------------------------------
+// --------------      AJAX CALLS      --------------
+// --------------------------------------------------
+
+// Create a new newspost
+$(document).on("submit", "#addNewsForm", function(event){
+    event.preventDefault();
+    $.ajax({
+        url: "./php/createNewspost.php",
+        method: "POST",
+        data: new FormData(this),
+        contentType:false,
+        processData:false,
+        success: function(data){
+            getPosts();
+            showPage(1);
+        }
+    })
+});
