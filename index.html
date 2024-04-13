@@ -49,12 +49,9 @@
                                 Träffa hästarna
                             </a>
                             <div class="dropdown-menu">
-                                <a id="nestedLink1" class="dropdown-item spaLink" href="#" onclick="showPage(4,1)">Alla Hästar</a>
+                                <a id="nestedLink0" class="dropdown-item spaLink" href="#" onclick="showPage(4,0)">Alla Hästar</a>
                                 <hr class="dropdown-divider">
-                                <!-- TODO: Generate links dynamically for every horse -->
-                                <a id="nestedLink2" class="dropdown-item spaLink" href="#" onclick="showPage(5,2); fillPage('Luffen')">Luffen</a>
-                                <a id="nestedLink3" class="dropdown-item spaLink" href="#" onclick="showPage(5,3); fillPage('Troll')">Troll</a>
-                                <a id="nestedLink4" class="dropdown-item spaLink" href="#" onclick="showPage(5,4); fillPage('Kotte')">Kotte</a>
+                                <div id="horseLinks"></div>
                             </div>
                         </div>
                         <a id="link6" class="nav-link spaLink" href="#" onclick="showPage(6)">Galleri</a>
@@ -143,26 +140,7 @@
                     <h1>Träffa våra hästar</h1>
                     <div id="horse"></div>
                 </div>
-                <div id="cardContainer">
-                    <div class="card">
-                        <img src="./images/placeholderSmallImg.png" class="card-img-top" alt="Luffen">
-                        <div class="cardBody">
-                            <h2>Luffen</h2>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="./images/placeholderSmallImg.png" class="card-img-top" alt="Kotte">
-                        <div class="cardBody">
-                            <h2>Kotte</h2>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="./images/placeholderSmallImg.png" class="card-img-top" alt="Troll">
-                        <div class="cardBody">
-                            <h2>Troll</h2>
-                        </div>
-                    </div>
-                </div>
+                <div id="cardContainer"></div>
             </div> <!--  End of page 4 -->
             <div id="page5" class="page"> <!-- Vald häst -->
                 <div id="horseContainer">

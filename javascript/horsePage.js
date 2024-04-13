@@ -109,3 +109,44 @@ $(document).on("submit", "#newHorseForm", function(event){
         }
     })
 });
+
+function getHorses(){
+    $.ajax({
+        url: "./php/getAllHorses.php",
+        method: "POST",
+        success: function(data){
+            let resultset = data.childNodes[0];
+            
+            let str1 = ``;
+            let str2 = ``;
+            // Iterate over all nodes in root node (i.e. horses)
+            for (i = 0; i < resultset.childNodes.length; i++){
+                if(resultset.childNodes.item(i).nodeName=="horse"){
+                    let horse = resultset.childNodes.item(i);
+
+                    // Creating navigation links
+                    str1 += `<a id="nestedLink${horse.attributes["id"].nodeValue}" `;
+                    str1 += `class="dropdown-item spaLink" href="#" `;
+                    str1 += `onclick="showPage(5,${horse.attributes["id"].nodeValue}); `;
+                    str1 += `getHorse('${horse.attributes["id"].nodeValue}')" >`;
+                    str1 += `${horse.attributes["name"].nodeValue}`;
+                    str1 += `</a>`;
+
+                    // Creating profile cards on page 4
+                    str2 += `<div class="card profileCard" `;
+                    str2 += `onclick="showPage(5,${horse.attributes["id"].nodeValue}); `;
+                    str2 += `fillPage('${horse.attributes["name"].nodeValue}')" >`;
+                    str2 += `<img class="card-img-top" `;
+                    str2 += `src="./images/horseProfiles/${horse.attributes["image"].nodeValue}" `;
+                    str2 += `alt="${horse.attributes["name"].nodeValue}">`;
+                    str2 += `<div class="cardBody">`;
+                    str2 += `<h2>${horse.attributes["name"].nodeValue}</h2>`;
+                    str2 += `</div>`;
+                    str2 += `</div>`;
+                }
+            }
+            document.getElementById("horseLinks").innerHTML = str1;
+            document.getElementById("cardContainer").innerHTML = str2;
+        }
+    })
+}
