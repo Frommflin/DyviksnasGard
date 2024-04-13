@@ -21,10 +21,23 @@
   align-items: center;
   padding: 0px 25px;
   color: #801818;
+  margin-bottom: 5px;
 }
 .newsCard .postContent img {
   max-width: 100%;
   max-height: 25rem;
+}
+.newsCard .postContent .article {
+  width: 100%;
+}
+.newsCard .postContent .article input {
+  font-size: 1.75rem;
+}
+.newsCard .postContent .article textarea {
+  height: 340px;
+}
+.newsCard #newsBtnBox .btn {
+  margin: 0 10px;
 }
 
 @media screen and (min-width: 1200px) {
@@ -38,6 +51,32 @@
 }
 #addNewsForm .input-group-text {
   width: 7rem;
+}
+
+.pagination ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pagination ul li {
+  cursor: pointer;
+}
+
+.hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.activepgn {
+  color: #ffffff;
+  background-color: #801818;
+  border-color: #661313;
 }
 
 /*# sourceMappingURL=news.css.map */
