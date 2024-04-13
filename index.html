@@ -21,7 +21,7 @@
         <script src="./javascript/news.js"></script>
         <script src="./javascript/login.js"></script>
     </head>
-    <body onload="showPage(1); getPosts()">
+    <body onload="showPage(1); getPosts(); getHorses();">
         <header>
             <div id="logoBanner">
                 <img id="bannerLogo" src="./icons/DyviksnäsLogga.png" alt="Dyviksnäs Gårds Logga" />
@@ -171,46 +171,25 @@
                                 </button>
                             </div>
                         </div> <!--  End of carousel -->
-                        <h1 id="name">Namn</h1>
-                        <h5 id="nickname">Smeknamn</h5>
-                        <div id="age">
-                            Född: [år] (ålder)
+                        <h1 id="name"></h1>
+                        <h5 id="nickname"></h5>
+                        <div>
+                            Född: <span id="year"></span> (<span id="age"></span>år)
                         </div>
-                        <div id="color">
-                            Färg: [färg], [eventuella tecken]
+                        <div>
+                            Färg: <span id="color"></span>
                         </div>
-                        <div id="breed">
-                            Ras: [ras]
+                        <div>
+                            Ras: <span id="breed"></span>
                         </div>
-                        <div id="height">
-                            Mankhöjd: [XXX cm]
+                        <div>
+                            Mankhöjd: <span id="height"></span>cm
                         </div>
-                        <div id="description">
-                            <p>Beskrivning/introduktion om hästen</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus vestibulum sed arcu non odio. At consectetur lorem donec massa sapien faucibus et molestie. Mollis nunc sed id semper. Ridiculus mus mauris vitae ultricies leo integer. Tortor aliquam nulla facilisi cras. Ut lectus arcu bibendum at varius vel pharetra. Sed vulputate mi sit amet mauris commodo. In nibh mauris cursus mattis. Eget gravida cum sociis natoque penatibus et. Dui nunc mattis enim ut. Amet nulla facilisi morbi tempus iaculis. Senectus et netus et malesuada fames ac. Velit ut tortor pretium viverra suspendisse. Fermentum leo vel orci porta non pulvinar neque laoreet suspendisse. Tellus at urna condimentum mattis pellentesque id nibh tortor. Habitant morbi tristique senectus et netus et malesuada fames ac.</p>
-                        </div>
-                    </div>
-                    <div id="btnBox">
-                        <hr>
-                        <div class="crudBox">
-                            <button class="crudBtn" onclick="showHorseImgForm()">
-                                <img src="./icons/addimage-white.png" />
-                                Lägg till bilder
-                            </button>
-                            <button class="crudBtn">
-                                <img src="./icons/edithorse-white.png" />
-                                Redigera häst
-                            </button>
-                            <button class="crudBtn">
-                                <img src="./icons/bin-white.png" />
-                                Ta bort häst
-                            </button>
-                            <button class="crudBtn">
-                                <img src="./icons/bin-white.png" />
-                                Ta bort bilder
-                            </button>
+                        <div>
+                            <p id="description"></p>
                         </div>
                     </div>
+                    <div id="btnBox"></div>
                 </div>
             </div> <!--  End of page 5 -->
             <div id="page6" class="page"> <!-- Galleri -->

@@ -1,7 +1,3 @@
-function fillPage(name){
-    // TODO: Create and connect to database for filling page dynamically
-    document.getElementById("name").innerHTML = name;
-}
 
 function showNewHorseForm(){
     let str = ``;
@@ -136,7 +132,7 @@ function getHorses(){
                     // Creating profile cards on page 4
                     str2 += `<div class="card profileCard" `;
                     str2 += `onclick="showPage(5,${horse.attributes["id"].nodeValue}); `;
-                    str2 += `fillPage('${horse.attributes["name"].nodeValue}')" >`;
+                    str2 += `getHorse('${horse.attributes["id"].nodeValue}')" >`;
                     str2 += `<img class="card-img-top" `;
                     str2 += `src="./images/horseProfiles/${horse.attributes["image"].nodeValue}" `;
                     str2 += `alt="${horse.attributes["name"].nodeValue}">`;
@@ -148,6 +144,82 @@ function getHorses(){
             }
             document.getElementById("horseLinks").innerHTML = str1;
             document.getElementById("cardContainer").innerHTML = str2;
+        }
+    })
+}
+
+
+// page5 - Selected horse
+
+function getHorse(id){
+    $.ajax({
+        url: "./php/getHorse.php",
+        method: "POST",
+        data: { 
+            horseID: id
+        },
+        success: function(data){
+            let resultset = data.childNodes[0];
+            // Iterate over all nodes in root node (i.e. horses)
+            for (i = 0; i < resultset.childNodes.length; i++){
+                if(resultset.childNodes.item(i).nodeName=="horse"){
+                    let horse = resultset.childNodes.item(i);
+
+                    const currentYear = new Date().getFullYear();
+                    let age = currentYear - horse.attributes["year"].nodeValue;
+
+                    let horseData = {
+                        id: horse.attributes["id"].nodeValue,
+                        name: horse.attributes["name"].nodeValue,
+                        nickname: horse.attributes["nickname"].nodeValue,
+                        color: horse.attributes["color"].nodeValue,
+                        breed: horse.attributes["breed"].nodeValue,
+                        height: horse.attributes["height"].nodeValue,
+                        year: horse.attributes["year"].nodeValue,
+                        age: age,
+                        image: horse.attributes["image"].nodeValue,
+                        info: horse.attributes["info"].nodeValue
+                    };
+
+                    document.getElementById("name").innerHTML = horseData.name;
+                    document.getElementById("nickname").innerHTML = horseData.nickname;
+                    document.getElementById("year").innerHTML = horseData.year;
+                    document.getElementById("age").innerHTML = horseData.age;
+                    document.getElementById("color").innerHTML = horseData.color;
+                    document.getElementById("breed").innerHTML = horseData.breed;
+                    document.getElementById("height").innerHTML = horseData.height;
+                    document.getElementById("description").innerHTML = horseData.info;
+
+                    let str = ``;
+                    if(localStorage.getItem("userRole") == "Admin"){
+                        str += `<hr>`;
+                        str += `<div class="crudBox">`;
+
+                        str += `<button class="crudBtn" onclick="showHorseImgForm()">`;
+                        str += `<img src="./icons/addimage-white.png" />`;
+                        str += `Lägg till bilder`;
+                        str += `</button>`;
+
+                        str += `<button class="crudBtn">`;
+                        str += `<img src="./icons/edithorse-white.png" />`;
+                        str += `Redigera häst`;
+                        str += `</button>`;
+
+                        str += `<button class="crudBtn">`;
+                        str += `<img src="./icons/bin-white.png" />`;
+                        str += `Ta bort häst`;
+                        str += `</button>`;
+
+                        str += `<button id="deleteHorseImages" class="crudBtn">`;
+                        str += `<img src="./icons/bin-white.png" />`;
+                        str += `Ta bort bilder`;
+                        str += `</button>`;
+
+                        str += `</div>`;
+                    }
+                    document.getElementById("btnBox").innerHTML = str;
+                }
+            }
         }
     })
 }
