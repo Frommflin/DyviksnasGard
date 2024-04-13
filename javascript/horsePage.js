@@ -87,3 +87,25 @@ function showHorseImgForm(){
     document.getElementById("formBox").innerHTML = str;
     showPage(9);
 }
+
+
+// --------------------------------------------------
+// --------------      AJAX CALLS      --------------
+// --------------------------------------------------
+
+// page4 - All horses
+
+// Add a new horse
+$(document).on("submit", "#newHorseForm", function(event){
+    event.preventDefault();
+    $.ajax({
+        url: "./php/createHorse.php",
+        method: "POST",
+        data: new FormData(this),
+        contentType:false,
+        processData:false,
+        success: function(data){
+            showPage(4);
+        }
+    })
+});

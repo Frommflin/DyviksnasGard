@@ -73,6 +73,13 @@ function checkUser(){
             str += `Lägg till nyhet`;
             str += `</button>`;
             document.getElementById("post").innerHTML = str;
+            
+            // Creating button for adding a new horse, Page 4
+            str = `<button class="crudBtn" onclick="showNewHorseForm()">`;
+            str += `<img src="./icons/addhorse-white.png" />`;
+            str += `Lägg till ny häst`;
+            str += `</button>`;
+            document.getElementById("horse").innerHTML = str;
         } else {
             hideAdmins();
         }
@@ -90,6 +97,7 @@ function checkUser(){
 
 function hideAdmins(){
     document.getElementById("post").innerHTML = "";
+    document.getElementById("horse").innerHTML = "";
 }
 
 // --------------------------------------------------
