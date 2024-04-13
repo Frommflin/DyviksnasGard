@@ -64,20 +64,23 @@ function showNewHorseForm(){
 }
 
 function showHorseImgForm(){
+    let horse = sessionStorage.getItem("horse").split(",");
+    // id: horse[0], name: horse[1]
+
     let str = ``;
 
     str += `<div class="topRow">`;
-    str += `<h1>Lägg till bilder på {namn}</h1>`;
-    str += `<button class="btn" onclick="showPage(5,2)">Avbryt</button>`; //TODO: Adjust second parameter to show to previously clicked horse
+    str += `<h1>Lägg till bilder på ${horse[1]}</h1>`;
+    str += `<button class="btn" onclick="showPage(5,${horse[0]})">Avbryt</button>`;
     str += `</div>`;
-    str += `<form id="HorseImageForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
+    str += `<form id="horseImageForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
     str += `<span class="input-group-text">Bilder</span>`;
     str += `</div>`;
     str += `<input type="file" class="form-control" name="uploadHorse[]" id="uploadHorse" multiple required>`;
     str += `</div>`;
-    str += `<input type="hidden" name="horseId" value="horseID" />`;
+    str += `<input type="hidden" name="horseId" id="horseId" value="${horse[0]}" />`;
     str += `<button class="btn">Spara bilder</button>`;
     str += `</form>`;
 
@@ -151,6 +154,34 @@ function getHorses(){
 
 
 // page5 - Selected horse
+
+// Add pictures to active horse
+$(document).on("submit", "#horseImageForm", function(event){
+    event.preventDefault();
+
+    let horse = document.getElementById("horseId").value;
+
+    let formData = new FormData();
+    formData.append("horseID", horse);
+
+    // Read and append selected files
+    let totalfiles = document.getElementById("uploadHorse").files.length;
+    for (let i = 0; i < totalfiles; i++) {
+        formData.append("uploadHorse[]", document.getElementById("uploadHorse").files[i]);
+    }
+
+    $.ajax({
+        url: "./php/createHorseImages.php",
+        method: "POST",
+        data: formData,
+        contentType:false,
+        processData:false,
+        success: function(data){
+            getHorseImages(document.getElementById("horseId").value);
+            showPage(5, horse);
+        }
+    })
+});
 
 function getHorse(id){
     $.ajax({
