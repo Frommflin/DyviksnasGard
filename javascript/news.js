@@ -97,6 +97,26 @@ function createPagination(){
     }
 }
 
+function editPostForm(number, id, title, text){
+    let str1 = ``;
+    str1 += `<form id="updateNewsPost">`;
+    str1 += `<input type="text" class="form-control" name="updateNewsName" id="updateNewsName" maxlength="50" value="${title}" required>`;
+    str1 += `<textarea class="form-control" name="updateNewsDescription" id="updateNewsDescription" required>${text}</textarea>`;
+    str1 += `<input type="hidden" name="updatePostId" id="updatePostId" value="${id}">`;
+    str1 += `</form>`;
+    document.getElementById(`post${number}`).innerHTML = str1;
+
+    let str2 = ``;
+    str2 += `<button class="btn" onclick="editPost()">`;
+    str2 += `<img src="./icons/save-white.png" />`;
+    str2 += `Spara ändring`;
+    str2 += `</button>`;
+    str2 += `<button class="btn" onclick="getPosts()">`;
+    str2 += `&times Avbryt`;
+    str2 += `</button>`;
+    document.getElementById("newsBtnBox").innerHTML = str2;
+}
+
 
 // --------------------------------------------------
 // --------------      AJAX CALLS      --------------
@@ -151,7 +171,7 @@ function getPosts(){
                     if(localStorage.getItem("userRole") == "Admin"){
                         str += `<hr>`;
                         str += `<div id="newsBtnBox" class="crudBox">`;
-                        str += `<button class="crudBtn">`;
+                        str += `<button class="crudBtn" onclick="editPostForm(${i},${post.attributes["id"].nodeValue},'${post.attributes["title"].nodeValue}','${post.attributes["article"].nodeValue}')">`;
                         str += `<img src="./icons/editpost-white.png" />`;
                         str += `Redigera`;
                         str += `</button>`;
@@ -166,6 +186,25 @@ function getPosts(){
             }
             document.getElementById("newsLetter").innerHTML = str;
             createPagination();
+        }
+    })
+}
+
+function editPost(){
+    let id = document.getElementById("updatePostId").value;
+    let title = document.getElementById("updateNewsName").value;
+    let text = document.getElementById("updateNewsDescription").value;
+
+    $.ajax({
+        url: "./php/editNewspost.php",
+        method: "POST",
+        data: {
+            postId: id, 
+            title: title,
+            description: text
+        },
+        success: function(data){
+            getPosts();
         }
     })
 }
