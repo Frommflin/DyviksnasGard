@@ -33,6 +33,70 @@ function showNewsForm(user){
     showPage(9);
 }
 
+function createPagination(){
+    const content = document.querySelector("#newsLetter"); 
+    const itemsPerPage = 5; // set number of items per page
+    let currentPage = 0;
+    const items = Array.from(content.getElementsByClassName("newsCard")).slice(0);
+
+    if(items.length > 5 ){ //Run code only if num of post exceeds first page
+        function showNewspage(page) {
+            const startIndex = page * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            items.forEach((item, index) => {
+            item.classList.toggle("hidden", index < startIndex || index >= endIndex);
+            });
+            updateActiveButtonStates();
+        }
+        
+        function createPageButtons() {
+            const totalPages = Math.ceil(items.length / itemsPerPage);
+            const paginationContainer = document.createElement("nav");
+            const paginationNav = document.body.appendChild(paginationContainer);
+            paginationContainer.classList.add("pagination");
+            paginationContainer.classList.add("pagination-sm");
+            paginationContainer.classList.add("justify-content-center");
+    
+            const paginationList = document.createElement("ul");
+            paginationNav.appendChild(paginationList);
+        
+            // Add page buttons
+            for (let i = 0; i < totalPages; i++) {
+                const listItem = document.createElement("li");
+                listItem.classList.add("page-item");
+    
+                const pageButton = document.createElement("a");
+                pageButton.classList.add("page-link");
+                pageButton.textContent = i + 1;
+    
+                pageButton.addEventListener("click", () => {
+                    currentPage = i;
+                    showNewspage(currentPage);
+                    updateActiveButtonStates();
+                });
+            
+                content.appendChild(paginationContainer);
+                paginationList.appendChild(listItem);
+                listItem.appendChild(pageButton);
+            }
+        }
+        
+        function updateActiveButtonStates() {
+            const pageButtons = document.querySelectorAll(".pagination ul li a");
+            pageButtons.forEach((button, index) => {
+            if (index === currentPage) {
+                button.classList.add("activepgn");
+            } else {
+                button.classList.remove("activepgn");
+            }
+            });
+        }
+      
+        createPageButtons(); // Call this function to create the page buttons initially
+        showNewspage(currentPage);
+    }
+}
+
 
 // --------------------------------------------------
 // --------------      AJAX CALLS      --------------
@@ -101,6 +165,7 @@ function getPosts(){
                 }
             }
             document.getElementById("newsLetter").innerHTML = str;
+            createPagination();
         }
     })
 }
