@@ -117,6 +117,27 @@ function editPostForm(number, id, title, text){
     document.getElementById("newsBtnBox").innerHTML = str2;
 }
 
+function confirmDelete(id, image){
+    let str = ``;
+
+    str += `<div class="popupBox">`;
+    str += `<form id="deleteNewsForm" class="col col-xs-6" method="post">`;
+    str += `<h1>Är du säker på att du vill ta bort den här nyheten?</h1>`;
+    str += `<input type="hidden" name="postId" id="postId" value="${id}" />`;
+    str += `<input type="hidden" name="image" id="image" value="${image}" />`;
+    str += `<div class="confirmBtns">`;
+    str += `<button type="submit" id="cancelDelete" class="btn">Avbryt</button>`;
+    str += `<button type="submit" id="confirmDelete" class="btn">Ta bort</button>`;
+    str += `</div>`;
+    str += `</div>`;
+
+    showPopup(str);
+}
+
+$(document).on("click", "#cancelDelete", function(event){
+    event.preventDefault();
+    closePopup();
+});
 
 // --------------------------------------------------
 // --------------      AJAX CALLS      --------------
@@ -175,7 +196,7 @@ function getPosts(){
                         str += `<img src="./icons/editpost-white.png" />`;
                         str += `Redigera`;
                         str += `</button>`;
-                        str += `<button class="crudBtn">`;
+                        str += `<button class="crudBtn" onclick="confirmDelete(${post.attributes["id"].nodeValue}, '${post.attributes["image"].nodeValue}')">`;
                         str += `<img src="./icons/bin-white.png" />`;
                         str += `Ta bort`;
                         str += `</button>`;
@@ -208,3 +229,23 @@ function editPost(){
         }
     })
 }
+
+// Delete a post
+$(document).on("click", "#confirmDelete", function(event){
+    event.preventDefault();
+    let id = document.getElementById("postId").value;
+    let img = document.getElementById("image").value;
+
+    $.ajax({
+        url: "./php/deleteNewspost.php",
+        method: "POST",
+        data: {
+            postId: id, 
+            image: img
+        },
+        success: function(data){
+            getPosts();
+            closePopup();
+        }
+    })
+});
