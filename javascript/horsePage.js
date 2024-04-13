@@ -1,5 +1,4 @@
-let horseImageArray = [];
-
+// page4 - All horses
 function showNewHorseForm(){
     let str = ``;
 
@@ -63,6 +62,9 @@ function showNewHorseForm(){
     showPage(9);
 }
 
+// page5 - Selected horse
+let horseImageArray = [];
+
 function showHorseImgForm(){
     let horse = sessionStorage.getItem("horse").split(",");
     // id: horse[0], name: horse[1]
@@ -87,6 +89,28 @@ function showHorseImgForm(){
     document.getElementById("formBox").innerHTML = str;
     showPage(9);
 }
+
+function deleteHorse(id, image){
+    let str = ``;
+
+    str += `<div class="popupBox">`;
+    str += `<form id="deleteHorseForm" class="col col-xs-6" method="post">`;
+    str += `<h1>Är du säker på att du vill ta bort den här hästen?</h1>`;
+    str += `<input type="hidden" name="horseId" id="horseId" value="${id}" />`;
+    str += `<input type="hidden" name="horseImg" id="horseImg" value="${image}" />`;
+    str += `<div class="confirmBtns">`;
+    str += `<button type="submit" id="cancelHorseDelete" class="btn">Avbryt</button>`;
+    str += `<button type="submit" id="confirmHorseDelete" class="btn">Ta bort</button>`;
+    str += `</div>`;
+    str += `</div>`;
+
+    showPopup(str);
+}
+
+$(document).on("click", "#cancelHorseDelete", function(event){
+    event.preventDefault();
+    closePopup();
+});
 
 
 // --------------------------------------------------
@@ -243,7 +267,7 @@ function getHorse(id){
                         str += `Redigera häst`;
                         str += `</button>`;
 
-                        str += `<button class="crudBtn">`;
+                        str += `<button class="crudBtn" onclick="deleteHorse(${horseData.id}, '${horseData.image}')">`;
                         str += `<img src="./icons/bin-white.png" />`;
                         str += `Ta bort häst`;
                         str += `</button>`;
@@ -329,3 +353,36 @@ function getHorseImages(id){
         }
     })
 }
+
+// Delete horse
+$(document).on("click", "#confirmHorseDelete", function(event){
+    event.preventDefault();
+    let id = document.getElementById("horseId").value;
+    let img = document.getElementById("horseImg").value;
+
+    // First delete all images in table using horse as foreign key
+    $.ajax({
+        url: "./php/deleteHorseImages.php",
+        method: "POST",
+        data: {
+            horseId: id,
+            images: JSON.stringify(horseImageArray)
+        },
+        success: function(data){
+            // Then remove horse from db and update site with current content
+            $.ajax({
+                url: "./php/deleteHorse.php",
+                method: "POST",
+                data: {
+                    horseId: id,
+                    image: img
+                },
+                success: function(response){
+                    closePopup();
+                    getHorses();
+                    showPage(4,0);
+                }
+            })
+        }
+    }) 
+});
