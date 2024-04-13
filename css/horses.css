@@ -37,6 +37,7 @@
 #horseContainer {
   margin: 10px 0;
   position: relative;
+  min-height: 390px;
 }
 #horseContainer .btn {
   height: 36px;
