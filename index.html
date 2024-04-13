@@ -21,7 +21,7 @@
         <script src="./javascript/news.js"></script>
         <script src="./javascript/login.js"></script>
     </head>
-    <body onload="showPage(1)">
+    <body onload="showPage(1); getPosts()">
         <header>
             <div id="logoBanner">
                 <img id="bannerLogo" src="./icons/DyviksnäsLogga.png" alt="Dyviksnäs Gårds Logga" />
@@ -69,35 +69,7 @@
                     <h1>Aktuellt på Dyviksnäs Gård</h1>
                     <div id="post"></div>
                 </div>
-                <div id="newsLetter">
-                    <div class="newsCard">
-                        <!-- Will be created dynamically -->
-                        <div class="postDetails">
-                            <!-- post details; date, name of author? -->
-                            <span>Datum för nyhet</span>
-                            <span>Författare</span>
-                        </div>
-                        <hr>
-                        <div class="postContent">
-                            <img src="./images/PlaceholderBigImg.png" />
-                            <div class="article">
-                                <h3>Nyhetstitel</h3>
-                                <p>Felis eget nunc lobortis mattis aliquam. Est ullamcorper eget nulla facilisi etiam dignissim. Tortor at auctor urna nunc id. Duis convallis convallis tellus id interdum velit laoreet id. Pellentesque habitant morbi tristique senectus et netus. Blandit cursus risus at ultrices mi tempus. Imperdiet nulla malesuada pellentesque elit eget gravida. Proin sed libero enim sed faucibus turpis in eu mi. Sagittis purus sit amet volutpat consequat. Aliquet lectus proin nibh nisl. Varius morbi enim nunc faucibus a pellentesque sit amet porttitor. Eu lobortis elementum nibh tellus molestie. At tempor commodo ullamcorper a. Velit euismod in pellentesque massa placerat duis. Fermentum iaculis eu non diam phasellus vestibulum. Egestas egestas fringilla phasellus faucibus scelerisque eleifend. Nunc scelerisque viverra mauris in aliquam sem fringilla. Sed lectus vestibulum mattis ullamcorper velit sed.</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="crudBox">
-                            <button class="crudBtn">
-                                <img src="./icons/editpost-white.png" />
-                                Redigera
-                            </button>
-                                <button class="crudBtn">
-                                <img src="./icons/bin-white.png" />
-                            Ta bort
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <div id="newsLetter"></div>
             </div> <!--  End of page 1 -->
             <div id="page2" class="page"> <!-- Om oss -->
                 <h1>Om Oss</h1>

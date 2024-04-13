@@ -53,3 +53,54 @@ $(document).on("submit", "#addNewsForm", function(event){
         }
     })
 });
+
+// Get all newsposts
+function getPosts(){
+    $.ajax({
+        url: "./php/getNewsposts.php",
+        method: "POST",
+        success: function(data){
+            let resultset=data.childNodes[0];
+            
+            let str = ``;
+            // Iterate over all nodes in root node (i.e. newsposts)
+            for (i = 0; i < resultset.childNodes.length; i++){
+                if(resultset.childNodes.item(i).nodeName=="post"){
+                    let post = resultset.childNodes.item(i);
+
+                    str += `<div class="newsCard">`;
+                    str += `<div class="postDetails">`;
+                    str += `<span>${post.attributes["date"].nodeValue}</span>`;
+                    str += `<span>${post.attributes["author"].nodeValue}</span>`;
+                    str += `</div>`;
+                    str += `<hr>`;
+                    str += `<div class="postContent">`;
+                    if(post.attributes["image"].nodeValue != ""){
+                        str += `<img src="./images/newsUploads/${post.attributes["image"].nodeValue}" />`;
+                    }
+                    str += `<div id="post${i}" class="article">`;
+                    str += `<h3>${post.attributes["title"].nodeValue}</h3>`;
+                    str += `<p>${post.attributes["article"].nodeValue}</p>`;
+                    str += `</div>`;
+                    str += `</div>`;
+
+                    if(localStorage.getItem("userRole") == "Admin"){
+                        str += `<hr>`;
+                        str += `<div id="newsBtnBox" class="crudBox">`;
+                        str += `<button class="crudBtn">`;
+                        str += `<img src="./icons/editpost-white.png" />`;
+                        str += `Redigera`;
+                        str += `</button>`;
+                        str += `<button class="crudBtn">`;
+                        str += `<img src="./icons/bin-white.png" />`;
+                        str += `Ta bort`;
+                        str += `</button>`;
+                        str += `</div>`;
+                    }
+                    str += `</div>`;
+                }
+            }
+            document.getElementById("newsLetter").innerHTML = str;
+        }
+    })
+}
