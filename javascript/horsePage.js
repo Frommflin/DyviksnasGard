@@ -105,6 +105,7 @@ $(document).on("submit", "#newHorseForm", function(event){
         contentType:false,
         processData:false,
         success: function(data){
+            getHorses();
             showPage(4);
         }
     })
