@@ -69,27 +69,34 @@ function showImageForm(albumId){
     showPage(9);
 }
 
-function addImageDescription(){
+function addImageDescription(images,albumId){
     let str = ``;
 
     str += `<div class="topRow">`;
     str += `<h1>Lägg till bildtext</h1>`;
-    str += `<button class="btn" onclick="showPage(6)">Avbryt</button>`;
+    str += `<button class="btn" onclick="undoUploadedImages()">Avbryt</button>`;
     str += `</div>`;
     str += `<form id="addDescForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
     str += `<div id="hint">Max 100 tecken per bildbeskrivning.</div>`;
     str += `<div id="cardBox">`;
-    str += `<div class="imageCard">`;
-    str += `<img src="./images/PlaceholderBigImg.png" />`;
-    str += `<div class="input-group">`;
-    str += `<div class="input-group-prepend">`;
-    str += `<span class="input-group-text">Beskrivning</span>`;
+    for( i = 0; i < images.length; i++ ) {
+        str += `<div class="imageCard">`;
+        str += `<img src="./images/galleryUploads/${images[i]}" />`;
+        str += `<div>`;
+        str += `<input type="hidden" name="imgName${i}" id="imgName${i}" value="${images[i]}">`;
+        str += `<div class="input-group">`;
+        str += `<div class="input-group-prepend">`;
+        str += `<span class="input-group-text">Beskrivning</span>`;
+        str += `</div>`;
+        str += `<input type="text" class="form-control" name="imgDescription${i}" id="imgDescription${i}" maxlength="100" onkeydown="countChars('imgDescription${i}', 'charCounter${i}')" placeholder="Kort beskrivning">`;
+        str += `</div>`;
+        str += `<div id="charCounter${i}" class="counters">0/100</div>`;
+        str += `</div>`;
+        str += `</div>`;
+        
+    }
     str += `</div>`;
-    str += `<input type="text" class="form-control" name="imgDescription" maxlength="100" placeholder="Kort beskrivning" required>`;
-    str += `</div>`;
-    str += `</div>`;
-    str += `</div>`;
-    str += `<input type="hidden" name="toAlbum" value="albumName" />`;
+    str += `<input type="hidden" name="sendToAlbum" id="sendToAlbum" value="${albumId}" />`;
     str += `<button class="btn">Spara</button>`;
     str += `</form>`;
 
@@ -178,7 +185,76 @@ $(document).on("click", "#addGalImg", function(event){
 //Function to move to second form to add descriptions before adding images to db
 $(document).on("click", "#addGalDesc", function(event){
     event.preventDefault();
-    addImageDescription();
+
+    let albumId = document.getElementById("toAlbum").value;
+    let formData = new FormData();
+    formData.append("toAlbum", albumId);
+
+    // Read selected files
+    let totalfiles = document.getElementById("galleryUploads").files.length;
+    for (let i = 0; i < totalfiles; i++) {
+        formData.append("galleryUploads[]", document.getElementById("galleryUploads").files[i]);
+    }
+    
+    $.ajax({
+        url: "./php/uploadMultipleImages.php",
+        method: "POST",
+        data: formData,
+        dataType: "json",
+        contentType:false,
+        processData:false,
+        success: function(response){
+            galleryImageArray = [];
+            response.forEach(image => {
+                galleryImageArray.push(image)
+            });
+
+            addImageDescription(galleryImageArray,albumId);
+        }
+    })
+});
+
+function undoUploadedImages(){
+
+    $.ajax({
+        url: "./php/unlinkMutlipleImages.php",
+        method: "POST",
+        data: { 
+            images: JSON.stringify(galleryImageArray)
+        },
+        success: function(data){
+            showPage(6);
+        }
+    })
+}
+
+//Function to add description to multiple image uploads
+$(document).on("submit", "#addDescForm", function(event){
+    event.preventDefault();
+    let albumId = document.getElementById("sendToAlbum").value;
+
+    let formData = new FormData();
+    formData.append("sendToAlbum", albumId);
+    
+    let imageCards = document.getElementsByClassName("imageCard");
+    let images = [];
+    for( let i = 0; i < imageCards.length; i++){
+        images.push({ name: document.getElementById("imgName" + i).value, description: document.getElementById("imgDescription" + i).value })
+    };
+    formData.append("images", JSON.stringify(images));
+
+    $.ajax({
+        url: "./php/createGalleryImageDescs.php",
+        method: "POST",
+        data: formData,
+        contentType:false,
+        processData:false
+    })
+    .always(function(){
+        getGallery(albumId);
+        showPage(6);
+    });
+    
 });
 
 function getAlbums(){

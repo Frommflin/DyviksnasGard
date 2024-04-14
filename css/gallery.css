@@ -96,6 +96,9 @@
 #addDescForm .imageCard .input-group {
   margin: 0;
 }
+#addDescForm .imageCard .counters {
+  text-align: right;
+}
 
 @media (min-width: 768px) {
   .imageCard {
