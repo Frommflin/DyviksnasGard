@@ -61,8 +61,7 @@ function showImageForm(albumId){
     str += `</div>`;
     str += `<input type="hidden" name="toAlbum" id="toAlbum" value="${albumId}" />`;
     str += `<div id="ImgBtnBox">`;
-    str += `<button type="submit" id="addGalImg" class="btn">Spara</button>`;
-    str += `<button type="submit" id="addGalDesc" class="btn">Lägg till beskrivningar</button>`;
+    str += `<button type="submit" class="btn">Gå vidare</button>`;
     str += `</div>`;
     str += `</form>`;
 
@@ -232,35 +231,8 @@ $(document).on("submit", "#newAlbumForm", function(event){
     })
 });
 
-//Function to add gallery images to db without descriptions
-$(document).on("click", "#addGalImg", function(event){
-    event.preventDefault();
-
-    let albumId = document.getElementById("toAlbum").value;
-    let formData = new FormData();
-    formData.append("toAlbum", albumId);
-
-    // Read selected files
-    let totalfiles = document.getElementById("galleryUploads").files.length;
-    for (let i = 0; i < totalfiles; i++) {
-        formData.append("galleryUploads[]", document.getElementById("galleryUploads").files[i]);
-    }
-
-    $.ajax({
-        url: "./php/createGalleryImages.php",
-        method: "POST",
-        data: formData,
-        contentType:false,
-        processData:false,
-        success: function(data){
-            getGallery(albumId);
-            showPage(6);
-        }
-    })
-});
-
 //Function to move to second form to add descriptions before adding images to db
-$(document).on("click", "#addGalDesc", function(event){
+$(document).on("submit", "#addImgForm", function(event){
     event.preventDefault();
 
     let albumId = document.getElementById("toAlbum").value;
