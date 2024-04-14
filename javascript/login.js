@@ -80,6 +80,13 @@ function checkUser(){
             str += `Lägg till ny häst`;
             str += `</button>`;
             document.getElementById("horse").innerHTML = str;
+            
+            // Creating button for adding albums, Page 6
+            str = `<button id="albumBtn" class="crudBtn" onclick="showAlbumForm()">`;
+            str += `<img src="./icons/addalbum-white.png" />`;
+            str += `Nytt album`;
+            str += `</button>`;
+            document.getElementById("album").innerHTML = str;
         } else {
             hideAdmins();
         }
@@ -98,6 +105,7 @@ function checkUser(){
 function hideAdmins(){
     document.getElementById("post").innerHTML = "";
     document.getElementById("horse").innerHTML = "";
+    document.getElementById("album").innerHTML = "";
 }
 
 // --------------------------------------------------
