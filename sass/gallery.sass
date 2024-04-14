@@ -32,7 +32,7 @@
 #galleryBtns
     text-align: right
 
-#gallery
+#galleryBox
     display: flex
     flex-flow: wrap
     justify-content: space-around
@@ -58,6 +58,11 @@
         margin: 10px 0 5px 0
     hr
         margin: 0
+    #imageDescription
+        margin: 10px 0
+        input
+            width: 100%
+            text-align: center
 
 #addImages
     width: 90vw
@@ -73,6 +78,7 @@
 #addDescForm
     color: colors.$falured-dark
     overflow: auto
+    max-width: 100% !important
     #hint
         text-align: left
     #cardBox
@@ -83,6 +89,7 @@
         border: 2px dotted colors.$falured
         padding: 5px
         margin-bottom: 10px
+        width: 500px
         img
             max-width: 200px
             max-height: 150px
@@ -105,5 +112,3 @@
 @media (min-width: 1200px)
     #cardBox
         justify-content: space-evenly !important
-        .imageCard
-            width: 505px

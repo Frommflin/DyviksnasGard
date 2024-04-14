@@ -10,7 +10,7 @@
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem rgba(128, 24, 24, 0.2);
 }
 
-#addDescForm .imageCard img, #popupImage #selectedImg, #gallery img {
+#addDescForm .imageCard img, #popupImage #selectedImg, #galleryBox img {
   border: 1px solid #801818;
   box-shadow: 0 4px 8px 0 #000000, 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
@@ -29,14 +29,14 @@
   text-align: right;
 }
 
-#gallery {
+#galleryBox {
   display: flex;
   flex-flow: wrap;
   justify-content: space-around;
   align-items: center;
   position: relative;
 }
-#gallery img {
+#galleryBox img {
   height: 250px;
   position: relative;
   max-width: 100%;
@@ -57,6 +57,13 @@
 #popupImage hr {
   margin: 0;
 }
+#popupImage #imageDescription {
+  margin: 10px 0;
+}
+#popupImage #imageDescription input {
+  width: 100%;
+  text-align: center;
+}
 
 #addImages {
   width: 90vw;
@@ -74,6 +81,7 @@
 #addDescForm {
   color: #661313;
   overflow: auto;
+  max-width: 100% !important;
 }
 #addDescForm #hint {
   text-align: left;
@@ -87,6 +95,7 @@
   border: 2px dotted #801818;
   padding: 5px;
   margin-bottom: 10px;
+  width: 500px;
 }
 #addDescForm .imageCard img {
   max-width: 200px;
@@ -114,9 +123,6 @@
 @media (min-width: 1200px) {
   #cardBox {
     justify-content: space-evenly !important;
-  }
-  #cardBox .imageCard {
-    width: 505px;
   }
 }
 

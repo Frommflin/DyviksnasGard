@@ -146,7 +146,7 @@ function showImage(img, description, album){
         str += `<hr class="divider">`;
         str += `<div id="galImgBtnBox" class="crudBox">`;
 
-        str += `<button class="crudBtn">`;
+        str += `<button class="crudBtn" onclick="editImageTextForm('${description}','${img}','${album}')">`;
         str += `<img src="./icons/editimage-white.png" />`;
         str += `Redigera`;
         str += `</button>`;
@@ -161,6 +161,30 @@ function showImage(img, description, album){
     str += `</div>`;
 
     showPopup(str);
+}
+
+function editImageTextForm(text, img, album){
+    let str1 = ``;
+
+    str1 += `<form>`;
+    str1 += `<input type="text" name="imgDesc" id="imgDesc" maxlength="100" onkeydown="countChars('imgDesc', 'charCounter')" value="${text}">`;
+    str1 += `<span id="charCounter"></span>`;
+    str1 += `</form>`;
+    document.getElementById("imageDescription").innerHTML = str1;
+
+    countChars("imgDesc", "charCounter");
+
+    let str2 = ``;
+    str2 += `<button class="btn" onclick="editImageText('${img}','${album}')">`;
+    str2 += `<img src="./icons/save-white.png" />`;
+    str2 += `Spara ändring`;
+    str2 += `</button>`;
+    document.getElementById("galImgBtnBox").innerHTML = str2;
+}
+
+function countChars(element, counter){
+    let input = document.getElementById(element).value;
+    document.getElementById(counter).innerHTML = `${input.length}/100`;
 }
 
 function confirmDeleteGalImg(file, album){
@@ -413,6 +437,22 @@ $(document).on("click", "#confirmAlbumDelete", function(event){
 
 
 // Single image related CRUD actions
+
+function editImageText(image, album){
+    let newDesc = document.getElementById("imgDesc").value;
+
+    $.ajax({
+        url: "./php/editGalleryImage.php",
+        method: "POST",
+        data: { 
+            image: image,
+            description: newDesc
+        },
+        success: function(data){
+            showImage(image, newDesc, album);
+        }
+    })
+}
 
 // Delete image from gallery
 $(document).on("click", "#confirmGalImgDelete", function(event){
