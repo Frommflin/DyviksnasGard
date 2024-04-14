@@ -7,9 +7,9 @@ function showAlbum(a) {
     }
 
     // Mark selected Album-button
-    //TODO: Show relevant album-content
     document.getElementById("album" + a).classList.add("activeBtn");
-
+    
+    //TODO: Show relevant album-content
 }
 
 function showAlbumForm(){
@@ -136,3 +136,23 @@ $(document).on("submit", "#newAlbumForm", function(event){
         }
     })
 });
+
+function getAlbums(){
+    $.ajax({
+        url: "./php/getAlbums.php",
+        method: "POST",
+        success: function(data){
+            let resultset=data.childNodes[0];
+
+            str = ``;
+            // Iterate over all nodes in root node (i.e. albums)
+            for (i = 0; i < resultset.childNodes.length; i++){
+                if(resultset.childNodes.item(i).nodeName=="album"){
+                    let album =  resultset.childNodes.item(i);
+                    str += `<button id="album${album.attributes["id"].nodeValue}" class="btn galleryBtn" onclick="showAlbum('${album.attributes["id"].nodeValue}')">${album.attributes["name"].nodeValue}</button>`;
+                }
+            }
+            document.getElementById("galleryNav").innerHTML = str;
+        }
+    })
+}
