@@ -116,3 +116,23 @@ function showImage(img){
 
     showPopup(str);
 }
+
+
+// --------------------------------------------------
+// --------------      AJAX CALLS      --------------
+// --------------------------------------------------
+
+// Create new album
+$(document).on("submit", "#newAlbumForm", function(event){
+    event.preventDefault();
+    $.ajax({
+        url: "./php/createAlbum.php",
+        method: "POST",
+        data: new FormData(this),
+        contentType:false,
+        processData:false,
+        success: function(data){
+            showPage(6);
+        }
+    })
+});
