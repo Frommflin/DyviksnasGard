@@ -44,7 +44,7 @@ function showAlbumForm(){
     showPage(9);
 }
 
-function showImageForm(){
+function showImageForm(albumId){
     let str = ``;
 
     str += `<div class="topRow">`;
@@ -56,12 +56,12 @@ function showImageForm(){
     str += `<div class="input-group-prepend">`;
     str += `<span class="input-group-text">Bilder</span>`;
     str += `</div>`;
-    str += `<input type="file" class="form-control" name="upload[]" id="upload" multiple required>`;
+    str += `<input type="file" class="form-control" name="galleryUploads[]" id="galleryUploads" multiple required>`;
     str += `</div>`;
-    str += `<input type="hidden" name="toAlbum" value="albumName" />`;
+    str += `<input type="hidden" name="toAlbum" id="toAlbum" value="${albumId}" />`;
     str += `<div id="ImgBtnBox">`;
-    str += `<button class="btn">Spara</button>`;
-    str += `<button class="btn" onclick="addImageDescription()">Lägg till beskrivningar</button>`;
+    str += `<button type="submit" id="addGalImg" class="btn">Spara</button>`;
+    str += `<button type="submit" id="addGalDesc" class="btn">Lägg till beskrivningar</button>`;
     str += `</div>`;
     str += `</form>`;
 
@@ -142,9 +142,43 @@ $(document).on("submit", "#newAlbumForm", function(event){
         contentType:false,
         processData:false,
         success: function(data){
+            getAlbums();
             showPage(6);
         }
     })
+});
+
+//Function to add gallery images to db without descriptions
+$(document).on("click", "#addGalImg", function(event){
+    event.preventDefault();
+
+    let albumId = document.getElementById("toAlbum").value;
+    let formData = new FormData();
+    formData.append("toAlbum", albumId);
+
+    // Read selected files
+    let totalfiles = document.getElementById("galleryUploads").files.length;
+    for (let i = 0; i < totalfiles; i++) {
+        formData.append("galleryUploads[]", document.getElementById("galleryUploads").files[i]);
+    }
+
+    $.ajax({
+        url: "./php/createGalleryImages.php",
+        method: "POST",
+        data: formData,
+        contentType:false,
+        processData:false,
+        success: function(data){
+            getGallery(albumId);
+            showPage(6);
+        }
+    })
+});
+
+//Function to move to second form to add descriptions before adding images to db
+$(document).on("click", "#addGalDesc", function(event){
+    event.preventDefault();
+    addImageDescription();
 });
 
 function getAlbums(){
@@ -183,7 +217,7 @@ function getGallery(albumId){
                 let str = ``;
 
                 str += `<div>`;
-                str += `<button id="imgBtn" class="crudBtn" onclick="showImageForm()">`;
+                str += `<button id="imgBtn" class="crudBtn" onclick="showImageForm(${albumId})">`;
                 str += `<img src="./icons/addimage-white.png" />Lägg till bilder</button>`;
                 str += `<button id="deleteAlbum" class="crudBtn"">`;
                 str += `<img src="./icons/bin-white.png" />Ta bort detta album</button>`;
