@@ -134,6 +134,32 @@ function showImage(img, description){
     showPopup(str);
 }
 
+function confirmDeleteAlbum(id){
+    let str = ``;
+
+    str += `<div class="popupBox">`;
+    str += `<form id="deleteAlbumForm" class="col col-xs-6" method="post">`;
+    str += `<h1>Är du säker på att du vill ta bort detta albumet?</h1>`;
+    str += `<input type="hidden" name="albumId" id="albumId" value="${id}" />`;
+    str += `<div class="confirmBtns">`;
+    str += `<button type="submit" id="cancelAlbumDelete" class="btn">Avbryt</button>`;
+    str += `<button type="submit" id="confirmAlbumDelete" class="btn">Ta bort</button>`;
+    str += `</div>`;
+    str += `</div>`;
+
+    showPopup(str);
+}
+
+$(document).on("click", "#cancelAlbumDelete", function(event){
+    event.preventDefault();
+    closePopup();
+});
+
+function clearGallery(){
+    document.getElementById("galleryBtns").innerHTML = "";
+    document.getElementById("galleryBox").innerHTML = "";
+    document.getElementById("galleryDescription").innerHTML = "";
+}
 
 // --------------------------------------------------
 // --------------      AJAX CALLS      --------------
@@ -295,7 +321,7 @@ function getGallery(albumId){
                 str += `<div>`;
                 str += `<button id="imgBtn" class="crudBtn" onclick="showImageForm(${albumId})">`;
                 str += `<img src="./icons/addimage-white.png" />Lägg till bilder</button>`;
-                str += `<button id="deleteAlbum" class="crudBtn"">`;
+                str += `<button id="deleteAlbum" class="crudBtn" onclick="confirmDeleteAlbum(${albumId})">`;
                 str += `<img src="./icons/bin-white.png" />Ta bort detta album</button>`;
                 str += `</div>`;
 
@@ -327,3 +353,33 @@ function getGallery(albumId){
         }
     })
 }
+
+// Delete Album
+$(document).on("click", "#confirmAlbumDelete", function(event){
+    event.preventDefault();
+    let id = document.getElementById("albumId").value;
+
+    $.ajax({
+        url: "./php/deleteGalleryImages.php",
+        method: "POST",
+        data: {
+            albumId: id,
+            images: JSON.stringify(galleryImageArray)
+        },
+        success: function(data){
+            $.ajax({
+                url: "./php/deleteAlbum.php",
+                method: "POST",
+                data: {
+                    albumId: id
+                },
+                success: function(data){
+                    clearGallery();
+                    closePopup();
+                    getAlbums();
+                    showPage(6);
+                }
+            })
+        }
+    }) 
+});
