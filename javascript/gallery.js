@@ -97,26 +97,31 @@ function addImageDescription(){
     showPage(9);
 }
 
-function showImage(img){
+function showImage(img, description){
     let str = ``;
 
     str += `<div id="popupImage" class="popupBox">`;
-        str += `<div class="close" onclick="closePopup()">&times;</div>`;
-        str += `<div>`;
-            str += `<img id="selectedImg" src="./images/${img}" />`;
-            str += `<p>Kort beskrivning av bilden här</p>`;
-            str += `<hr>`;
-            str += `<div class="crudBox">`;
-                str += `<button class="crudBtn">`;
-                str += `<img src="./icons/editimage-white.png" />`;
-                str += `Redigera`;
-                str += `</button>`;
-                str += `<button class="crudBtn">`;
-                str += `<img src="./icons/bin-white.png" />`;
-                str += `Ta bort`;
-                str += `</button>`;
-            str += `</div>`;
+    str += `<div class="close"><span onclick="closePopup()">&times</span></div>`;
+    str += `<img id="selectedImg" src="./images/galleryUploads/${img}" />`;
+    str += `<div id="imageDescription">`;
+    str += `<p>${description}</p>`;
+    str += `</div>`;
+    if(localStorage.getItem("userRole") == "Admin"){
+        str += `<hr class="divider">`;
+        str += `<div id="galImgBtnBox" class="crudBox">`;
+
+        str += `<button class="crudBtn">`;
+        str += `<img src="./icons/editimage-white.png" />`;
+        str += `Redigera`;
+        str += `</button>`;
+
+        str += `<button class="crudBtn">`;
+        str += `<img src="./icons/bin-white.png" />`;
+        str += `Ta bort`;
+        str += `</button>`;
+
         str += `</div>`;
+    }
     str += `</div>`;
 
     showPopup(str);
@@ -154,7 +159,7 @@ function getAlbums(){
             for (i = 0; i < resultset.childNodes.length; i++){
                 if(resultset.childNodes.item(i).nodeName=="album"){
                     let album =  resultset.childNodes.item(i);
-                    str += `<button id="album${album.attributes["id"].nodeValue}" class="btn galleryBtn" onclick="showAlbum('${album.attributes["id"].nodeValue}')">${album.attributes["name"].nodeValue}</button>`;
+                    str += `<button id="album${album.attributes["id"].nodeValue}" class="btn galleryBtn" onclick="showAlbum('${album.attributes["id"].nodeValue}', '${album.attributes["description"].nodeValue}')">${album.attributes["name"].nodeValue}</button>`;
                 }
             }
             document.getElementById("galleryNav").innerHTML = str;
@@ -204,7 +209,7 @@ function getGallery(albumId){
 
                         galleryImageArray.push(image.file);
 
-                        str2 += `<img src="./images/galleryUploads/${image.file}" onclick="showImage('${image.file}')" />`;
+                        str2 += `<img src="./images/galleryUploads/${image.file}" onclick="showImage('${image.file}','${image.desc}')" />`;
                     }
                 }
             }
