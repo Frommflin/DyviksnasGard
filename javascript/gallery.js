@@ -1,5 +1,6 @@
 let galleryImageArray = [];
 
+// Album
 function showAlbum(id, description) {
     // Reset all to 'normal' button look
     buttons = document.getElementsByClassName("galleryBtn");
@@ -104,36 +105,6 @@ function addImageDescription(images,albumId){
     showPage(9);
 }
 
-function showImage(img, description){
-    let str = ``;
-
-    str += `<div id="popupImage" class="popupBox">`;
-    str += `<div class="close"><span onclick="closePopup()">&times</span></div>`;
-    str += `<img id="selectedImg" src="./images/galleryUploads/${img}" />`;
-    str += `<div id="imageDescription">`;
-    str += `<p>${description}</p>`;
-    str += `</div>`;
-    if(localStorage.getItem("userRole") == "Admin"){
-        str += `<hr class="divider">`;
-        str += `<div id="galImgBtnBox" class="crudBox">`;
-
-        str += `<button class="crudBtn">`;
-        str += `<img src="./icons/editimage-white.png" />`;
-        str += `Redigera`;
-        str += `</button>`;
-
-        str += `<button class="crudBtn">`;
-        str += `<img src="./icons/bin-white.png" />`;
-        str += `Ta bort`;
-        str += `</button>`;
-
-        str += `</div>`;
-    }
-    str += `</div>`;
-
-    showPopup(str);
-}
-
 function confirmDeleteAlbum(id){
     let str = ``;
 
@@ -161,9 +132,65 @@ function clearGallery(){
     document.getElementById("galleryDescription").innerHTML = "";
 }
 
+// Single image
+function showImage(img, description, album){
+    let str = ``;
+
+    str += `<div id="popupImage" class="popupBox">`;
+    str += `<div class="close"><span onclick="closePopup()">&times</span></div>`;
+    str += `<img id="selectedImg" src="./images/galleryUploads/${img}" />`;
+    str += `<div id="imageDescription">`;
+    str += `<p>${description}</p>`;
+    str += `</div>`;
+    if(localStorage.getItem("userRole") == "Admin"){
+        str += `<hr class="divider">`;
+        str += `<div id="galImgBtnBox" class="crudBox">`;
+
+        str += `<button class="crudBtn">`;
+        str += `<img src="./icons/editimage-white.png" />`;
+        str += `Redigera`;
+        str += `</button>`;
+
+        str += `<button class="crudBtn" onclick="confirmDeleteGalImg('${img}','${album}')">`;
+        str += `<img src="./icons/bin-white.png" />`;
+        str += `Ta bort`;
+        str += `</button>`;
+
+        str += `</div>`;
+    }
+    str += `</div>`;
+
+    showPopup(str);
+}
+
+function confirmDeleteGalImg(file, album){
+    let str = ``;
+
+    str += `<div class="popupBox">`;
+    str += `<form id="deleteGalleryImgForm" class="col col-xs-6" method="post">`;
+    str += `<h1>Är du säker på att du vill ta bort den här bilden?</h1>`;
+    str += `<input type="hidden" name="galImg" id="galImg" value="${file}" />`;
+    str += `<input type="hidden" name="imgAlbum" id="imgAlbum" value="${album}" />`;
+    str += `<div class="confirmBtns">`;
+    str += `<button type="submit" id="cancelGalImgDelete" class="btn">Avbryt</button>`;
+    str += `<button type="submit" id="confirmGalImgDelete" class="btn">Ta bort</button>`;
+    str += `</div>`;
+    str += `</div>`;
+
+    showPopup(str);
+}
+
+$(document).on("click", "#cancelGalImgDelete", function(event){
+    event.preventDefault();
+    closePopup();
+});
+
+
 // --------------------------------------------------
 // --------------      AJAX CALLS      --------------
 // --------------------------------------------------
+
+//Album related CRUD actions
 
 // Create new album
 $(document).on("submit", "#newAlbumForm", function(event){
@@ -331,7 +358,7 @@ function getGallery(albumId){
             let str2 = ``;
             if(resultLength == 1){
                 //If there is no images in this gallery
-                str2 += `<p>Det finns inga bilder i det här albumet ännu!</p>`;
+                str2 += `Det finns inga bilder i det här albumet ännu!`;
             } else {
                 // Iterate over all nodes in root node (i.e. gallery)
                 for (i = 0; i < resultset.childNodes.length; i++){
@@ -345,7 +372,7 @@ function getGallery(albumId){
 
                         galleryImageArray.push(image.file);
 
-                        str2 += `<img src="./images/galleryUploads/${image.file}" onclick="showImage('${image.file}','${image.desc}')" />`;
+                        str2 += `<img src="./images/galleryUploads/${image.file}" onclick="showImage('${image.file}','${image.desc}','${albumId}')" />`;
                     }
                 }
             }
@@ -380,6 +407,28 @@ $(document).on("click", "#confirmAlbumDelete", function(event){
                     showPage(6);
                 }
             })
+        }
+    }) 
+});
+
+
+// Single image related CRUD actions
+
+// Delete image from gallery
+$(document).on("click", "#confirmGalImgDelete", function(event){
+    event.preventDefault();
+    let img = document.getElementById("galImg").value;
+    let album = document.getElementById("imgAlbum").value;
+
+    $.ajax({
+        url: "./php/deleteGalleryImage.php",
+        method: "POST",
+        data: {
+            image: img
+        },
+        success: function(data){
+            closePopup();
+            getGallery(album);
         }
     }) 
 });
