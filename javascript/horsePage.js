@@ -348,7 +348,9 @@ function getHorseImages(id){
                 images += `<img src="./images/noimage.png" class="d-block" alt="No image">`;
                 images += `</div>`;
 
-                document.getElementById("deleteHorseImages").disabled = true;
+                if(localStorage.getItem("userRole") === "Admin"){
+                    document.getElementById("deleteHorseImages").disabled = true;
+                }
             } else {
                 // Iterate over all nodes in root node (i.e. photos)
                 let slide = 0;
@@ -379,7 +381,9 @@ function getHorseImages(id){
                         slide++;
                     }
                 }
-                document.getElementById("deleteHorseImages").disabled = false;
+                if(localStorage.getItem("userRole") === "Admin"){
+                    document.getElementById("deleteHorseImages").disabled = false;
+                }
             }
             document.getElementById("indicators").innerHTML = indicator;
             document.getElementById("carouselImages").innerHTML = images;
