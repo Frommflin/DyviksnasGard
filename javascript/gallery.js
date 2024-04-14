@@ -1,5 +1,6 @@
+let galleryImageArray = [];
 
-function showAlbum(a) {
+function showAlbum(id, description) {
     // Reset all to 'normal' button look
     buttons = document.getElementsByClassName("galleryBtn");
     for (let i = 0; i < buttons.length; i++) {
@@ -7,9 +8,13 @@ function showAlbum(a) {
     }
 
     // Mark selected Album-button
-    document.getElementById("album" + a).classList.add("activeBtn");
+    document.getElementById("album" + id).classList.add("activeBtn");
+
+    if(description != ""){
+        document.getElementById("galleryDescription").innerHTML = description;
+    }
     
-    //TODO: Show relevant album-content
+    getGallery(id);
 }
 
 function showAlbumForm(){
@@ -153,6 +158,57 @@ function getAlbums(){
                 }
             }
             document.getElementById("galleryNav").innerHTML = str;
+        }
+    })
+}
+
+function getGallery(albumId){
+    galleryImageArray = [];  //Clearing out any previously saved images
+    $.ajax({
+        url: "./php/getGalleryImages.php",
+        method: "POST",
+        data: { 
+            albumID: albumId
+        },
+        success: function(data){
+            let resultset=data.childNodes[0];
+            let resultLength = resultset.childNodes.length;
+
+            if(localStorage.getItem("userRole") === "Admin"){
+                let str = ``;
+
+                str += `<div>`;
+                str += `<button id="imgBtn" class="crudBtn" onclick="showImageForm()">`;
+                str += `<img src="./icons/addimage-white.png" />Lägg till bilder</button>`;
+                str += `<button id="deleteAlbum" class="crudBtn"">`;
+                str += `<img src="./icons/bin-white.png" />Ta bort detta album</button>`;
+                str += `</div>`;
+
+                document.getElementById("galleryBtns").innerHTML = str;
+            }
+
+            let str2 = ``;
+            if(resultLength == 1){
+                //If there is no images in this gallery
+                str2 += `<p>Det finns inga bilder i det här albumet ännu!</p>`;
+            } else {
+                // Iterate over all nodes in root node (i.e. gallery)
+                for (i = 0; i < resultset.childNodes.length; i++){
+                    if(resultset.childNodes.item(i).nodeName=="image"){
+                        let item =  resultset.childNodes.item(i);
+
+                        let image = {
+                            file: item.attributes["name"].nodeValue,
+                            desc: item.attributes["description"].nodeValue
+                        };
+
+                        galleryImageArray.push(image.file);
+
+                        str2 += `<img src="./images/galleryUploads/${image.file}" onclick="showImage('${image.file}')" />`;
+                    }
+                }
+            }
+            document.getElementById("galleryBox").innerHTML = str2;
         }
     })
 }
