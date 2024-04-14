@@ -1,11 +1,12 @@
-@use "colors"
+@use "shared"
+@use "sass:map"
     
 .newsCard
     margin: 0px 10px 30px 10px
-    background-color: colors.$falured-20
+    background-color: shared.$falured-20
     padding: 5px 5px 15px 5px
     .postDetails
-        color: colors.$falured
+        color: shared.$falured
         display: flex
         justify-content: space-between
         padding: 0px 20px
@@ -17,7 +18,7 @@
         flex-direction: column
         align-items: center
         padding: 0px 25px
-        color: colors.$falured
+        color: shared.$falured
         margin-bottom: 5px
         img
             max-width: 100%
@@ -32,7 +33,7 @@
         .btn
             margin: 0 10px
 
-@media screen and ( min-width: 1200px )
+@media screen and ( min-width: map.get(shared.$breakpoints, xl) )
     .newsCard
         .postContent
             flex-direction: row
@@ -68,6 +69,6 @@
     width: 1px
     
 .activepgn 
-    color: colors.$white
-    background-color: colors.$falured
-    border-color: colors.$falured-dark
+    color: shared.$white
+    background-color: shared.$falured
+    border-color: shared.$falured-dark

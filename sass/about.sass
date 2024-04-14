@@ -1,0 +1,20 @@
+@use "shared"
+@use "sass:map"
+
+.about
+    display: flex
+    flex-wrap: wrap
+    margin-bottom: 40px
+    img
+        width: 300px
+        height: 100%
+        margin: 10px auto
+
+#org
+    flex-direction: row-reverse
+
+@media (min-width: map.get(shared.$breakpoints, md) )
+    .about
+        flex-wrap: nowrap
+        img 
+            margin: 10px

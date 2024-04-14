@@ -1,4 +1,5 @@
-@use "colors"
+@use "shared"
+@use "sass:map"
 
 // ------------------------------------------
 // --------- All-horses page styling --------
@@ -10,11 +11,11 @@
     padding: 0px 50px
     
 .card
-    color: colors.$black
+    color: shared.$black
     text-decoration: none
     width: 230px
     margin: 10px
-    border-color: colors.$falured-20
+    border-color: shared.$falured-20
     img
         width: 100%
     &:hover
@@ -67,13 +68,13 @@
                 max-height: 100%
                 margin: auto
     
-@media screen and ( min-width: 992px )
+@media screen and ( min-width: map.get(shared.$breakpoints, lg) )
     #carouselContainer
         float: left
         margin: 10px 10px 2px 0
         width: 600px
 
-@media screen and ( min-width: 1400px )
+@media screen and ( min-width: map.get(shared.$breakpoints, xxl) )
     #carouselContainer
         width: 700px
     

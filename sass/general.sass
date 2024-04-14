@@ -1,16 +1,16 @@
-@use "colors"
-@use "fonts"
+@use "shared"
+@use "sass:map"
 
 %titleStylings
-    font-family: fonts.$tangerine
-    color: colors.$falured
+    font-family: shared.$tangerine
+    color: shared.$falured
 
 body
     min-height: 100vh
     display: flex
     flex-direction: column
     justify-content: space-between
-    font-family: fonts.$times-new-roman
+    font-family: shared.$times-new-roman
 
 h1
     font-size: 2.5rem
@@ -63,7 +63,7 @@ header
     max-height: 15rem
 
 nav
-    background-color: colors.$falured
+    background-color: shared.$falured
     box-shadow: 0px 1px 16px 7px rgba(0, 0, 0, 0.8)
     min-height: 60px
     #navbarNav
@@ -72,7 +72,7 @@ nav
     .navbar-collapse
         align-items: flex-start
 
-@media (min-width: 992px)
+@media (min-width: map.get(shared.$breakpoints, lg))
     nav
         .container-fluid
             flex-direction: row-reverse
@@ -101,24 +101,24 @@ button
             opacity: 1
 
 .btn
-    color: colors.$white-70
-    background-color: colors.$falured-light
-    border-color: colors.$falured-dark
+    color: shared.$white-70
+    background-color: shared.$falured-light
+    border-color: shared.$falured-dark
     &:active
-        color: colors.$white
-        background-color: colors.$falured-dark
-        border-color: colors.$falured
+        color: shared.$white
+        background-color: shared.$falured-dark
+        border-color: shared.$falured
     &:focus
-        box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem colors.$falured-light
+        box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem shared.$falured-light
     &:hover
-        color: colors.$white
-        background-color: colors.$falured
-        border-color: colors.$falured-light
+        color: shared.$white
+        background-color: shared.$falured
+        border-color: shared.$falured-light
 
 .crudBtn
-    background-color: colors.$falured
-    color: colors.$white-70
-    border-color: colors.$falured-20
+    background-color: shared.$falured
+    color: shared.$white-70
+    border-color: shared.$falured-20
     padding: 0px 10px
     border-radius: 15px
     font-size: 12px
@@ -126,9 +126,9 @@ button
     &:active
         box-shadow: 0 0 0 0
     &:hover
-        border-color: colors.$falured
-        background-color: colors.$grey
-        color: colors.$white
+        border-color: shared.$falured
+        background-color: shared.$grey
+        color: shared.$white
         transition: 800ms
         img
             transition: 800ms
@@ -160,11 +160,11 @@ button
     left: 0
     width: 100%
     height: 100%
-    background-color: colors.$black-90
+    background-color: shared.$black-90
     z-index: 99999
 
 .popupBox
-    background-color: colors.$white
+    background-color: shared.$white
     padding: 25px
     border-radius: 20px
     max-height: 90vh
@@ -173,7 +173,7 @@ button
     overflow: auto
 
 .close
-    color: colors.$falured-dark
+    color: shared.$falured-dark
     text-align: right
     font-size: 30px
     position: relative
@@ -186,8 +186,8 @@ button
     display: none
     padding: 5px
     margin-bottom: 5px
-    color: colors.$falured-dark
-    border: 1px solid colors.$falured-dark
+    color: shared.$falured-dark
+    border: 1px solid shared.$falured-dark
 
 
 
@@ -199,16 +199,16 @@ form
     textarea
         height: 200px
     input, textarea
-        border-color: colors.$falured !important
+        border-color: shared.$falured !important
     input:focus, textarea:focus
-        box-shadow: 0 0 6px 0.25rem colors.$falured-20 !important
-        border-color: colors.$falured-20 !important
+        box-shadow: 0 0 6px 0.25rem shared.$falured-20 !important
+        border-color: shared.$falured-20 !important
     .input-group
         margin-bottom: 8px
     .input-group-text
-        color: colors.$white-70
-        background-color: colors.$falured
-        border-color: colors.$falured-dark
+        color: shared.$white-70
+        background-color: shared.$falured
+        border-color: shared.$falured-dark
         border-radius: .375rem 0 0 .375rem
 
 #formBox
@@ -222,7 +222,7 @@ form
 // ------------------------------------------
 footer
     margin-top: auto
-    background-color: colors.$falured
+    background-color: shared.$falured
     box-shadow: 0px 1px 16px 7px rgba(0, 0, 0, 0.8)
     width: 100%
     height: 60px
@@ -233,7 +233,7 @@ footer
 
     a
         opacity: 0.7
-        color: colors.$white
+        color: shared.$white
         text-decoration: none
         margin: 5px
     a:hover
@@ -249,4 +249,4 @@ footer
     text-align: center
     width: 90%
     margin: auto
-    color: colors.$falured-dark
+    color: shared.$falured-dark

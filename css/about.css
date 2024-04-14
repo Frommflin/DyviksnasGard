@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Tangerine&display=swap");
+/* Screen breakpoints as min-width (mobile-first) */
+/* ---------------------------------
+ * ---------- Colorscheme ----------
+ * --------------------------------- */
+/* Primary */
+/* Backgrounds, Texts */
+/* ---------------------------------
+ * ------------- Fonts -------------
+ * --------------------------------- */
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.about img {
+  width: 300px;
+  height: 100%;
+  margin: 10px auto;
+}
+
+#org {
+  flex-direction: row-reverse;
+}
+
+@media (min-width: 768px) {
+  .about {
+    flex-wrap: nowrap;
+  }
+  .about img {
+    margin: 10px;
+  }
+}
+
+/*# sourceMappingURL=about.css.map */

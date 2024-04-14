@@ -1,5 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Tangerine&display=swap");
+/* Screen breakpoints as min-width (mobile-first) */
+/* ---------------------------------
+ * ---------- Colorscheme ----------
+ * --------------------------------- */
 /* Primary */
 /* Backgrounds, Texts */
+/* ---------------------------------
+ * ------------- Fonts -------------
+ * --------------------------------- */
 .newsCard {
   margin: 0px 10px 30px 10px;
   background-color: rgba(128, 24, 24, 0.2);

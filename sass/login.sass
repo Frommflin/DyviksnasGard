@@ -1,4 +1,5 @@
-@use "colors"
+@use "shared"
+@use "sass:map"
 
 %wideFormLabel
     width: 9rem
@@ -23,12 +24,12 @@
         font-size: 12px
         padding-right: 10px
         a
-            color: colors.$black-50
+            color: shared.$black-50
             text-decoration: none
             &:hover
                 text-decoration: underline
 
-@media screen and ( min-width: 992px )
+@media screen and ( min-width: map.get(shared.$breakpoints, lg) )
     #loginBox
         flex-direction: row
 
