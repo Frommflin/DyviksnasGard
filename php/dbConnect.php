@@ -17,10 +17,10 @@
     // Try connecting to database, else print errormessage
     //--------------------------------------------------------------------------
     global $pdo;
-    $host = $_ENV['DB_HOST'];
-    $username = $_ENV['DB_USER'];
-    $password = $_ENV['DB_PASSWORD'];
-    $dbname = $_ENV['DB_NAME'];
+    $host = $_ENV["DB_HOST"];
+    $username = $_ENV["DB_USER"];
+    $password = $_ENV["DB_PASSWORD"];
+    $dbname = $_ENV["DB_NAME"];
 
     try
     {
