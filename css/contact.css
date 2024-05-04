@@ -1,5 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Tangerine&display=swap");
+/* Screen breakpoints as min-width (mobile-first) */
+/* ---------------------------------
+ * ---------- Colorscheme ----------
+ * --------------------------------- */
+/* Primary */
+/* Backgrounds, Texts */
+/* ---------------------------------
+ * ------------- Fonts -------------
+ * --------------------------------- */
 #contact {
   margin-bottom: 40px;
+}
+#contact .email {
+  font-weight: bold;
+  color: #801818;
 }
 
 #contactForm .input-group-text {

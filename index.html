@@ -97,7 +97,8 @@
                     <div class="row">
                         <div id="contact" class="col-12 col-md-6">
                             <h1>Kontakta Oss</h1>
-                            <p>Email: stallet@dyviksnas.se</p>
+                            <p>För frågor gällande gården kontakta oss på <span class="email">stallet@dyviksnas.se</span></p>
+                            <p>För frågor gällande föreningen Häst & Hälsa kontakta oss på <span class="email">hastochhalsa@dyviksnas.se</span></p>
                             <form id="contactForm" class="col col-xs-6" method="post">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -115,7 +116,17 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Ämne</span>
                                     </div>
-                                    <input type="text" class="form-control" name="subject" placeholder="Ämne på mailet" required>
+                                    <input type="text" class="form-control" name="subject" placeholder="Rubrik på mailet" required>
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Mottagare</span>
+                                    </div>
+                                    <select class="form-control" id="recipient" name="recipient" required>
+                                        <option disabled selected value="">Välj mottagare</option>
+                                        <option value="stallet@dyviksnas.se">stallet@dyviksnas.se</option>
+                                        <option value="hastochhalsa@dyviksnas.se">hastochhalsa@dyviksnas.se</option>
+                                    </select>
                                 </div>
                                 <div class="input-group">
                                     <div class="input-group-prepend">

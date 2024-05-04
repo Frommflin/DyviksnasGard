@@ -208,10 +208,10 @@ button:hover img {
 form textarea {
   height: 200px;
 }
-form input, form textarea {
+form input, form textarea, form select {
   border-color: #801818 !important;
 }
-form input:focus, form textarea:focus {
+form input:focus, form textarea:focus, form select:focus {
   box-shadow: 0 0 6px 0.25rem rgba(128, 24, 24, 0.2) !important;
   border-color: rgba(128, 24, 24, 0.2) !important;
 }
