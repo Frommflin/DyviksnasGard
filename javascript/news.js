@@ -146,10 +146,25 @@ $(document).on("click", "#cancelDelete", function(event){
 // Create a new newspost
 $(document).on("submit", "#addNewsForm", function(event){
     event.preventDefault();
+
+    let message = document.querySelector("textarea[name='newsDescription']").value;
+    let split = message.split("\n");
+    let newMessage = split.join("¤¤");
+
+    let title = document.querySelector("input[name='newsName']").value;
+    let img = document.querySelector("input[name='newsImg']").files[0];
+    let author = document.querySelector("input[name='author']").value;
+
+    let formData = new FormData();
+    formData.append("newsName", title);
+    formData.append("newsDescription", newMessage);
+    formData.append("author", author);
+    formData.append("newsImg", img);
+
     $.ajax({
         url: "./php/createNewspost.php",
         method: "POST",
-        data: new FormData(this),
+        data: formData,
         contentType:false,
         processData:false,
         success: function(data){
@@ -173,6 +188,9 @@ function getPosts(){
                 if(resultset.childNodes.item(i).nodeName=="post"){
                     let post = resultset.childNodes.item(i);
 
+                    let rawArticle = post.attributes["article"].nodeValue;
+                    let paragarphs = rawArticle.split("¤¤");
+
                     str += `<div class="newsCard">`;
                     str += `<div class="postDetails">`;
                     str += `<span>${post.attributes["date"].nodeValue}</span>`;
@@ -185,7 +203,9 @@ function getPosts(){
                     }
                     str += `<div id="post${i}" class="article">`;
                     str += `<h3>${post.attributes["title"].nodeValue}</h3>`;
-                    str += `<p>${post.attributes["article"].nodeValue}</p>`;
+                    paragarphs.forEach(paragraph => {
+                        str += `<p>${paragraph}</p>`;
+                    });
                     str += `</div>`;
                     str += `</div>`;
 
