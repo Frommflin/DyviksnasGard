@@ -155,10 +155,35 @@ $(document).on("click", "#cancelImgDelete", function(event){
 // Add a new horse
 $(document).on("submit", "#newHorseForm", function(event){
     event.preventDefault();
+
+
+    let name = document.querySelector("input[name='horseName']").value;
+    let nickname = document.querySelector("input[name='nickname']").value;
+    let color = document.querySelector("input[name='color']").value;
+    let breed = document.querySelector("input[name='breed']").value;
+    let height = document.querySelector("input[name='height']").value;
+    let year = document.querySelector("input[name='yearOfBirth']").value;
+    let img = document.querySelector("input[name='profileImg']").files[0];
+
+    let text = document.querySelector("textarea[name='description']").value;
+    let split = text.split("\n");
+    let newText = split.join("¤¤");
+    console.log(newText);
+
+    let formData = new FormData();
+    formData.append("horseName", name);
+    formData.append("nickname", nickname);
+    formData.append("color", color);
+    formData.append("breed", breed);
+    formData.append("height", height);
+    formData.append("yearOfBirth", year);
+    formData.append("profileImg", img);
+    formData.append("description", newText);
+
     $.ajax({
         url: "./php/createHorse.php",
         method: "POST",
-        data: new FormData(this),
+        data: formData,
         contentType:false,
         processData:false,
         success: function(data){
@@ -254,6 +279,9 @@ function getHorse(id){
                 if(resultset.childNodes.item(i).nodeName=="horse"){
                     let horse = resultset.childNodes.item(i);
 
+                    let rawText = horse.attributes["info"].nodeValue;
+                    let paragarphs = rawText.split("¤¤");
+
                     const currentYear = new Date().getFullYear();
                     let age = currentYear - horse.attributes["year"].nodeValue;
 
@@ -266,8 +294,7 @@ function getHorse(id){
                         height: horse.attributes["height"].nodeValue,
                         year: horse.attributes["year"].nodeValue,
                         age: age,
-                        image: horse.attributes["image"].nodeValue,
-                        info: horse.attributes["info"].nodeValue
+                        image: horse.attributes["image"].nodeValue
                     };
 
                     document.getElementById("name").innerHTML = horseData.name;
@@ -277,7 +304,12 @@ function getHorse(id){
                     document.getElementById("color").innerHTML = horseData.color;
                     document.getElementById("breed").innerHTML = horseData.breed;
                     document.getElementById("height").innerHTML = horseData.height;
-                    document.getElementById("description").innerHTML = horseData.info;
+
+                    let str1 = "";
+                    paragarphs.forEach(paragraph => {
+                        str1 += `<p>${paragraph}</p>`;
+                    });
+                    document.getElementById("description").innerHTML = str1;
 
                     getHorseImages(horseData.id);
 
