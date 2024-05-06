@@ -187,9 +187,7 @@ function getPosts(){
             for (i = 0; i < resultset.childNodes.length; i++){
                 if(resultset.childNodes.item(i).nodeName=="post"){
                     let post = resultset.childNodes.item(i);
-
-                    let rawArticle = post.attributes["article"].nodeValue;
-                    let paragarphs = rawArticle.split("¤¤");
+                    let paragraphs = makeParagraphs(post.attributes["article"].nodeValue);
 
                     str += `<div class="newsCard">`;
                     str += `<div class="postDetails">`;
@@ -203,9 +201,7 @@ function getPosts(){
                     }
                     str += `<div id="post${i}" class="article">`;
                     str += `<h3>${post.attributes["title"].nodeValue}</h3>`;
-                    paragarphs.forEach(paragraph => {
-                        str += `<p>${paragraph}</p>`;
-                    });
+                    str += `<div>${paragraphs}</div>`;
                     str += `</div>`;
                     str += `</div>`;
 

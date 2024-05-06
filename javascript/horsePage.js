@@ -278,10 +278,6 @@ function getHorse(id){
             for (i = 0; i < resultset.childNodes.length; i++){
                 if(resultset.childNodes.item(i).nodeName=="horse"){
                     let horse = resultset.childNodes.item(i);
-
-                    let rawText = horse.attributes["info"].nodeValue;
-                    let paragarphs = rawText.split("¤¤");
-
                     const currentYear = new Date().getFullYear();
                     let age = currentYear - horse.attributes["year"].nodeValue;
 
@@ -305,11 +301,8 @@ function getHorse(id){
                     document.getElementById("breed").innerHTML = horseData.breed;
                     document.getElementById("height").innerHTML = horseData.height;
 
-                    let str1 = "";
-                    paragarphs.forEach(paragraph => {
-                        str1 += `<p>${paragraph}</p>`;
-                    });
-                    document.getElementById("description").innerHTML = str1;
+                    let paragraphs = makeParagraphs(horse.attributes["info"].nodeValue);
+                    document.getElementById("description").innerHTML = paragraphs;
 
                     getHorseImages(horseData.id);
 

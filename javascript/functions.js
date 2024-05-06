@@ -16,3 +16,14 @@ function closePopup(){
     //Enabling scrolling on page when image is closed
     document.body.classList.remove("stopScroll")
 }
+
+function makeParagraphs(text){
+    let paragarphs = text.split("¤¤");
+    let str = "";
+    paragarphs.forEach(paragraph => {
+        if(paragraph != ""){
+            str += `<p>${paragraph}</p>`;
+        }
+    });
+    return str;
+}
