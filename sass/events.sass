@@ -1,0 +1,48 @@
+@use "shared"
+@use "sass:map"
+
+#event
+    display: flex
+    flex-wrap: wrap
+
+#eventData
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    img
+        max-height: 400px
+        max-width: 100%
+        margin-bottom: 10px
+    table
+        border-collapse: collapse
+        width: 300px
+        th, td
+            text-align: left
+            padding: 8px
+        th
+            background-color: shared.$falured
+            color: shared.$white
+        tr
+            &:nth-child(odd)
+                background-color: shared.$falured-20
+                
+
+@media ( min-width: map.get(shared.$breakpoints, md) )
+    #eventData
+        align-items: center
+        img
+            margin-bottom: 0
+            margin-right: 10px
+
+@media ( min-width: map.get(shared.$breakpoints, lg) )
+    #event
+        flex-wrap: nowrap
+        align-items: flex-start
+
+    #eventData
+        width: min-content
+        margin: 60px 10px 0 0
+        img
+            max-width: 600px
+            margin-bottom: 10px
+            margin-right: 0

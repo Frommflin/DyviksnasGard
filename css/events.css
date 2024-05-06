@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Tangerine&display=swap");
+/* Screen breakpoints as min-width (mobile-first) */
+/* ---------------------------------
+ * ---------- Colorscheme ----------
+ * --------------------------------- */
+/* Primary */
+/* Backgrounds, Texts */
+/* ---------------------------------
+ * ------------- Fonts -------------
+ * --------------------------------- */
+#event {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#eventData {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#eventData img {
+  max-height: 400px;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+#eventData table {
+  border-collapse: collapse;
+  width: 300px;
+}
+#eventData table th, #eventData table td {
+  text-align: left;
+  padding: 8px;
+}
+#eventData table th {
+  background-color: #801818;
+  color: #ffffff;
+}
+#eventData table tr:nth-child(odd) {
+  background-color: rgba(128, 24, 24, 0.2);
+}
+
+@media (min-width: 768px) {
+  #eventData {
+    align-items: center;
+  }
+  #eventData img {
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+}
+@media (min-width: 992px) {
+  #event {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+  #eventData {
+    width: min-content;
+    margin: 60px 10px 0 0;
+  }
+  #eventData img {
+    max-width: 600px;
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+/*# sourceMappingURL=events.css.map */
