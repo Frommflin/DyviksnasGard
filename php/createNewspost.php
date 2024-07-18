@@ -9,13 +9,15 @@
     $postDate = date("Y-m-d");
 
     try{
-        if($_FILES["newsImg"]["name"] != ""){
-            $fileName = set_image_name("newsUploads", $_FILES["newsImg"]["name"]);
-            $filePath = "../images/newsUploads/" . $fileName;
-            move_uploaded_file($_FILES["newsImg"]["tmp_name"], $filePath);
-            $image = $fileName;
+        if($_POST["noImage"] == false){
+            if($_FILES["newsImg"]["name"] != ""){
+                $fileName = set_image_name("newsUploads", $_FILES["newsImg"]["name"]);
+                $filePath = "../images/newsUploads/" . $fileName;
+                move_uploaded_file($_FILES["newsImg"]["tmp_name"], $filePath);
+                $image = $fileName;
+            }
         }
-
+        
         $query="INSERT INTO newsposts(title,article,author,postDate,img) values (:TITLE,:ARTICLE,:AUTHOR,:POSTDATE,:IMG);";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":TITLE",$title);

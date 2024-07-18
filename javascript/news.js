@@ -154,11 +154,18 @@ $(document).on("submit", "#addNewsForm", function(event){
     let title = document.querySelector("input[name='newsName']").value;
     let img = document.querySelector("input[name='newsImg']").files[0];
     let author = document.querySelector("input[name='author']").value;
+    let noImg;
 
     let formData = new FormData();
+    if(document.querySelector("input[name='newsImg']").files.length == 0){
+        noImg = true;
+    } else {
+        noImg = false;
+    }
     formData.append("newsName", title);
     formData.append("newsDescription", newMessage);
     formData.append("author", author);
+    formData.append("noImage", noImg);
     formData.append("newsImg", img);
 
     $.ajax({
