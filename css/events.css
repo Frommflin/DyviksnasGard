@@ -32,11 +32,11 @@
   padding: 8px;
 }
 #eventData table th {
-  background-color: #801818;
+  background-color: #dd9968;
   color: #ffffff;
 }
 #eventData table tr:nth-child(odd) {
-  background-color: rgba(128, 24, 24, 0.2);
+  background-color: rgba(221, 153, 104, 0.2);
 }
 
 @media (min-width: 768px) {

@@ -9,17 +9,17 @@
  * ------------- Fonts -------------
  * --------------------------------- */
 .activeBtn, .galleryBtn:hover {
-  color: #801818;
+  color: #dd9968;
   background-color: #ffffff;
-  border-color: rgba(128, 24, 24, 0.2);
+  border-color: rgba(221, 153, 104, 0.2);
 }
 
 .activeBtn, .galleryBtn:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem rgba(128, 24, 24, 0.2);
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem rgba(221, 153, 104, 0.2);
 }
 
 #addDescForm .imageCard img, #popupImage #selectedImg, #galleryBox img {
-  border: 1px solid #801818;
+  border: 1px solid #dd9968;
   box-shadow: 0 4px 8px 0 #000000, 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -87,7 +87,7 @@
 }
 
 #addDescForm {
-  color: #661313;
+  color: #ad6231;
   overflow: auto;
   max-width: 100% !important;
 }
@@ -100,7 +100,7 @@
   justify-content: center;
 }
 #addDescForm .imageCard {
-  border: 2px dotted #801818;
+  border: 2px dotted #dd9968;
   padding: 5px;
   margin-bottom: 10px;
   width: 500px;

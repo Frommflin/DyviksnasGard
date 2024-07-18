@@ -10,11 +10,11 @@
  * --------------------------------- */
 .newsCard {
   margin: 0px 10px 30px 10px;
-  background-color: rgba(128, 24, 24, 0.2);
+  background-color: rgba(221, 153, 104, 0.2);
   padding: 5px 5px 15px 5px;
 }
 .newsCard .postDetails {
-  color: #801818;
+  color: #dd9968;
   display: flex;
   justify-content: space-between;
   padding: 0px 20px;
@@ -28,7 +28,7 @@
   flex-direction: column;
   align-items: center;
   padding: 0px 25px;
-  color: #801818;
+  color: #dd9968;
   margin-bottom: 5px;
 }
 .newsCard .postContent img {
@@ -83,8 +83,8 @@
 
 .activepgn {
   color: #ffffff;
-  background-color: #801818;
-  border-color: #661313;
+  background-color: #dd9968;
+  border-color: #ad6231;
 }
 
 /*# sourceMappingURL=news.css.map */
