@@ -7,7 +7,9 @@
     try
     {
         //Removing image from folder
-        unlink("../images/newsUploads/" . $fileName);
+        if($fileName != ""){
+            unlink("../images/newsUploads/" . $fileName);
+        }
 
         //Removing newspost from db
         $query = "DELETE FROM `newsposts` WHERE id=:ID";
