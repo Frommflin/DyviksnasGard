@@ -194,7 +194,7 @@ function getPosts(){
             for (i = 0; i < resultset.childNodes.length; i++){
                 if(resultset.childNodes.item(i).nodeName=="post"){
                     let post = resultset.childNodes.item(i);
-                    let paragraphs = makeParagraphs(post.attributes["article"].nodeValue);
+                    let paragraphs = makeParagraphs(post.attributes["article"].nodeValue, "print");
 
                     str += `<div class="newsCard">`;
                     str += `<div class="postDetails">`;

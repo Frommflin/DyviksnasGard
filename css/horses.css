@@ -112,4 +112,45 @@
   justify-content: space-between;
 }
 
+#editHorseForm {
+  max-width: 1100px !important;
+}
+#editHorseForm #formcontent {
+  display: flex;
+  flex-wrap: wrap;
+}
+#editHorseForm #formImage {
+  width: 300px;
+  margin: 0 0 10px 0;
+}
+#editHorseForm #formImage img {
+  width: 100%;
+  border: 1px solid #dd9968;
+  margin-bottom: 5px;
+}
+#editHorseForm #formImage .input-group {
+  margin-bottom: 0px;
+}
+#editHorseForm #formImage .input-group-text {
+  width: 4rem;
+}
+#editHorseForm #formImage .hint {
+  font-size: 12px;
+}
+#editHorseForm #formInputs {
+  width: 100%;
+}
+#editHorseForm #formInputs .input-group-text {
+  width: 9rem;
+}
+
+@media screen and (min-width: 992px) {
+  #editHorseForm #formImage {
+    margin: 0 10px 0 0;
+  }
+  #editHorseForm #formInputs {
+    width: calc(100% - 310px);
+  }
+}
+
 /*# sourceMappingURL=horses.css.map */

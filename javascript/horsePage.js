@@ -4,7 +4,7 @@ function showNewHorseForm(){
 
     str += `<div class="topRow">`;
     str += `<h1>Ny häst på gården</h1>`;
-    str += `<button class="btn" onclick="showPage(4)">Avbryt</button>`;
+    str += `<button class="btn" onclick="showPage(4,0)">Avbryt</button>`;
     str += `</div>`;
     str += `<form id="newHorseForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
     str += `<div class="input-group">`;
@@ -146,6 +146,88 @@ $(document).on("click", "#cancelImgDelete", function(event){
     document.getElementById("imgDeleteBox").innerHTML = "";
 });
 
+function editHorseForm(){
+    let horse = JSON.parse(sessionStorage.getItem("horse"));
+
+    let info = makeParagraphs(horse.info, "newline");
+
+    let str = ``;
+
+    str += `<div class="topRow">`;
+    str += `<h1>Redigera</h1>`;
+    str += `<button class="btn" onclick="showPage(5, ${horse.id})">Avbryt</button>`;
+    str += `</div>`;
+    str += `<form id="editHorseForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
+    str += `<div id="formcontent">`;
+
+    str += `<div id="formImage">`;
+    str += `<img src="./images/horseProfiles/${horse.image}" alt="Nuvarande profilbild på ${horse.name}">`;
+    str += `<div class="input-group">`;
+    str += `<div class="input-group-prepend">`;
+    str += `<span class="input-group-text">Bild</span>`;
+    str += `</div>`;
+    str += `<input type="file" class="form-control" name="profileImg" required>`;
+    str += `</div>`;
+    str += `<span class="hint">`;
+    str += `För att behålla bilden, lämna filuppladdningen tom!`;
+    str += `</span>`;
+    str += `</div>`;
+
+    str += `<div id="formInputs">`;
+    str += `<div class="input-group">`;
+    str += `<div class="input-group-prepend">`;
+    str += `<span class="input-group-text">Namn *</span>`;
+    str += `</div>`;
+    str += `<input type="text" class="form-control" name="horseName" maxlength="30" value="${horse.name}" required>`;
+    str += `</div>`;
+    str += `<div class="input-group">`;
+    str += `<div class="input-group-prepend">`;
+    str += `<span class="input-group-text">Smeknamn</span>`;
+    str += `</div>`;
+    str += `<input type="text" class="form-control" name="nickname" maxlength="15" value="${horse.nickname}">`;
+    str += `</div>`;
+    str += `<div class="input-group">`;
+    str += `<div class="input-group-prepend">`;
+    str += `<span class="input-group-text">Färg *</span>`;
+    str += `</div>`;
+    str += `<input type="text" class="form-control" name="color" maxlength="15" value="${horse.color}" required>`;
+    str += `</div>`;
+    str += `<div class="input-group">`;
+    str += `<div class="input-group-prepend">`;
+    str += `<span class="input-group-text">Ras *</span>`;
+    str += `</div>`;
+    str += `<input type="text" class="form-control" name="breed" maxlength="20" value="${horse.breed}" required>`;
+    str += `</div>`;
+    str += `<div class="input-group">`;
+    str += `<div class="input-group-prepend">`;
+    str += `<span class="input-group-text">Mankhöjd *</span>`;
+    str += `</div>`;
+    str += `<input type="number" class="form-control" name="height" min="0" value="${horse.height}" placeholder="i centimeter" required>`;
+    str += `</div>`;
+    str += `<div class="input-group">`;
+    str += `<div class="input-group-prepend">`;
+    str += `<span class="input-group-text">Födelseår *</span>`;
+    str += `</div>`;
+    str += `<input type="text" class="form-control" name="yearOfBirth" maxlength="4" value="${horse.year}" placeholder="ÅÅÅÅ" required>`;
+    str += `</div>`;
+    str += `<div class="input-group">`;
+    str += `<div class="input-group-prepend">`;
+    str += `<span class="input-group-text">Beskrivning</span>`;
+    str += `</div>`;
+    str += `<textarea class="form-control" name="description" placeholder="Berätta om hästen här (valfritt)">${info}</textarea>`;
+    str += `</div>`;
+    str += `</div>`;
+
+    str += `</div>`;
+    str += `<button class="btn">Spara ändringar</button>`;
+    str += `</form>`;
+    
+    document.getElementById("formBox").innerHTML = str;
+    showPage(9);
+
+    //TODO: Backend for saving changes
+}
+
 // --------------------------------------------------
 // --------------      AJAX CALLS      --------------
 // --------------------------------------------------
@@ -168,7 +250,6 @@ $(document).on("submit", "#newHorseForm", function(event){
     let text = document.querySelector("textarea[name='description']").value;
     let split = text.split("\n");
     let newText = split.join("¤¤");
-    console.log(newText);
 
     let formData = new FormData();
     formData.append("horseName", name);
@@ -188,7 +269,7 @@ $(document).on("submit", "#newHorseForm", function(event){
         processData:false,
         success: function(data){
             getHorses();
-            showPage(4);
+            showPage(4,0);
         }
     })
 });
@@ -290,7 +371,8 @@ function getHorse(id){
                         height: horse.attributes["height"].nodeValue,
                         year: horse.attributes["year"].nodeValue,
                         age: age,
-                        image: horse.attributes["image"].nodeValue
+                        image: horse.attributes["image"].nodeValue,
+                        info: horse.attributes["info"].nodeValue
                     };
 
                     document.getElementById("name").innerHTML = horseData.name;
@@ -301,14 +383,13 @@ function getHorse(id){
                     document.getElementById("breed").innerHTML = horseData.breed;
                     document.getElementById("height").innerHTML = horseData.height;
 
-                    let paragraphs = makeParagraphs(horse.attributes["info"].nodeValue);
+                    let paragraphs = makeParagraphs(horseData.info, "print");
                     document.getElementById("description").innerHTML = paragraphs;
 
                     getHorseImages(horseData.id);
 
-                    // Storing id and name for changes on active horse
-                    let details = `${horseData.id},${horseData.name}`;
-                    sessionStorage.setItem("horse", details);
+                    // Storing horse data for changes on active horse
+                    sessionStorage.setItem("horse", JSON.stringify(horseData));
 
                     let str = ``;
                     if(localStorage.getItem("userRole") == "Admin"){
@@ -320,7 +401,7 @@ function getHorse(id){
                         str += `Lägg till bilder`;
                         str += `</button>`;
 
-                        str += `<button class="crudBtn">`;
+                        str += `<button class="crudBtn" onclick="editHorseForm()">`;
                         str += `<img src="./icons/edithorse-white.png" />`;
                         str += `Redigera häst`;
                         str += `</button>`;

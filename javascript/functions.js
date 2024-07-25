@@ -17,13 +17,18 @@ function closePopup(){
     document.body.classList.remove("stopScroll")
 }
 
-function makeParagraphs(text){
-    let paragarphs = text.split("¤¤");
+function makeParagraphs(text, type){
+    let paragraphs = text.split("¤¤");
     let str = "";
-    paragarphs.forEach(paragraph => {
-        if(paragraph != ""){
-            str += `<p>${paragraph}</p>`;
+
+    paragraphs.forEach(paragraph => {
+        if(type == "print"){
+            if(paragraph != ""){
+                str += `<p>${paragraph}</p>`;
+            }
+        } else {
+            str += `${paragraph}\r\n`;
         }
-    });
+    })
     return str;
 }
