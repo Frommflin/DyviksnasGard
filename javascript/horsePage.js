@@ -164,11 +164,12 @@ function editHorseForm(){
     str += `<div class="input-group-prepend">`;
     str += `<span class="input-group-text">Bild</span>`;
     str += `</div>`;
-    str += `<input type="file" class="form-control" name="profileImg" required>`;
+    str += `<input type="file" class="form-control" name="newProfile">`;
     str += `</div>`;
     str += `<span class="hint">`;
     str += `För att behålla bilden, lämna filuppladdningen tom!`;
     str += `</span>`;
+    str += `<input type="hidden" value="${horse.image}" name="oldProfile" >`;
     str += `</div>`;
 
     str += `<div id="formInputs">`;
@@ -176,47 +177,48 @@ function editHorseForm(){
     str += `<div class="input-group-prepend">`;
     str += `<span class="input-group-text">Namn *</span>`;
     str += `</div>`;
-    str += `<input type="text" class="form-control" name="horseName" maxlength="30" value="${horse.name}" required>`;
+    str += `<input type="text" class="form-control" name="updateHorseName" maxlength="30" value="${horse.name}" required>`;
     str += `</div>`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
     str += `<span class="input-group-text">Smeknamn</span>`;
     str += `</div>`;
-    str += `<input type="text" class="form-control" name="nickname" maxlength="15" value="${horse.nickname}">`;
+    str += `<input type="text" class="form-control" name="updateNickname" maxlength="15" value="${horse.nickname}">`;
     str += `</div>`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
     str += `<span class="input-group-text">Färg *</span>`;
     str += `</div>`;
-    str += `<input type="text" class="form-control" name="color" maxlength="15" value="${horse.color}" required>`;
+    str += `<input type="text" class="form-control" name="updateColor" maxlength="15" value="${horse.color}" required>`;
     str += `</div>`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
     str += `<span class="input-group-text">Ras *</span>`;
     str += `</div>`;
-    str += `<input type="text" class="form-control" name="breed" maxlength="20" value="${horse.breed}" required>`;
+    str += `<input type="text" class="form-control" name="updateBreed" maxlength="20" value="${horse.breed}" required>`;
     str += `</div>`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
     str += `<span class="input-group-text">Mankhöjd *</span>`;
     str += `</div>`;
-    str += `<input type="number" class="form-control" name="height" min="0" value="${horse.height}" placeholder="i centimeter" required>`;
+    str += `<input type="number" class="form-control" name="updateHeight" min="0" value="${horse.height}" placeholder="i centimeter" required>`;
     str += `</div>`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
     str += `<span class="input-group-text">Födelseår *</span>`;
     str += `</div>`;
-    str += `<input type="text" class="form-control" name="yearOfBirth" maxlength="4" value="${horse.year}" placeholder="ÅÅÅÅ" required>`;
+    str += `<input type="text" class="form-control" name="updateYearOfBirth" maxlength="4" value="${horse.year}" placeholder="ÅÅÅÅ" required>`;
     str += `</div>`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
     str += `<span class="input-group-text">Beskrivning</span>`;
     str += `</div>`;
-    str += `<textarea class="form-control" name="description" placeholder="Berätta om hästen här (valfritt)">${info}</textarea>`;
+    str += `<textarea class="form-control" name="updateDescription" placeholder="Berätta om hästen här (valfritt)">${info}</textarea>`;
     str += `</div>`;
     str += `</div>`;
 
     str += `</div>`;
+    str += `<input type="hidden" value="${horse.id}" name="horseId" >`;
     str += `<button class="btn">Spara ändringar</button>`;
     str += `</form>`;
     
@@ -553,4 +555,55 @@ $(document).on("click", "#confirmImgDelete", function(event){
         }
     })
 
+});
+
+// Add a new horse
+$(document).on("submit", "#editHorseForm", function(event){
+    event.preventDefault();
+
+    let id = document.querySelector("input[name='horseId']").value;
+    let name = document.querySelector("input[name='updateHorseName']").value;
+    let nickname = document.querySelector("input[name='updateNickname']").value;
+    let color = document.querySelector("input[name='updateColor']").value;
+    let breed = document.querySelector("input[name='updateBreed']").value;
+    let height = document.querySelector("input[name='updateHeight']").value;
+    let year = document.querySelector("input[name='updateYearOfBirth']").value;
+    let oldimg = document.querySelector("input[name='oldProfile']").value;
+    let img = document.querySelector("input[name='newProfile']").files[0];
+    let noImg;
+
+    if(document.querySelector("input[name='newProfile']").files.length == 0){
+        noImg = true;
+    } else {
+        noImg = false;
+    }
+
+    let text = document.querySelector("textarea[name='updateDescription']").value;
+    let split = text.split("\n");
+    let newText = split.join("¤¤");
+
+    let formData = new FormData();
+    formData.append("horseId", id);
+    formData.append("updateHorseName", name);
+    formData.append("updateNickname", nickname);
+    formData.append("updateColor", color);
+    formData.append("updateBreed", breed);
+    formData.append("updateHeight", height);
+    formData.append("updateYearOfBirth", year);
+    formData.append("newProfile", img);
+    formData.append("oldProfile", oldimg);
+    formData.append("updateDescription", newText);
+    formData.append("noImage", noImg);
+
+    $.ajax({
+        url: "./php/editHorse.php",
+        method: "POST",
+        data: formData,
+        contentType:false,
+        processData:false,
+        success: function(data){
+            getHorse(id);
+            showPage(5,id);
+        }
+    })
 });
