@@ -66,14 +66,13 @@ function showNewHorseForm(){
 let horseImageArray = [];
 
 function showHorseImgForm(){
-    let horse = sessionStorage.getItem("horse").split(",");
-    // id: horse[0], name: horse[1]
+    let horse = JSON.parse(sessionStorage.getItem("horse"));
 
     let str = ``;
 
     str += `<div class="topRow">`;
-    str += `<h1>Lägg till bilder på ${horse[1]}</h1>`;
-    str += `<button class="btn" onclick="showPage(5,${horse[0]})">Avbryt</button>`;
+    str += `<h1>Lägg till bilder på ${horse.name}</h1>`;
+    str += `<button class="btn" onclick="showPage(5,${horse.id})">Avbryt</button>`;
     str += `</div>`;
     str += `<form id="horseImageForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
     str += `<div class="input-group">`;
@@ -82,7 +81,7 @@ function showHorseImgForm(){
     str += `</div>`;
     str += `<input type="file" class="form-control" name="uploadHorse[]" id="uploadHorse" multiple required>`;
     str += `</div>`;
-    str += `<input type="hidden" name="horseId" id="horseId" value="${horse[0]}" />`;
+    str += `<input type="hidden" name="horseId" id="horseId" value="${horse.id}" />`;
     str += `<button class="btn">Spara bilder</button>`;
     str += `</form>`;
 
@@ -113,8 +112,7 @@ $(document).on("click", "#cancelHorseDelete", function(event){
 });
 
 function showDeleteHorseImgForm(){
-    let horse = sessionStorage.getItem("horse").split(",");
-    // id: horse[0], name: horse[1]
+    let horse = JSON.parse(sessionStorage.getItem("horse"));
 
     let str = "";
 
@@ -126,12 +124,12 @@ function showDeleteHorseImgForm(){
         str += `<div class="deleteCard card">`;
         str += `<input type="checkbox" id="img${i+1}" name="deleteImages[]" value="${horseImageArray[i]}">`;
         str += `<label for="img${i+1}">`;
-        str += `<img src="./images/horseUploads/${horseImageArray[i]}" alt="Image ${i+1} of ${horse[1]}">`;
+        str += `<img src="./images/horseUploads/${horseImageArray[i]}" alt="Image ${i+1} of ${horse.name}">`;
         str += `</label>`;
         str += `</div>`;
     };
     str += `</div>`;
-    str += `<input type="hidden" name="horseID" id="horseID" value="${horse[0]}">`;
+    str += `<input type="hidden" name="horseID" id="horseID" value="${horse.id}">`;
     str += `<div class="confirmBtns">`;
     str += `<input type="submit" id="cancelImgDelete" class="btn" value="Avbryt">`;
     str += `<input type="submit" id="confirmImgDelete" class="btn" value="Ta bort markerade bilder">`;
@@ -437,9 +435,8 @@ function getHorseImages(id){
             let resultset = data.childNodes[0];
             let arrayLength = resultset.childNodes.length;
 
-            let storedHorse = sessionStorage.getItem("horse").split(",");
+            let horse = JSON.parse(sessionStorage.getItem("horse"));
             // id: horse[0], name: horse[1]
-            let horse = storedHorse[1];
 
             let indicator = ``;
             let images = ``;
@@ -481,7 +478,7 @@ function getHorseImages(id){
                             images += ` active`;
                         }
                         images += `">`;
-                        images += `<img src="./images/horseUploads/${filename}" class="d-block" alt="Image ${slide+1} of ${horse}">`;
+                        images += `<img src="./images/horseUploads/${filename}" class="d-block" alt="Image ${slide+1} of ${horse.name}">`;
                         images += `</div>`;
 
                         slide++;
