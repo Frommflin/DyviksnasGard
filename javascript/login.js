@@ -30,25 +30,21 @@ function comparePwds(name){
 }
 
 function logIn(user){
-    //Navigate back to start-page
-    showPage(1); 
-
     // Saving user role
     localStorage.setItem("userRole",user.role);
     localStorage.setItem("userName",user.name);
-
     checkUser();
+    //Navigate back to start-page
+    showPage(1); 
 }
 
 function logOut(){
-    //Navigate back to start-page
-    showPage(1); 
-
     // Removing user from storage
     localStorage.removeItem("userRole");
     localStorage.removeItem("userName");
-    
     checkUser();
+    // Navigate back to start-page
+    showPage(1); 
 }
 
 function checkUser(){
