@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Tangerine&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Arsenal+SC&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gruppo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ysabeau+SC&display=swap");
 /* Screen breakpoints as min-width (mobile-first) */
 /* ---------------------------------
  * ---------- Colorscheme ----------
@@ -20,7 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Sorts Mill Goudy", serif;
 }
 
 h1 {
@@ -98,6 +99,7 @@ header {
   }
   #navbar #navbarNav {
     order: 2;
+    padding-top: 4px;
   }
 }
 .stickyNav {
@@ -253,10 +255,10 @@ footer {
   color: #ffffff;
 }
 footer #socialMediaList {
-  font-family: "Gruppo", sans-serif;
+  font-family: "Ysabeau SC", sans-serif;
 }
 footer #socialMediaList h6 {
-  font-family: "Arsenal SC", sans-serif;
+  font-family: "Gruppo", sans-serif;
   font-weight: bold;
 }
 footer ul {
