@@ -10,8 +10,8 @@ $(document).on("submit", "#contactForm", function(event){
         success: function(data){
             alert(data);
         },
-        error: function(error){
-            alert(error);
+        error: function (error) {
+            alert(`Något gick fel. Testa ladda om sidan.`);
         }
     })
 });

@@ -177,6 +177,9 @@ $(document).on("submit", "#addNewsForm", function(event){
         success: function(data){
             getPosts();
             showPage(1);
+        },
+        error: function (error) {
+            ajaxError(error);
         }
     })
 });
@@ -230,6 +233,9 @@ function getPosts(){
             }
             document.getElementById("newsLetter").innerHTML = str;
             createPagination();
+        },
+        error: function (error) {
+            alert(`Något gick fel. Testa ladda om sidan.`);
         }
     })
 }
@@ -249,6 +255,9 @@ function editPost(){
         },
         success: function(data){
             getPosts();
+        },
+        error: function (error) {
+            ajaxError(error);
         }
     })
 }
@@ -269,6 +278,9 @@ $(document).on("click", "#confirmDelete", function(event){
         success: function(data){
             getPosts();
             closePopup();
+        },
+        error: function (error) {
+            ajaxError(error);
         }
     })
 });

@@ -270,6 +270,9 @@ $(document).on("submit", "#newHorseForm", function(event){
         success: function(data){
             getHorses();
             showPage(4,0);
+        },
+        error: function (error) {
+            ajaxError(error);
         }
     })
 });
@@ -311,6 +314,9 @@ function getHorses(){
             }
             document.getElementById("horseLinks").innerHTML = str1;
             document.getElementById("cardContainer").innerHTML = str2;
+        },
+        error: function (error) {
+            alert(`Något gick fel. Testa ladda om sidan.`);
         }
     })
 }
@@ -342,6 +348,9 @@ $(document).on("submit", "#horseImageForm", function(event){
         success: function(data){
             getHorseImages(document.getElementById("horseId").value);
             showPage(5, horse);
+        },
+        error: function (error) {
+            ajaxError(error);
         }
     })
 });
@@ -421,6 +430,9 @@ function getHorse(id){
                     document.getElementById("btnBox").innerHTML = str;
                 }
             }
+        },
+        error: function (error) {
+            alert(`Något gick fel. Testa ladda om sidan.`);
         }
     })
 }
@@ -492,6 +504,9 @@ function getHorseImages(id){
             }
             document.getElementById("indicators").innerHTML = indicator;
             document.getElementById("carouselImages").innerHTML = images;
+        },
+        error: function (error) {
+            alert(`Något gick fel. Testa ladda om sidan.`);
         }
     })
 }
@@ -523,8 +538,14 @@ $(document).on("click", "#confirmHorseDelete", function(event){
                     closePopup();
                     getHorses();
                     showPage(4,0);
+                },
+                error: function (error) {
+                    ajaxError(error);
                 }
             })
+        },
+        error: function (error) {
+            ajaxError(error);
         }
     }) 
 });
@@ -552,6 +573,9 @@ $(document).on("click", "#confirmImgDelete", function(event){
         success: function(data){
             document.getElementById("imgDeleteBox").innerHTML = "";
             getHorseImages(id);
+        },
+        error: function (error) {
+            ajaxError(error);
         }
     })
 
@@ -604,6 +628,9 @@ $(document).on("submit", "#editHorseForm", function(event){
         success: function(data){
             getHorse(id);
             showPage(5,id);
+        },
+        error: function (error) {
+            ajaxError(error);
         }
     })
 });

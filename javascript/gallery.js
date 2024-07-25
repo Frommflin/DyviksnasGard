@@ -227,6 +227,9 @@ $(document).on("submit", "#newAlbumForm", function(event){
         success: function(data){
             getAlbums();
             showPage(6);
+        },
+        error: function (error) {
+            ajaxError(error);
         }
     })
 });
@@ -259,6 +262,9 @@ $(document).on("submit", "#addImgForm", function(event){
             });
 
             addImageDescription(galleryImageArray,albumId);
+        },
+        error: function (error) {
+            ajaxError(error);
         }
     })
 });
@@ -273,6 +279,9 @@ function undoUploadedImages(){
         },
         success: function(data){
             showPage(6);
+        },
+        error: function (error) {
+            ajaxError(error);
         }
     })
 }
@@ -322,6 +331,9 @@ function getAlbums(){
                 }
             }
             document.getElementById("galleryNav").innerHTML = str;
+        },
+        error: function (error) {
+            alert(`Något gick fel. Testa ladda om sidan.`);
         }
     })
 }
@@ -373,6 +385,9 @@ function getGallery(albumId){
                 }
             }
             document.getElementById("galleryBox").innerHTML = str2;
+        },
+        error: function (error) {
+            alert(`Något gick fel. Testa ladda om sidan.`);
         }
     })
 }
@@ -401,8 +416,14 @@ $(document).on("click", "#confirmAlbumDelete", function(event){
                     closePopup();
                     getAlbums();
                     showPage(6);
+                },
+                error: function (error) {
+                    ajaxError(error);
                 }
             })
+        },
+        error: function (error) {
+            ajaxError(error);
         }
     }) 
 });
@@ -422,6 +443,9 @@ function editImageText(image, album){
         },
         success: function(data){
             showImage(image, newDesc, album);
+        },
+        error: function (error) {
+            ajaxError(error);
         }
     })
 }
@@ -441,6 +465,9 @@ $(document).on("click", "#confirmGalImgDelete", function(event){
         success: function(data){
             closePopup();
             getGallery(album);
+        },
+        error: function (error) {
+            ajaxError(error);
         }
     }) 
 });

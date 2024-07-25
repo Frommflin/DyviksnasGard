@@ -32,3 +32,8 @@ function makeParagraphs(text, type){
     })
     return str;
 }
+
+function ajaxError(error){
+    alert(`Något gick fel. Testa ladda om sidan och försök igen, annars skicka bild på följande felkod till Klara. \n\n Error: ${error}`);
+    console.log(`Error: ${error}`);
+}

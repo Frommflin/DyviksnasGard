@@ -132,6 +132,9 @@ $(document).on("submit", "#newAccountForm", function(event){
                     getUser(userLogin);
                 }
             } 
+        },
+        error: function (error) {
+            alert(`Något gick fel.`);
         }
     })
 });
@@ -166,6 +169,9 @@ function getUser(incomingLogin){
                 }
             }
             logIn(user);
+        },
+        error: function (error) {
+            alert(`Felaktig mail eller lösenord.`);
         }
     })
 }
