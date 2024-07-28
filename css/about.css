@@ -22,7 +22,7 @@
   margin: 10px auto;
 }
 
-#org {
+#abouts :nth-child(even) {
   flex-direction: row-reverse;
 }
 

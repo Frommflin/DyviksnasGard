@@ -9,9 +9,10 @@
         width: 300px
         height: 100%
         margin: 10px auto
-
-#org
-    flex-direction: row-reverse
+    
+#abouts
+    :nth-child(even)
+        flex-direction: row-reverse
 
 @media (min-width: map.get(shared.$breakpoints, md) )
     .about

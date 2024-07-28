@@ -23,8 +23,9 @@
         <script src="./javascript/news.js"></script>
         <script src="./javascript/login.js"></script>
         <script src="./javascript/contact.js"></script>
+        <script src="./javascript/about.js"></script>
     </head>
-    <body onload="showPage(1); getPosts(); getHorses(); getAlbums(); checkUser();">
+    <body onload="showPage(1); getPosts(); getHorses(); getAlbums(); checkUser(); getAbouts();">
         <header>
             <div id="logoBanner">
                 <img id="bannerLogo" src="./icons/PrimaryLogo.png" alt="Dyviksnäs Gårds Logga" />
@@ -76,26 +77,7 @@
             </div> <!--  End of page 1 -->
             <div id="page2" class="page"> <!-- Om oss -->
                 <h1>Om Oss</h1>
-                <div id="loc" class="about">
-                    <img src="./images/tempexample.jpg" alt="Nordsvensken Luffen">
-                    <div>
-                        <h1>Dyviksnäs Gård</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget fermentum nunc. Donec condimentum maximus risus. Nullam molestie et sem vitae facilisis. Sed vitae sapien eget odio consectetur viverra. Nam et ante nunc. Cras quam diam, tempor non dignissim id, convallis eget enim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam a viverra neque, eget aliquet leo. Aliquam mollis vehicula ante, quis placerat lorem dictum et. In dignissim sem id placerat bibendum. Donec mollis neque est, in lacinia lorem accumsan sed. Sed suscipit ipsum id ligula lobortis feugiat. Nunc in faucibus diam.</p>
-                        <p>Nam porta dui ac eleifend egestas. Cras tincidunt pulvinar tellus sed faucibus. Proin suscipit justo eu lectus congue, sit amet dictum nibh dapibus. Morbi condimentum rhoncus tempor. Donec ut elementum orci. Nam mi sem, sollicitudin ac ornare et, egestas nec elit. Mauris euismod faucibus tincidunt. Morbi eu aliquet quam, at accumsan nisl. Mauris ut mi quis odio tempor egestas. Nullam condimentum, massa non sagittis mattis, mi lectus dictum enim, tincidunt facilisis massa erat vitae erat. Sed quam sem, sollicitudin eget posuere id, auctor et nisi. Morbi elementum blandit odio. Sed sit amet ornare velit. Nulla condimentum elit ac ultrices scelerisque.
-                        </p>
-                        <p>Proin faucibus consectetur dui, eget mattis nisl pellentesque commodo. Aenean nec consequat eros. Ut et neque sit amet risus convallis euismod eget id leo. Duis at justo vitae arcu feugiat ullamcorper. Vestibulum consectetur venenatis leo, in cursus risus blandit ut. Sed pulvinar fringilla pharetra. Quisque vitae lobortis quam. Morbi lobortis lacinia congue. Nulla pharetra magna vel laoreet fermentum. Maecenas orci mi, tincidunt nec lacus ac, vestibulum euismod purus. Curabitur id diam nec velit ultricies tristique sed a dui. Ut quis porta purus.
-                        </p>
-                    </div>
-                </div>
-                <div id="org" class="about">
-                    <img src="./images/tempexample.jpg" alt="Nordsvensken Luffen">
-                    <div>
-                        <h1>Dyviksnäs Häst & Hälsa</h1>
-                        <p>Mauris nec tempor lectus, eu finibus nisl. Proin suscipit purus lorem, sit amet venenatis odio sodales vitae. Praesent a risus lacinia, pellentesque nisl sed, porta neque. Vivamus eget justo vitae nisl dapibus placerat in nec diam. Nulla vestibulum ornare sapien et posuere. Praesent at ultricies leo, quis condimentum mauris. Sed sit amet odio at elit pretium convallis nec sit amet augue. Pellentesque a tortor in orci facilisis congue quis eget ligula. Vivamus sagittis libero posuere tellus eleifend, eget tincidunt dui convallis. Nullam vitae nunc libero. Proin a congue magna. Aliquam nec ultrices erat.</p>
-                        <p>In pulvinar pulvinar auctor. Praesent vitae velit eros. Nulla ac purus vel enim malesuada facilisis. Nullam sit amet tortor nec magna dictum placerat eu quis erat. Proin iaculis bibendum justo, nec maximus ligula scelerisque vel. Curabitur viverra lectus quis nisi consectetur, vitae sollicitudin mi congue. Nam laoreet purus quis tortor interdum, at porttitor risus placerat. Vestibulum vitae sem est. Aliquam erat volutpat. Fusce dapibus facilisis gravida.</p>
-                        <p>Praesent eu ante orci. Nunc eu iaculis lacus, cursus interdum nibh. Donec fermentum fringilla pharetra. Vivamus nec blandit justo. Sed a convallis leo. Pellentesque sit amet purus tristique ipsum imperdiet mollis non eu diam. In placerat congue sagittis. Vivamus gravida dui sit amet cursus dapibus. Morbi diam arcu, sodales sed fringilla at, pretium vel eros. In eget dui sapien. Nam fringilla rhoncus mauris, a finibus justo varius ac. Nulla laoreet ultricies maximus. Praesent id nulla nisi.</p>
-                    </div>
-                </div>
+                <div id="abouts"></div>
             </div> <!--  End of page 2 -->
             <div id="page3" class="page"> <!-- Kontakt -->
                 <div class="container">
