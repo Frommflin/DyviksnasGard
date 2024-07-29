@@ -43,6 +43,10 @@ h1 {
   align-self: center;
 }
 
+.hint {
+  font-size: 12px;
+}
+
 header {
   margin-bottom: 10px;
 }

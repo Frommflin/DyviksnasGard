@@ -5,17 +5,33 @@
     display: flex
     flex-wrap: wrap
     margin-bottom: 40px
-    img
+    >img
         width: 300px
         height: 100%
         margin: 10px auto
+    >div
+        width: 100%
+    .input-group
+        margin-top: 10px
+        margin-bottom: 0
+    textarea
+        height: 240px
+    .btn
+        margin: 0 10px
+        img
+            height: 24px
     
 #abouts
-    :nth-child(even)
+    >:nth-child(even)
         flex-direction: row-reverse
+        .topRow
+            flex-direction: row-reverse
+    >:nth-child(odd)
+        .topRow
+            flex-direction: row
 
 @media (min-width: map.get(shared.$breakpoints, md) )
     .about
         flex-wrap: nowrap
-        img 
+        >img 
             margin: 10px

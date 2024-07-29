@@ -16,21 +16,43 @@
   flex-wrap: wrap;
   margin-bottom: 40px;
 }
-.about img {
+.about > img {
   width: 300px;
   height: 100%;
   margin: 10px auto;
 }
+.about > div {
+  width: 100%;
+}
+.about .input-group {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.about textarea {
+  height: 240px;
+}
+.about .btn {
+  margin: 0 10px;
+}
+.about .btn img {
+  height: 24px;
+}
 
-#abouts :nth-child(even) {
+#abouts > :nth-child(even) {
   flex-direction: row-reverse;
+}
+#abouts > :nth-child(even) .topRow {
+  flex-direction: row-reverse;
+}
+#abouts > :nth-child(odd) .topRow {
+  flex-direction: row;
 }
 
 @media (min-width: 768px) {
   .about {
     flex-wrap: nowrap;
   }
-  .about img {
+  .about > img {
     margin: 10px;
   }
 }
