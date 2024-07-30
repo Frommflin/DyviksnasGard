@@ -75,7 +75,7 @@ $(document).on("submit", "#newAnimalForm", function(event){
         contentType:false,
         processData:false,
         success: function(data){
-            //TODO: undate page with animals
+            getAnimals();
             showPage(10);
         },
         error: function (error) {
@@ -83,3 +83,44 @@ $(document).on("submit", "#newAnimalForm", function(event){
         }
     })
 });
+
+function getAnimals(){
+    $.ajax({
+        url: "./php/getAllAnimals.php",
+        method: "POST",
+        success: function(data){
+            let resultset = data.childNodes[0];
+            
+            let str = ``;
+            // Iterate over all nodes in root node (i.e. horses)
+            for (i = 0; i < resultset.childNodes.length; i++){
+                if(resultset.childNodes.item(i).nodeName=="animal"){
+                    let animal = resultset.childNodes.item(i);
+                    //${animal.attributes["id"].nodeValue}
+                    const currentYear = new Date().getFullYear();
+                    let age = currentYear - animal.attributes["yob"].nodeValue;
+                    let text = makeParagraphs(animal.attributes["description"].nodeValue, "print");
+
+                    // Creating cards on page 10
+                    str += `<div class="animalCard">`;
+                    str += `<img src="./images/animalUploads/${animal.attributes["img"].nodeValue}" alt="${animal.attributes["name"].nodeValue}"/>`;
+                    str += `<div class="animalInfo">`;
+                    str += `<h1>${animal.attributes["name"].nodeValue}</h1>`;
+                    str += `<div>`;
+                    str += `Ras: ${animal.attributes["breed"].nodeValue}`;
+                    str += `</div>`;
+                    str += `<div>`;
+                    str += `Ålder: ${age} år`;
+                    str += `</div>`;
+                    str += text;
+                    str += `</div>`;
+                    str += `</div>`;
+                }
+            }
+            document.getElementById("animalBox").innerHTML = str;
+        },
+        error: function (error) {
+            alert(`Något gick fel. Testa ladda om sidan.`);
+        }
+    })
+}
