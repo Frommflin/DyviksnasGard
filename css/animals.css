@@ -37,4 +37,8 @@
   text-align: center;
 }
 
+#newAnimalForm .input-group-text {
+  width: 7rem;
+}
+
 /*# sourceMappingURL=animals.css.map */

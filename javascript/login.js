@@ -83,6 +83,13 @@ function checkUser(){
             str += `Nytt album`;
             str += `</button>`;
             document.getElementById("album").innerHTML = str;
+
+            // Creating button for adding new animals, Page 10
+            str = `<button id="animalBtn" class="crudBtn" onclick="showNewAnimalForm()">`;
+            str += `<img src="./icons/addpet-white.png" />`;
+            str += `Lägg till djur`;
+            str += `</button>`;
+            document.getElementById("animal").innerHTML = str;
         } else {
             hideAdmins();
         }
