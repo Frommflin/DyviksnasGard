@@ -581,7 +581,7 @@ $(document).on("click", "#confirmImgDelete", function(event){
 
 });
 
-// Add a new horse
+// Edit horse
 $(document).on("submit", "#editHorseForm", function(event){
     event.preventDefault();
 
