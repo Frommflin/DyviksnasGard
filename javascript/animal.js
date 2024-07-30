@@ -106,6 +106,28 @@ function editAnimalForm(id, name, breed, year, img, text){
     showPage(9);
 }
 
+function deleteHorse(id, img){
+    let str = ``;
+
+    str += `<div class="popupBox">`;
+    str += `<form id="deleteAnimalForm" class="col col-xs-6" method="post">`;
+    str += `<h1>Är du säker på att du vill ta bort det här djuret?</h1>`;
+    str += `<input type="hidden" name="animalDeleteId" value="${id}" />`;
+    str += `<input type="hidden" name="animalDeleteImg" value="${img}" />`;
+    str += `<div class="confirmBtns">`;
+    str += `<button type="submit" id="cancelAnimalDelete" class="btn">Avbryt</button>`;
+    str += `<button type="submit" id="confirmAnimalDelete" class="btn">Ta bort</button>`;
+    str += `</div>`;
+    str += `</div>`;
+
+    showPopup(str);
+}
+
+$(document).on("click", "#cancelAnimalDelete", function(event){
+    event.preventDefault();
+    closePopup();
+});
+
 // --------------------------------------------------
 // --------------      AJAX CALLS      --------------
 // --------------------------------------------------
@@ -183,7 +205,7 @@ function getAnimals(){
                         str += `<img src="./icons/editpet-white.png" />`;
                         str += `Redigera`;
                         str += `</button>`;
-                        str += `<button class="crudBtn">`;
+                        str += `<button class="crudBtn" onclick="deleteHorse(${animal.attributes["id"].nodeValue},'${animal.attributes["img"].nodeValue}')">`;
                         str += `<img src="./icons/bin-white.png" />`;
                         str += `Ta bort`;
                         str += `</button>`;
@@ -200,7 +222,7 @@ function getAnimals(){
     })
 }
 
-// Edit horse
+// Edit animal
 $(document).on("submit", "#editAnimalForm", function(event){
     event.preventDefault();
 
@@ -246,4 +268,28 @@ $(document).on("submit", "#editAnimalForm", function(event){
             ajaxError(error);
         }
     })
+});
+
+// Delete animal
+$(document).on("click", "#confirmAnimalDelete", function(event){
+    event.preventDefault();
+    let id = document.querySelector("input[name='animalDeleteId']").value;
+    let img = document.querySelector("input[name='animalDeleteImg']").value;
+
+    // First delete all images in table using horse as foreign key
+    $.ajax({
+        url: "./php/deleteAnimal.php",
+        method: "POST",
+        data: {
+            animalId: id,
+            image: img
+        },
+        success: function(data){
+            closePopup();
+            getAnimals();
+        },
+        error: function (error) {
+            ajaxError(error);
+        }
+    }) 
 });
