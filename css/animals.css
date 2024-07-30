@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Tangerine&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gruppo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ysabeau+SC&display=swap");
+/* Screen breakpoints as min-width (mobile-first) */
+/* ---------------------------------
+ * ---------- Colorscheme ----------
+ * --------------------------------- */
+/* Primary */
+/* Backgrounds, Texts */
+/* ---------------------------------
+ * ------------- Fonts -------------
+ * --------------------------------- */
+#animalBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.animalCard {
+  border: 1px solid #dd9968;
+  width: 100%;
+  max-width: 500px;
+  padding: 10px;
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.animalCard img {
+  border: 1px solid #dd9968;
+  width: 100%;
+  max-width: 400px;
+  max-height: 400px;
+}
+.animalCard h1 {
+  text-align: center;
+}
+
+/*# sourceMappingURL=animals.css.map */

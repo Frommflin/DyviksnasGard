@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="./css/login.css">
         <link rel="stylesheet" href="./css/about.css">
         <link rel="stylesheet" href="./css/events.css">
+        <link rel="stylesheet" href="./css/animals.css">
         <script src="./javascript/functions.js"></script>
         <script src="./javascript/navigation.js"></script>
         <script src="./javascript/horsePage.js"></script>
@@ -25,7 +26,7 @@
         <script src="./javascript/contact.js"></script>
         <script src="./javascript/about.js"></script>
     </head>
-    <body onload="showPage(1); getPosts(); getHorses(); getAlbums(); checkUser(); getAbouts();">
+    <body onload="showPage(10); getPosts(); getHorses(); getAlbums(); checkUser(); getAbouts();">
         <header>
             <div id="logoBanner">
                 <img id="bannerLogo" src="./icons/PrimaryLogo.png" alt="Dyviksnäs Gårds Logga" />
@@ -61,6 +62,7 @@
                                 <div id="horseLinks"></div>
                             </div>
                         </div>
+                        <a id="link10" class="nav-link spaLink" href="#" onclick="showPage(10)">Träffa Smådjuren</a>
                         <a id="link6" class="nav-link spaLink" href="#" onclick="showPage(6)">Galleri</a>
                         <a id="link3" class="nav-link spaLink" href="#" onclick="showPage(3)">Kontakt</a>
                     </div>
@@ -68,18 +70,18 @@
             </nav>
         </header>
         <div id="content" class="container">
-            <div id="page1" class="page"> <!-- Aktuellt -->
+            <div id="page1" class="page"> <!-- News -->
                 <div class="topRow">
                     <h1>Aktuellt på Dyviksnäs Gård</h1>
                     <div id="post"></div>
                 </div>
                 <div id="newsLetter"></div>
             </div> <!--  End of page 1 -->
-            <div id="page2" class="page"> <!-- Om oss -->
+            <div id="page2" class="page"> <!-- About Us -->
                 <h1>Om Oss</h1>
                 <div id="abouts"></div>
             </div> <!--  End of page 2 -->
-            <div id="page3" class="page"> <!-- Kontakt -->
+            <div id="page3" class="page"> <!-- Contact -->
                 <div class="container">
                     <div class="row">
                         <div id="contact" class="col-12 col-md-6">
@@ -149,14 +151,14 @@
                     </div>
                 </div>
             </div> <!--  End of page 3 -->
-            <div id="page4" class="page"> <!-- Alla hästar -->
+            <div id="page4" class="page"> <!-- All Horses -->
                 <div class="topRow">
                     <h1>Träffa våra hästar</h1>
                     <div id="horse"></div>
                 </div>
                 <div id="cardContainer"></div>
             </div> <!--  End of page 4 -->
-            <div id="page5" class="page"> <!-- Vald häst -->
+            <div id="page5" class="page"> <!-- Selected horse -->
                 <div id="horseContainer">
                     <div>
                         <div id="carouselContainer">
@@ -193,7 +195,7 @@
                 </div>
                 <div id="imgDeleteBox"></div>
             </div> <!--  End of page 5 -->
-            <div id="page6" class="page"> <!-- Galleri -->
+            <div id="page6" class="page"> <!-- Gallery -->
                 <div class="topRow">
                     <h1>Galleri</h1>
                     <div id="album"></div>
@@ -203,7 +205,7 @@
                 <div id="galleryDescription"></div>
                 <div id="galleryBox"></div>
             </div> <!--  End of page 6 -->
-            <div id="page7" class="page"> <!-- Aktiviteter -->
+            <div id="page7" class="page"> <!-- Events -->
                 <div id="event">
                     <div id="eventData">
                         <img src="./images/tempexample.jpg">
@@ -228,7 +230,7 @@
                     </div>
                 </div>
             </div> <!--  End of page 7 -->
-            <div id="page8" class="page"> <!-- Logga in / Skapa konto -->
+            <div id="page8" class="page"> <!-- Log in / Create account -->
                 <div id="loginBox">
                     <form id="loginForm" class="item" method="post">
                         <h1>Logga in</h1>
@@ -309,9 +311,67 @@
                     </form>
                 </div>
             </div> <!--  End of page 8 -->
-            <div id="page9" class="page"> <!-- Formulär -->
+            <div id="page9" class="page"> <!-- Forms -->
                 <div id="formBox"></div>
             </div> <!--  End of page 9 -->
+            <div id="page10" class="page"> <!-- Small Animals -->
+                <div class="topRow">
+                    <h1>Smådjuren</h1>
+                    <div id="animals"></div>
+                </div>
+                <div id="animalBox">
+                    <div class="animalCard">
+                        <img src="./images/exampleanimal.jpg" alt="Animal"/>
+                        <div class="animalInfo">
+                            <h1>Namn</h1>
+                            <div>
+                                Ras: <span id="animalBreed">Hund</span>
+                            </div>
+                            <div>
+                                Ålder: <span id="animalAge">X</span>år
+                            </div>
+                            <div id="animalDescription">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore pariatur ipsum inventore optio nulla odit, ducimus aut vero aperiam reiciendis alias consequuntur libero hic assumenda quis perspiciatis quod, provident voluptatum!</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore pariatur ipsum inventore optio nulla odit, ducimus aut vero aperiam reiciendis alias consequuntur libero hic assumenda quis perspiciatis quod, provident voluptatum!</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore pariatur ipsum inventore optio nulla odit, ducimus aut vero aperiam reiciendis alias consequuntur libero hic assumenda quis perspiciatis quod, provident voluptatum!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animalCard">
+                        <img src="./images/exampleanimal.jpg" alt="Animal"/>
+                        <div class="animalInfo">
+                            <h1>Namn</h1>
+                            <div>
+                                Ras: <span id="animalBreed">Hund</span>
+                            </div>
+                            <div>
+                                Ålder: <span id="animalAge">X</span>år
+                            </div>
+                            <div id="animalDescription">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore pariatur ipsum inventore optio nulla odit, ducimus aut vero aperiam reiciendis alias consequuntur libero hic assumenda quis perspiciatis quod, provident voluptatum!</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore pariatur ipsum inventore optio nulla odit, ducimus aut vero aperiam reiciendis alias consequuntur libero hic assumenda quis perspiciatis quod, provident voluptatum!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animalCard">
+                        <img src="./images/exampleanimal.jpg" alt="Animal"/>
+                        <div class="animalInfo">
+                            <h1>Namn</h1>
+                            <div>
+                                Ras: <span id="animalBreed">Hund</span>
+                            </div>
+                            <div>
+                                Ålder: <span id="animalAge">X</span>år
+                            </div>
+                            <div id="animalDescription">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore pariatur ipsum inventore optio nulla odit, ducimus aut vero aperiam reiciendis alias consequuntur libero hic assumenda quis perspiciatis quod, provident voluptatum!</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore pariatur ipsum inventore optio nulla odit, ducimus aut vero aperiam reiciendis alias consequuntur libero hic assumenda quis perspiciatis quod, provident voluptatum!</p>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore pariatur ipsum inventore optio nulla odit, ducimus aut vero aperiam reiciendis alias consequuntur libero hic assumenda quis perspiciatis quod, provident voluptatum!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!--  End of page 10 -->
         </div>
         <div id="popup"></div>
         <footer>
