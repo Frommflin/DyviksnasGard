@@ -226,6 +226,32 @@ form
     form
         max-width: 800px
 
+.imageEditForm
+    max-width: 1100px !important
+    .formcontent
+        display: flex
+        flex-wrap: wrap
+    .formImage
+        width: 300px
+        margin: 0 0 10px 0
+        img
+            width: 100%
+            border: 1px solid shared.$primary
+            margin-bottom: 5px
+        .input-group
+            margin-bottom: 0px
+        .input-group-text
+            width: 4rem !important
+    .formInputs
+        width: 100%
+    
+@media screen and ( min-width: map.get(shared.$breakpoints, lg) )
+    .imageEditForm
+        .formImage
+            margin: 0 10px 0 0
+        .formInputs
+            width: calc( 100% - 310px )
+
 
 
 // ------------------------------------------

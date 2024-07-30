@@ -26,8 +26,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
-.animalCard img {
+.animalCard > img {
   border: 1px solid #dd9968;
   max-width: 400px;
   max-height: 300px;
@@ -38,8 +39,15 @@
 .animalCard .animalInfo {
   width: 100%;
 }
+.animalCard .crudBox {
+  width: 100%;
+}
+.animalCard .crudBox hr {
+  width: 100%;
+  margin: 0;
+}
 
-#newAnimalForm .input-group-text {
+.animalForm .input-group-text {
   width: 7rem;
 }
 

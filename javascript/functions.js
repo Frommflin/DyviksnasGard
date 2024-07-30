@@ -34,6 +34,6 @@ function makeParagraphs(text, type){
 }
 
 function ajaxError(error){
-    alert(`Något gick fel. Testa ladda om sidan och försök igen, annars skicka bild på följande felkod till Klara. \n\n Error: ${error}`);
-    console.log(`Error: ${error}`);
+    console.log(`Error: ${error.message}`);
+    alert(`Något gick fel. Testa ladda om sidan och försök igen, annars skicka bild på följande felkod till Klara. \n\n Error: ${error.message}`);
 }

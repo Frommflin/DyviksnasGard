@@ -155,10 +155,10 @@ function editHorseForm(){
     str += `<h1>Redigera</h1>`;
     str += `<button class="btn" onclick="showPage(5, ${horse.id})">Avbryt</button>`;
     str += `</div>`;
-    str += `<form id="editHorseForm" class="col col-xs-6" method="post" enctype="multipart/form-data">`;
-    str += `<div id="formcontent">`;
+    str += `<form id="editHorseForm" class="col col-xs-6 imageEditForm" method="post" enctype="multipart/form-data">`;
+    str += `<div class="formcontent">`;
 
-    str += `<div id="formImage">`;
+    str += `<div class="formImage">`;
     str += `<img src="./images/horseProfiles/${horse.image}" alt="Nuvarande profilbild på ${horse.name}">`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
@@ -172,7 +172,7 @@ function editHorseForm(){
     str += `<input type="hidden" value="${horse.image}" name="oldProfile" >`;
     str += `</div>`;
 
-    str += `<div id="formInputs">`;
+    str += `<div class="formInputs">`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
     str += `<span class="input-group-text">Namn *</span>`;
@@ -224,8 +224,6 @@ function editHorseForm(){
     
     document.getElementById("formBox").innerHTML = str;
     showPage(9);
-
-    //TODO: Backend for saving changes
 }
 
 // --------------------------------------------------

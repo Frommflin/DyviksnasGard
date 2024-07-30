@@ -247,6 +247,40 @@ form .input-group-text {
   max-width: 800px;
 }
 
+.imageEditForm {
+  max-width: 1100px !important;
+}
+.imageEditForm .formcontent {
+  display: flex;
+  flex-wrap: wrap;
+}
+.imageEditForm .formImage {
+  width: 300px;
+  margin: 0 0 10px 0;
+}
+.imageEditForm .formImage img {
+  width: 100%;
+  border: 1px solid #dd9968;
+  margin-bottom: 5px;
+}
+.imageEditForm .formImage .input-group {
+  margin-bottom: 0px;
+}
+.imageEditForm .formImage .input-group-text {
+  width: 4rem !important;
+}
+.imageEditForm .formInputs {
+  width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+  .imageEditForm .formImage {
+    margin: 0 10px 0 0;
+  }
+  .imageEditForm .formInputs {
+    width: calc(100% - 310px);
+  }
+}
 footer {
   margin-top: auto;
   background-color: #dd9968;
