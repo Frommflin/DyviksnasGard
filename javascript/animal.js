@@ -42,3 +42,44 @@ function showNewAnimalForm(){
     document.getElementById("formBox").innerHTML = str;
     showPage(9);
 }
+
+// --------------------------------------------------
+// --------------      AJAX CALLS      --------------
+// --------------------------------------------------
+
+// Add a new animal
+$(document).on("submit", "#newAnimalForm", function(event){
+    event.preventDefault();
+
+
+    let name = document.querySelector("input[name='animalName']").value;
+    let breed = document.querySelector("input[name='animalBreed']").value;
+    let year = document.querySelector("input[name='animalYOB']").value;
+    let img = document.querySelector("input[name='animalImg']").files[0];
+
+    let text = document.querySelector("textarea[name='animalDesc']").value;
+    let split = text.split("\n");
+    let newText = split.join("¤¤");
+
+    let formData = new FormData();
+    formData.append("animalName", name);
+    formData.append("animalBreed", breed);
+    formData.append("animalYOB", year);
+    formData.append("animalImg", img);
+    formData.append("animalDesc", newText);
+
+    $.ajax({
+        url: "./php/createAnimal.php",
+        method: "POST",
+        data: formData,
+        contentType:false,
+        processData:false,
+        success: function(data){
+            //TODO: undate page with animals
+            showPage(10);
+        },
+        error: function (error) {
+            ajaxError(error);
+        }
+    })
+});
