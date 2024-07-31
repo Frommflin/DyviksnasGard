@@ -595,9 +595,9 @@ $(document).on("submit", "#editHorseForm", function(event){
     let noImg;
 
     if(document.querySelector("input[name='newProfile']").files.length == 0){
-        noImg = true;
+        noImg = "true";
     } else {
-        noImg = false;
+        noImg = "false";
     }
 
     let text = document.querySelector("textarea[name='updateDescription']").value;
@@ -624,6 +624,7 @@ $(document).on("submit", "#editHorseForm", function(event){
         contentType:false,
         processData:false,
         success: function(data){
+            getHorses();
             getHorse(id);
             showPage(5,id);
         },
