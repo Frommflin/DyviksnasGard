@@ -15,7 +15,6 @@
 
     try{
         if($_POST["noImage"] == "true"){
-            // $newImg = "Old file resaved";
             $newImg = $oldImg;
         } else {
             if($_FILES["newProfile"]["name"] != ""){
@@ -27,7 +26,6 @@
                 move_uploaded_file($_FILES["newProfile"]["tmp_name"], $filePath);
     
                 $newImg = $fileName;
-                // $newImg = "New file uploaded";
             }
         }
 
