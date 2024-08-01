@@ -19,7 +19,7 @@ function editAboutForm(id, text, image){
     str += `<input type="hidden" name="oldAboutImage" value="${image}">`;
 
     str += `<div class="crudBox">`;
-    str += `<button class="btn">`;
+    str += `<button class="btn" onclick="saveAboutEdit()">`;
     str += `<img src="./icons/save-white.png" />`;
     str += `Spara ändring`;
     str += `</button>`;
@@ -76,6 +76,50 @@ function getAbouts(){
         },
         error: function (error) {
             alert(`Något gick fel. Testa ladda om sidan.`);
+        }
+    })
+}
+
+function saveAboutEdit(){
+    let id = document.querySelector("input[name='updateAboutId']").value;
+    let oldImg = document.querySelector("input[name='oldAboutImage']").value;
+    let newImg = document.querySelector("input[name='newAboutImage']").files[0];
+    let noImg;
+
+    if(document.querySelector("input[name='newAboutImage']").files.length == 0){
+        noImg = "true";
+    } else {
+        noImg = "false";
+    }
+
+    let text = document.querySelector("textarea[name='updateAboutDescription']").value;
+    let split = text.split("\n");
+    let newText = split.join("¤¤");
+
+    let formData = new FormData();
+    formData.append("id", id);
+    formData.append("newImage", newImg);
+    formData.append("oldImage", oldImg);
+    formData.append("noImage", noImg);
+    formData.append("newDesc", newText);
+
+    // Display the key/value pairs
+    for (var pair of formData.entries()) {
+        console.log(pair[0]+ ', ' + pair[1]); 
+    }
+
+    $.ajax({
+        url: "./php/editAbout.php",
+        method: "POST",
+        data: formData,
+        contentType:false,
+        processData:false,
+        success: function(data){
+            getAbouts();
+            // showPage(2);
+        },
+        error: function (error) {
+            ajaxError(error);
         }
     })
 }
