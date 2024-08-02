@@ -107,7 +107,7 @@ function editPostForm(number, id, title, text){
     document.getElementById(`post${number}`).innerHTML = str1;
 
     let str2 = ``;
-    str2 += `<button class="btn" onclick="editPost()">`;
+    str2 += `<button class="btn" onclick="event.preventDefault();editPost()">`;
     str2 += `<img src="./icons/save-white.png" />`;
     str2 += `Spara ändring`;
     str2 += `</button>`;

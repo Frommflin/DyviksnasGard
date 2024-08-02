@@ -174,7 +174,7 @@ function editImageTextForm(text, img, album){
     countChars("imgDesc", "charCounter");
 
     let str2 = ``;
-    str2 += `<button class="btn" onclick="editImageText('${img}','${album}')">`;
+    str2 += `<button class="btn" onclick="event.preventDefault();editImageText('${img}','${album}')">`;
     str2 += `<img src="./icons/save-white.png" />`;
     str2 += `Spara ändring`;
     str2 += `</button>`;

@@ -19,7 +19,7 @@ function editAboutForm(id, text, image){
     str += `<input type="hidden" name="oldAboutImage" value="${image}">`;
 
     str += `<div class="crudBox">`;
-    str += `<button class="btn" onclick="saveAboutEdit()">`;
+    str += `<button class="btn" onclick="event.preventDefault();saveAboutEdit()">`;
     str += `<img src="./icons/save-white.png" />`;
     str += `Spara ändring`;
     str += `</button>`;
@@ -52,7 +52,7 @@ function getAbouts(){
                     let info = makeParagraphs(about.attributes["description"].nodeValue, "print");
 
                     str += `<div class="about">`;                    
-                    str += `<img src="./images/${about.attributes["img"].nodeValue}" alt="Om ${about.attributes["name"].nodeValue}">`;
+                    str += `<img src="./images/aboutUploads/${about.attributes["img"].nodeValue}" alt="Om ${about.attributes["name"].nodeValue}">`;
                     str += `<div>`;
                     str += `<div class="topRow">`;
                     str += `<h1>${about.attributes["name"].nodeValue}</h1>`;
@@ -103,11 +103,6 @@ function saveAboutEdit(){
     formData.append("noImage", noImg);
     formData.append("newDesc", newText);
 
-    // Display the key/value pairs
-    for (var pair of formData.entries()) {
-        console.log(pair[0]+ ', ' + pair[1]); 
-    }
-
     $.ajax({
         url: "./php/editAbout.php",
         method: "POST",
@@ -116,7 +111,7 @@ function saveAboutEdit(){
         processData:false,
         success: function(data){
             getAbouts();
-            // showPage(2);
+            showPage(2);
         },
         error: function (error) {
             ajaxError(error);
