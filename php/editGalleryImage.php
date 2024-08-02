@@ -12,7 +12,8 @@
         $stmt->bindParam(":NEWDESC",$newText);
         $stmt->execute();
 
-        header ("Content-Type:text/xml; charset=utf-8");  
+        header ("Content-Type:text/xml; charset=utf-8");
+        http_response_code(200);
         echo "<updated status='OK'/>";
     } 
     catch (PDOException $e) {

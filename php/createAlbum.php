@@ -16,6 +16,7 @@
 
     } catch (PDOException $e) {
         err("Error!: ".$e->getMessage()."<br/>");
+        http_response_code(200);
         die();
     }
 ?>

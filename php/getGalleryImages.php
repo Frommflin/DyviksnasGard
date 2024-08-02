@@ -21,6 +21,7 @@
         $output.="</gallery>";
 
         header ("Content-Type:text/xml; charset=utf-8");
+        http_response_code(200);
         echo $output;
     }
     catch(PDOException $error)
