@@ -132,12 +132,13 @@ function getActivities(){
                     // Creating navigation links
                     str += `<a id="nestedActivityLink${activity.attributes["id"].nodeValue}" `;
                     str += `class="dropdown-item spaLink" href="#" `;
-                    str += `onclick="showPage(7,${activity.attributes["id"].nodeValue}) >`;
+                    str += `onclick="showPage(7,${activity.attributes["id"].nodeValue})" >`;
                     str += `${activity.attributes["name"].nodeValue}`;
                     str += `</a>`;
                 }
             }
-            document.getElementById("activityLinks").innerHTML += str;
+            document.getElementById("activityLinks").innerHTML = str;
+
         },
         error: function (error) {
             alert(`Något gick fel. Testa ladda om sidan.`);
