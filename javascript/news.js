@@ -158,9 +158,9 @@ $(document).on("submit", "#addNewsForm", function(event){
 
     let formData = new FormData();
     if(document.querySelector("input[name='newsImg']").files.length == 0){
-        noImg = true;
+        noImg = "true";
     } else {
-        noImg = false;
+        noImg = "false";
     }
     formData.append("newsName", title);
     formData.append("newsDescription", newMessage);

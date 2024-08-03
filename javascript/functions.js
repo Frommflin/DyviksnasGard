@@ -21,15 +21,18 @@ function makeParagraphs(text, type){
     let paragraphs = text.split("¤¤");
     let str = "";
 
-    paragraphs.forEach(paragraph => {
+    for(i = 0; i<paragraphs.length; i++){
         if(type == "print"){
-            if(paragraph != ""){
-                str += `<p>${paragraph}</p>`;
+            if(paragraphs[i] != ""){
+                str += `<p>${paragraphs[i]}</p>`;
             }
         } else {
-            str += `${paragraph}\r\n`;
+            str += `${paragraphs[i]}`;
+            if(i != paragraphs.length-1){
+                str += `\r\n`;
+            }
         }
-    })
+    }
     return str;
 }
 

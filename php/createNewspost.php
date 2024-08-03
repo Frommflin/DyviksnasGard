@@ -9,7 +9,7 @@
     $postDate = date("Y-m-d");
 
     try{
-        if($_POST["noImage"] == false){
+        if($_POST["noImage"] == "false"){
             if($_FILES["newsImg"]["name"] != ""){
                 $fileName = set_image_name("newsUploads", $_FILES["newsImg"]["name"]);
                 $filePath = "../images/newsUploads/" . $fileName;
