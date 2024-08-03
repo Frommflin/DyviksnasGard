@@ -42,8 +42,11 @@ function showPage(p, h) {
 
         // Step 4 - Mark selected navlink as active
         if(p == 4 || p == 5){
-            document.getElementById("collectionLink").classList.add("active");
-            document.getElementById("nestedLink" + h).classList.add("active");
+            document.getElementById("horseCollectionLink").classList.add("active");
+            document.getElementById("nestedHorseLink" + h).classList.add("active");
+        } else if(p == 7) {
+            document.getElementById("eventsCollectionLink").classList.add("active");
+            document.getElementById("nestedEventLink" + h).classList.add("active");
         } else {
             document.getElementById("link" + p).classList.add("active");
         }

@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="./css/gallery.css">
         <link rel="stylesheet" href="./css/login.css">
         <link rel="stylesheet" href="./css/about.css">
-        <link rel="stylesheet" href="./css/events.css">
+        <link rel="stylesheet" href="./css/activities.css">
         <link rel="stylesheet" href="./css/animals.css">
         <script src="./javascript/functions.js"></script>
         <script src="./javascript/navigation.js"></script>
@@ -26,6 +26,7 @@
         <script src="./javascript/login.js"></script>
         <script src="./javascript/contact.js"></script>
         <script src="./javascript/about.js"></script>
+        <script src="./javascript/activities.js"></script>
     </head>
     <body onload="showPage(1); getPosts(); getHorses(); getAlbums(); checkUser(); getAbouts(); getAnimals(); ">
         <header>
@@ -52,13 +53,23 @@
                     <div id="navbarNav" class="collapse navbar-collapse navbar-nav">
                         <a id="link1" class="nav-link spaLink" aria-current="page" href="#" onclick="showPage(1)">Aktuellt</a>
                         <a id="link2" class="nav-link spaLink" href="#" onclick="showPage(2)">Om oss</a>
-                        <a id="link7" class="nav-link spaLink" href="#" onclick="showPage(7)">Aktiviteter</a>
+                        <!-- <a id="link7" class="nav-link spaLink" href="#" onclick="showPage(7)">Aktiviteter</a> -->
                         <div class="nav-item dropdown">
                             <a id="collectionLink" class="nav-link dropdown-toggle spaLink" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Aktiviteter
+                            </a>
+                            <div class="dropdown-menu">
+                                <a id="nestedEventLink0" class="dropdown-item spaLink" href="#" onclick="showNewEventForm();">Lägg till ny aktivitet</a>
+                                <hr class="dropdown-divider">
+                                <div id="eventLinks"></div>
+                            </div>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a id="horseCollectionLink" class="nav-link dropdown-toggle spaLink" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Träffa hästarna
                             </a>
                             <div class="dropdown-menu">
-                                <a id="nestedLink0" class="dropdown-item spaLink" href="#" onclick="showPage(4,0)">Alla Hästar</a>
+                                <a id="nestedHorseLink0" class="dropdown-item spaLink" href="#" onclick="showPage(4,0)">Alla Hästar</a>
                                 <hr class="dropdown-divider">
                                 <div id="horseLinks"></div>
                             </div>

@@ -66,5 +66,8 @@
     margin-right: 0;
   }
 }
+#newActivityForm .input-group-text {
+  width: 9rem;
+}
 
-/*# sourceMappingURL=events.css.map */
+/*# sourceMappingURL=activities.css.map */

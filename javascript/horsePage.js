@@ -290,7 +290,7 @@ function getHorses(){
                     let horse = resultset.childNodes.item(i);
 
                     // Creating navigation links
-                    str1 += `<a id="nestedLink${horse.attributes["id"].nodeValue}" `;
+                    str1 += `<a id="nestedHorseLink${horse.attributes["id"].nodeValue}" `;
                     str1 += `class="dropdown-item spaLink" href="#" `;
                     str1 += `onclick="showPage(5,${horse.attributes["id"].nodeValue}); `;
                     str1 += `getHorse('${horse.attributes["id"].nodeValue}')" >`;
