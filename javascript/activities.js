@@ -41,3 +41,77 @@ function showNewEventForm(){
     document.getElementById("formBox").innerHTML = str;
     showPage(9);
 }
+
+// --------------------------------------------------
+// --------------      AJAX CALLS      --------------
+// --------------------------------------------------
+
+// Add a new activity
+$(document).on("submit", "#newActivityForm", function(event){
+    event.preventDefault();
+
+
+    let title = document.querySelector("input[name='activityName']").value;
+    let img = document.querySelector("input[name='activityImg']").files[0];
+    let price = document.querySelector("input[name='activityPrice']").value;
+
+    let text = document.querySelector("textarea[name='activityDesc']").value;
+    let split = text.split("\n");
+    let newText = split.join("¤¤");
+
+    let activity = new FormData();
+    activity.append("title", title);
+    activity.append("image", img);
+    activity.append("description", newText);
+    
+    let activityPrice = new FormData();
+
+    //Step 1: creating activity
+    $.ajax({
+        url: "./php/createActivity.php",
+        method: "POST",
+        data: activity,
+        contentType:false,
+        processData:false,
+        success: function(data){
+            //Step 2: collecting id of created activity
+            $.ajax({
+                url: "./php/getRecentActivity.php",
+                method: "POST",
+                success: function(data){
+                    let resultset = data.childNodes[0];
+                    // Iterate over all nodes in root node (i.e. activities)
+                    for (i = 0; i < resultset.childNodes.length; i++){
+                        if(resultset.childNodes.item(i).nodeName=="activity"){
+                            let activity = resultset.childNodes.item(i);
+
+                            activityPrice.append("id", activity.attributes["id"].nodeValue);
+                            activityPrice.append("price", price);
+                        }
+                    }
+
+                    //Step 3: Add first price tag to created activity
+                    $.ajax({
+                        url: "./php/createActivityPrice.php",
+                        method: "POST",
+                        data: activityPrice,
+                        contentType:false,
+                        processData:false,
+                        success: function(data){
+                            //TODO: Show page with created activity
+                        },
+                        error: function (error) {
+                            ajaxError(error);
+                        }
+                    })
+                },
+                error: function (error) {
+                    ajaxError(error);
+                }
+            })
+        },
+        error: function (error) {
+            ajaxError(error);
+        }
+    })
+});
