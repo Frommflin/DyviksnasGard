@@ -115,3 +115,32 @@ $(document).on("submit", "#newActivityForm", function(event){
         }
     })
 });
+
+function getActivities(){
+    $.ajax({
+        url: "./php/getAllActivities.php",
+        method: "POST",
+        success: function(data){
+            let resultset = data.childNodes[0];
+            
+            let str = ``;
+            // Iterate over all nodes in root node (i.e. activities)
+            for (i = 0; i < resultset.childNodes.length; i++){
+                if(resultset.childNodes.item(i).nodeName=="activity"){
+                    let activity = resultset.childNodes.item(i);
+
+                    // Creating navigation links
+                    str += `<a id="nestedActivityLink${activity.attributes["id"].nodeValue}" `;
+                    str += `class="dropdown-item spaLink" href="#" `;
+                    str += `onclick="showPage(7,${activity.attributes["id"].nodeValue}) >`;
+                    str += `${activity.attributes["name"].nodeValue}`;
+                    str += `</a>`;
+                }
+            }
+            document.getElementById("activityLinks").innerHTML += str;
+        },
+        error: function (error) {
+            alert(`Något gick fel. Testa ladda om sidan.`);
+        }
+    })
+}

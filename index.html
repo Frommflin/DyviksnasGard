@@ -28,7 +28,7 @@
         <script src="./javascript/about.js"></script>
         <script src="./javascript/activities.js"></script>
     </head>
-    <body onload="showPage(1); getPosts(); getHorses(); getAlbums(); checkUser(); getAbouts(); getAnimals(); ">
+    <body onload="showPage(1); getPosts(); getHorses(); getAlbums(); checkUser(); getAbouts(); getAnimals(); getActivities();">
         <header>
             <div id="logoBanner">
                 <img id="bannerLogo" src="./icons/PrimaryLogo.png" alt="Dyviksnäs Gårds Logga" />
@@ -55,13 +55,14 @@
                         <a id="link2" class="nav-link spaLink" href="#" onclick="showPage(2)">Om oss</a>
                         <!-- <a id="link7" class="nav-link spaLink" href="#" onclick="showPage(7)">Aktiviteter</a> -->
                         <div class="nav-item dropdown">
-                            <a id="collectionLink" class="nav-link dropdown-toggle spaLink" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a id="activityCollectionLink" class="nav-link dropdown-toggle spaLink" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Aktiviteter
                             </a>
                             <div class="dropdown-menu">
-                                <a id="nestedEventLink0" class="dropdown-item spaLink" href="#" onclick="showNewEventForm();">Lägg till ny aktivitet</a>
+                                <!-- TODO: Limit visibility of first link to loges in admins -->
+                                <a id="nestedActivityLink0" class="dropdown-item spaLink" href="#" onclick="showNewEventForm();">Lägg till ny aktivitet</a>
                                 <hr class="dropdown-divider">
-                                <div id="eventLinks"></div>
+                                <div id="activityLinks"></div>
                             </div>
                         </div>
                         <div class="nav-item dropdown">
