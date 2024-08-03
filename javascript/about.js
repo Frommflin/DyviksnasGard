@@ -41,40 +41,67 @@ function getAbouts(){
         url: "./php/getAbouts.php",
         method: "POST",
         success: function(data){
-            let resultset=data.childNodes[0];
-            console.log(resultset.childNodes);
             
             str = ``;
-            // Iterate over all nodes in root node (i.e. abouts)
-            for (i = 0; i < resultset.childNodes.length; i++){
-                console.log(resultset.childNodes.item(i).nodeName);
-                if(resultset.childNodes.item(i).nodeName=="about"){
-                    let about =  resultset.childNodes.item(i);
-                    
-                    let info = makeParagraphs(about.attributes["description"].nodeValue, "print");
 
-                    str += `<div class="about">`;                    
-                    str += `<img src="./images/aboutUploads/${about.attributes["img"].nodeValue}" alt="Om ${about.attributes["name"].nodeValue}">`;
+            $(data).find("about").each(function (){
+                let about = $(this);
+
+                let info = makeParagraphs(about.attr("description"), "print");
+
+                str += `<div class="about">`;                    
+                str += `<img src="./images/aboutUploads/${about.attr("img")}" alt="Om ${about.attr("name")}">`;
+                str += `<div>`;
+                str += `<div class="topRow">`;
+                str += `<h1>${about.attr("name")}</h1>`;
+                if(localStorage.getItem("userRole") === "Admin"){
                     str += `<div>`;
-                    str += `<div class="topRow">`;
-                    str += `<h1>${about.attributes["name"].nodeValue}</h1>`;
-                    if(localStorage.getItem("userRole") === "Admin"){
-                        str += `<div>`;
-                        str += `<button class="crudBtn" onclick="editAboutForm(${about.attributes["id"].nodeValue},'${about.attributes["description"].nodeValue}','${about.attributes["img"].nodeValue}')">`;
-                        str += `<img src="./icons/editpost-white.png" />`;
-                        str += `Redigera kapitel`;
-                        str += `</button>`;
-                        str += `</div>`;
-                    }
-                    str += `</div>`;
-                    str += `<div id="aboutBox${about.attributes["id"].nodeValue}">`;
-                    str += info;
-                    str += `</div>`;
-                    str += `</div>`;
+                    str += `<button class="crudBtn" onclick="editAboutForm(${about.attr("id")},'${about.attr("description")}','${about.attr("img")}')">`;
+                    str += `<img src="./icons/editpost-white.png" />`;
+                    str += `Redigera kapitel`;
+                    str += `</button>`;
                     str += `</div>`;
                 }
-                document.getElementById("abouts").innerHTML = str;
-            }
+                str += `</div>`;
+                str += `<div id="aboutBox${about.attr("id")}">`;
+                str += info;
+                str += `</div>`;
+                str += `</div>`;
+                str += `</div>`;
+            });
+            document.getElementById("abouts").innerHTML = str;
+
+            // let resultset=data.childNodes[0];
+            // Iterate over all nodes in root node (i.e. abouts)
+            // for (i = 0; i < resultset.childNodes.length; i++){
+            //     console.log(resultset.childNodes.item(i).nodeName);
+            //     if(resultset.childNodes.item(i).nodeName=="about"){
+            //         let about =  resultset.childNodes.item(i);
+                    
+            //         let info = makeParagraphs(about.attributes["description"].nodeValue, "print");
+
+            //         str += `<div class="about">`;                    
+            //         str += `<img src="./images/aboutUploads/${about.attributes["img"].nodeValue}" alt="Om ${about.attributes["name"].nodeValue}">`;
+            //         str += `<div>`;
+            //         str += `<div class="topRow">`;
+            //         str += `<h1>${about.attributes["name"].nodeValue}</h1>`;
+            //         if(localStorage.getItem("userRole") === "Admin"){
+            //             str += `<div>`;
+            //             str += `<button class="crudBtn" onclick="editAboutForm(${about.attributes["id"].nodeValue},'${about.attributes["description"].nodeValue}','${about.attributes["img"].nodeValue}')">`;
+            //             str += `<img src="./icons/editpost-white.png" />`;
+            //             str += `Redigera kapitel`;
+            //             str += `</button>`;
+            //             str += `</div>`;
+            //         }
+            //         str += `</div>`;
+            //         str += `<div id="aboutBox${about.attributes["id"].nodeValue}">`;
+            //         str += info;
+            //         str += `</div>`;
+            //         str += `</div>`;
+            //         str += `</div>`;
+            //     }
+            //     document.getElementById("abouts").innerHTML = str;
+            // }
         },
         error: function (error) {
             alert(`Något gick fel. Testa ladda om sidan.`);
