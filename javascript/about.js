@@ -42,10 +42,12 @@ function getAbouts(){
         method: "POST",
         success: function(data){
             let resultset=data.childNodes[0];
-
+            console.log(resultset.childNodes);
+            
             str = ``;
             // Iterate over all nodes in root node (i.e. abouts)
             for (i = 0; i < resultset.childNodes.length; i++){
+                console.log(resultset.childNodes.item(i).nodeName);
                 if(resultset.childNodes.item(i).nodeName=="about"){
                     let about =  resultset.childNodes.item(i);
                     
