@@ -132,13 +132,68 @@ function getActivities(){
                     // Creating navigation links
                     str += `<a id="nestedActivityLink${activity.attributes["id"].nodeValue}" `;
                     str += `class="dropdown-item spaLink" href="#" `;
-                    str += `onclick="showPage(7,${activity.attributes["id"].nodeValue})" >`;
+                    str += `onclick="showPage(7,${activity.attributes["id"].nodeValue}); `;
+                    str += `getActivity('${activity.attributes["id"].nodeValue}')" >`;
                     str += `${activity.attributes["name"].nodeValue}`;
                     str += `</a>`;
                 }
             }
             document.getElementById("activityLinks").innerHTML = str;
 
+        },
+        error: function (error) {
+            alert(`Något gick fel. Testa ladda om sidan.`);
+        }
+    })
+}
+
+function getActivity(id){
+    $.ajax({
+        url: "./php/getActivity.php",
+        method: "POST",
+        data: { 
+            activityId: id
+        },
+        success: function(data){
+            let resultset = data.childNodes[0];
+            let str = ``;
+            // Iterate over all nodes in root node (i.e. activities)
+            for (i = 0; i < resultset.childNodes.length; i++){
+                if(resultset.childNodes.item(i).nodeName=="activity"){
+                    let activity = resultset.childNodes.item(i);
+
+                    let paragraphs = makeParagraphs(activity.attributes["description"].nodeValue, "print");
+
+                    str += `<div id="activityData">`;
+                    str += `<img src="./images/activityUploads/${activity.attributes["image"].nodeValue}">`;
+                    str += `<table>`;
+                    str += `<tr>`;
+                    str += `<th>Tillfällen</th>`;
+                    str += `<th>Pris</th>`;
+                    str += `</tr>`;
+                    //TODO: Generate table content dynamically
+                    str += `<tr>`;
+                    str += `<td>1 lektion</td>`;
+                    str += `<td>pris kr</td>`;
+                    str += `</tr>`;
+                    str += `<tr>`;
+                    str += `<td>5 lektioner</td>`;
+                    str += `<td>pris kr</td>`;
+                    str += `</tr>`;
+
+                    str += `</table>`;
+                    str += `</div>`;
+                    str += `<div id="activityInfo">`;
+                    str += `<h1>${activity.attributes["name"].nodeValue}</h1>`;
+                    str += `<div>${paragraphs}</div>`;
+                    str += `</div>`;
+
+                    // if(localStorage.getItem("userRole") == "Admin"){
+                    //     str += ``;
+                    // }
+                }
+            }
+            document.getElementById("activities").innerHTML = str;
         },
         error: function (error) {
             alert(`Något gick fel. Testa ladda om sidan.`);

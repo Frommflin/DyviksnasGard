@@ -15,7 +15,7 @@
             $img = $fileName;
         }
 
-        $query="INSERT INTO activities(activityName,activityInfo,img) values (:TITLE,:IMG,:INFO);";
+        $query="INSERT INTO activities(activityName,activityInfo,img) values (:TITLE,:INFO,:IMG);";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":TITLE",$title);
         $stmt->bindParam(":IMG",$img);

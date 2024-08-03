@@ -1,11 +1,11 @@
 @use "shared"
 @use "sass:map"
 
-#event
+#activities
     display: flex
     flex-wrap: wrap
 
-#eventData
+#activityData
     display: flex
     flex-wrap: wrap
     justify-content: center
@@ -28,18 +28,18 @@
                 
 
 @media ( min-width: map.get(shared.$breakpoints, md) )
-    #eventData
+    #activityData
         align-items: center
         img
             margin-bottom: 0
             margin-right: 10px
 
 @media ( min-width: map.get(shared.$breakpoints, lg) )
-    #event
+    #activities
         flex-wrap: nowrap
         align-items: flex-start
 
-    #eventData
+    #activityData
         width: min-content
         margin: 60px 10px 0 0
         img
