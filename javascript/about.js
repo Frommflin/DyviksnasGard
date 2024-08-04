@@ -23,7 +23,7 @@ function editAboutForm(id, text, image){
     str += `<img src="./icons/save-white.png" />`;
     str += `Spara ändring`;
     str += `</button>`;
-    str += `<button class="btn" onclick="getAbouts()">`;
+    str += `<button class="btn" onclick="event.preventDefault();getAbouts()">`;
     str += `&times Avbryt`;
     str += `</button>`;
     str += `</div>`;
