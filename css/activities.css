@@ -26,20 +26,31 @@
   max-width: 100%;
   margin-bottom: 10px;
 }
-#activityData table {
+#activityData #priceTable {
   border-collapse: collapse;
   width: 300px;
 }
-#activityData table th, #activityData table td {
+#activityData #priceTable th, #activityData #priceTable td {
   text-align: left;
   padding: 8px;
 }
-#activityData table th {
+#activityData #priceTable th {
   background-color: #dd9968;
   color: #ffffff;
 }
-#activityData table tr:nth-child(odd) {
+#activityData #priceTable tr:nth-child(odd) {
   background-color: rgba(221, 153, 104, 0.2);
+}
+#activityData #priceTable .btnCol {
+  padding: 0;
+  text-align: center;
+}
+#activityData #priceTable button {
+  height: 25px;
+  background-color: #edb977;
+}
+#activityData #priceTable button img {
+  height: 100%;
 }
 
 @media (min-width: 768px) {

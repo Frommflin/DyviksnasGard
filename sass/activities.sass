@@ -13,7 +13,7 @@
         max-height: 400px
         max-width: 100%
         margin-bottom: 10px
-    table
+    #priceTable
         border-collapse: collapse
         width: 300px
         th, td
@@ -25,6 +25,14 @@
         tr
             &:nth-child(odd)
                 background-color: shared.$primary-20
+        .btnCol
+            padding: 0
+            text-align: center
+        button
+            height: 25px
+            background-color: shared.$primary-light
+            img
+                height: 100%
                 
 
 @media ( min-width: map.get(shared.$breakpoints, md) )

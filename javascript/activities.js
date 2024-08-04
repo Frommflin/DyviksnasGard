@@ -170,6 +170,13 @@ function getActivity(id){
                     str += `<tr>`;
                     str += `<th>Tillfällen</th>`;
                     str += `<th>Pris</th>`;
+                    if(localStorage.getItem("userRole") == "Admin"){
+                        str += `<th class="btnCol">`;
+                        str += `<button class="crudBtn" onclick="">`;
+                        str += `<img src="./icons/add-white.png" />`;
+                        str += `</button>`;
+                        str += `</th>`;
+                    }
                     str += `</tr>`;
                     str += `</table>`;
                     str += `</div>`;
@@ -177,10 +184,6 @@ function getActivity(id){
                     str += `<h1>${activity.attributes["name"].nodeValue}</h1>`;
                     str += `<div>${paragraphs}</div>`;
                     str += `</div>`;
-
-                    // if(localStorage.getItem("userRole") == "Admin"){
-                    //     str += ``;
-                    // }
                 }
             }
             document.getElementById("activities").innerHTML = str;
@@ -217,12 +220,15 @@ function getActivityPrices(id){
                     str += `<tr>`;
                     str += `<td>${lessons}</td>`;
                     str += `<td>${row.attributes["price"].nodeValue} kr</td>`;
+                    if(localStorage.getItem("userRole") == "Admin"){
+                        str += `<td class="btnCol">`;
+                        str += `<button class="crudBtn" onclick="">`;
+                        str += `<img src="./icons/edit-white.png" />`;
+                        str += `</button>`;
+                        str += `</td>`;
+                    }
                     str += `</tr>`;
                     str += `<tr>`;
-
-                    // if(localStorage.getItem("userRole") == "Admin"){
-                    //     str += ``;
-                    // }
                 }
             }
             document.getElementById("priceTable").innerHTML += str;
