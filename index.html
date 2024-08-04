@@ -53,14 +53,12 @@
                     <div id="navbarNav" class="collapse navbar-collapse navbar-nav">
                         <a id="link1" class="nav-link spaLink" aria-current="page" href="#" onclick="showPage(1)">Aktuellt</a>
                         <a id="link2" class="nav-link spaLink" href="#" onclick="showPage(2)">Om oss</a>
-                        <!-- <a id="link7" class="nav-link spaLink" href="#" onclick="showPage(7)">Aktiviteter</a> -->
                         <div class="nav-item dropdown">
                             <a id="activityCollectionLink" class="nav-link dropdown-toggle spaLink" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Aktiviteter
                             </a>
                             <div class="dropdown-menu">
-                                <!-- TODO: Limit visibility of first link to loges in admins -->
-                                <a id="nestedActivityLink0" class="dropdown-item spaLink" href="#" onclick="showNewEventForm();">Lägg till ny aktivitet</a>
+                                <div id="addActivityBox"></div>
                                 <hr class="dropdown-divider">
                                 <div id="activityLinks"></div>
                             </div>

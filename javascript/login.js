@@ -90,6 +90,12 @@ function checkUser(){
             str += `Lägg till djur`;
             str += `</button>`;
             document.getElementById("animal").innerHTML = str;
+
+            //Creating nav-button to add new activity
+            str = `<a id="nestedActivityLink0" class="dropdown-item spaLink" href="#" onclick="showNewEventForm();">`;
+            str += `Lägg till ny aktivitet`;
+            str+= `</a>`;
+            document.getElementById("addActivityBox").innerHTML = str;
         } else {
             hideAdmins();
         }
@@ -109,6 +115,7 @@ function hideAdmins(){
     document.getElementById("post").innerHTML = "";
     document.getElementById("horse").innerHTML = "";
     document.getElementById("album").innerHTML = "";
+    document.getElementById("addActivityBox").innerHTML = "";
 }
 
 // --------------------------------------------------
