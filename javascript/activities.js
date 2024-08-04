@@ -166,21 +166,11 @@ function getActivity(id){
 
                     str += `<div id="activityData">`;
                     str += `<img src="./images/activityUploads/${activity.attributes["image"].nodeValue}">`;
-                    str += `<table>`;
+                    str += `<table id="priceTable">`;
                     str += `<tr>`;
                     str += `<th>Tillfällen</th>`;
                     str += `<th>Pris</th>`;
                     str += `</tr>`;
-                    //TODO: Generate table content dynamically
-                    str += `<tr>`;
-                    str += `<td>1 lektion</td>`;
-                    str += `<td>pris kr</td>`;
-                    str += `</tr>`;
-                    str += `<tr>`;
-                    str += `<td>5 lektioner</td>`;
-                    str += `<td>pris kr</td>`;
-                    str += `</tr>`;
-
                     str += `</table>`;
                     str += `</div>`;
                     str += `<div id="activityInfo">`;
@@ -194,6 +184,48 @@ function getActivity(id){
                 }
             }
             document.getElementById("activities").innerHTML = str;
+            getActivityPrices(id);
+        },
+        error: function (error) {
+            alert(`Något gick fel. Testa ladda om sidan.`);
+        }
+    })
+}
+
+function getActivityPrices(id){
+    $.ajax({
+        url: "./php/getActivityPrices.php",
+        method: "POST",
+        data: { 
+            activityId: id
+        },
+        success: function(data){
+            let resultset = data.childNodes[0];
+            let str = ``;
+            // Iterate over all nodes in root node (i.e. activity)
+            for (i = 0; i < resultset.childNodes.length; i++){
+                if(resultset.childNodes.item(i).nodeName=="lesson"){
+                    let row = resultset.childNodes.item(i);
+
+                    let lessons;
+                    if(row.attributes["lesson"].nodeValue > 1){
+                        lessons = row.attributes["lesson"].nodeValue + " tillfällen";
+                    } else {
+                        lessons = row.attributes["lesson"].nodeValue + " tillfälle";
+                    }
+
+                    str += `<tr>`;
+                    str += `<td>${lessons}</td>`;
+                    str += `<td>${row.attributes["price"].nodeValue} kr</td>`;
+                    str += `</tr>`;
+                    str += `<tr>`;
+
+                    // if(localStorage.getItem("userRole") == "Admin"){
+                    //     str += ``;
+                    // }
+                }
+            }
+            document.getElementById("priceTable").innerHTML += str;
         },
         error: function (error) {
             alert(`Något gick fel. Testa ladda om sidan.`);
