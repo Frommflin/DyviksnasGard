@@ -285,7 +285,7 @@ function getHorses(){
             let str1 = ``;
             let str2 = ``;
             // Iterate over all nodes in root node (i.e. horses)
-            for (i = 0; i < resultset.childNodes.length; i++){
+            for (let i = 0; i < resultset.childNodes.length; i++){
                 if(resultset.childNodes.item(i).nodeName=="horse"){
                     let horse = resultset.childNodes.item(i);
 
@@ -363,7 +363,7 @@ function getHorse(id){
         success: function(data){
             let resultset = data.childNodes[0];
             // Iterate over all nodes in root node (i.e. horses)
-            for (i = 0; i < resultset.childNodes.length; i++){
+            for (let i = 0; i < resultset.childNodes.length; i++){
                 if(resultset.childNodes.item(i).nodeName=="horse"){
                     let horse = resultset.childNodes.item(i);
                     const currentYear = new Date().getFullYear();
@@ -469,7 +469,7 @@ function getHorseImages(id){
             } else {
                 // Iterate over all nodes in root node (i.e. photos)
                 let slide = 0;
-                for (i = 0; i < arrayLength; i++){
+                for (let i = 0; i < arrayLength; i++){
                     if(resultset.childNodes.item(i).nodeName=="image"){
                         let image = resultset.childNodes.item(i);
                         let filename = image.attributes["file"].nodeValue;

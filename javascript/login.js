@@ -134,7 +134,7 @@ $(document).on("submit", "#newAccountForm", function(event){
         contentType:false,
         processData:false,
         success: function(data){
-            for (i = 0; i < data.childNodes.length; i++) {
+            for (let i = 0; i < data.childNodes.length; i++) {
                 if(data.childNodes.item(i).nodeName=="created"){
                     getUser(userLogin);
                 }
@@ -165,7 +165,7 @@ function getUser(incomingLogin){
             let user;
 
             // Iterate over all nodes in root node (i.e. users)
-            for (i = 0; i < resultset.childNodes.length; i++){
+            for (let i = 0; i < resultset.childNodes.length; i++){
                 if(resultset.childNodes.item(i).nodeName=="user"){
                     let userXML =  resultset.childNodes.item(i);
                     user = {

@@ -178,7 +178,7 @@ function getAnimals(){
             
             let str = ``;
             // Iterate over all nodes in root node (i.e. animals)
-            for (i = 0; i < resultset.childNodes.length; i++){
+            for (let i = 0; i < resultset.childNodes.length; i++){
                 if(resultset.childNodes.item(i).nodeName=="animal"){
                     let animal = resultset.childNodes.item(i);
                     const currentYear = new Date().getFullYear();

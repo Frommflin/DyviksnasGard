@@ -81,7 +81,7 @@ $(document).on("submit", "#newActivityForm", function(event){
                 success: function(data){
                     let resultset = data.childNodes[0];
                     // Iterate over all nodes in root node (i.e. activities)
-                    for (i = 0; i < resultset.childNodes.length; i++){
+                    for (let i = 0; i < resultset.childNodes.length; i++){
                         if(resultset.childNodes.item(i).nodeName=="activity"){
                             let activity = resultset.childNodes.item(i);
 
@@ -125,7 +125,7 @@ function getActivities(){
             
             let str = ``;
             // Iterate over all nodes in root node (i.e. activities)
-            for (i = 0; i < resultset.childNodes.length; i++){
+            for (let i = 0; i < resultset.childNodes.length; i++){
                 if(resultset.childNodes.item(i).nodeName=="activity"){
                     let activity = resultset.childNodes.item(i);
 
@@ -158,7 +158,7 @@ function getActivity(id){
             let resultset = data.childNodes[0];
             let str = ``;
             // Iterate over all nodes in root node (i.e. activities)
-            for (i = 0; i < resultset.childNodes.length; i++){
+            for (let i = 0; i < resultset.childNodes.length; i++){
                 if(resultset.childNodes.item(i).nodeName=="activity"){
                     let activity = resultset.childNodes.item(i);
 
@@ -203,7 +203,7 @@ function getActivityPrices(id){
             let resultset = data.childNodes[0];
             let str = ``;
             // Iterate over all nodes in root node (i.e. activity)
-            for (i = 0; i < resultset.childNodes.length; i++){
+            for (let i = 0; i < resultset.childNodes.length; i++){
                 if(resultset.childNodes.item(i).nodeName=="lesson"){
                     let row = resultset.childNodes.item(i);
 

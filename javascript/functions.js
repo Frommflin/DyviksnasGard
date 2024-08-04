@@ -21,7 +21,7 @@ function makeParagraphs(text, type){
     let paragraphs = text.split("¤¤");
     let str = "";
 
-    for(i = 0; i<paragraphs.length; i++){
+    for (let i = 0; i<paragraphs.length; i++){
         if(type == "print"){
             if(paragraphs[i] != ""){
                 str += `<p>${paragraphs[i]}</p>`;

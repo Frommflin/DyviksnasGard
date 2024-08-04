@@ -324,7 +324,7 @@ function getAlbums(){
 
             str = ``;
             // Iterate over all nodes in root node (i.e. albums)
-            for (i = 0; i < resultset.childNodes.length; i++){
+            for (let i = 0; i < resultset.childNodes.length; i++){
                 if(resultset.childNodes.item(i).nodeName=="album"){
                     let album =  resultset.childNodes.item(i);
                     str += `<button id="album${album.attributes["id"].nodeValue}" class="btn galleryBtn" onclick="showAlbum('${album.attributes["id"].nodeValue}', '${album.attributes["description"].nodeValue}')">${album.attributes["name"].nodeValue}</button>`;
@@ -369,7 +369,7 @@ function getGallery(albumId){
                 str2 += `Det finns inga bilder i det här albumet ännu!`;
             } else {
                 // Iterate over all nodes in root node (i.e. gallery)
-                for (i = 0; i < resultset.childNodes.length; i++){
+                for (let i = 0; i < resultset.childNodes.length; i++){
                     if(resultset.childNodes.item(i).nodeName=="image"){
                         let item =  resultset.childNodes.item(i);
 
