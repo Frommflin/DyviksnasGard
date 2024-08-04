@@ -169,7 +169,7 @@ function getUser(incomingLogin){
         processData:false,
         success: function(data){
             let resultset=data.childNodes[0];
-            let user;
+            let user = null;
 
             // Iterate over all nodes in root node (i.e. users)
             for (let i = 0; i < resultset.childNodes.length; i++){
@@ -182,7 +182,12 @@ function getUser(incomingLogin){
                     };
                 }
             }
-            logIn(user);
+
+            if(user != null){
+                logIn(user);
+            } else {
+                alert(`Felaktig mail eller lösenord.`);
+            }
         },
         error: function (error) {
             alert(`Felaktig mail eller lösenord.`);
