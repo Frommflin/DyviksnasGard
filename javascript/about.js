@@ -72,7 +72,7 @@ function getAbouts(){
             document.getElementById("abouts").innerHTML = str;
 
             // let resultset=data.childNodes[0];
-            // Iterate over all nodes in root node (i.e. abouts)
+            // // Iterate over all nodes in root node (i.e. abouts)
             // for (i = 0; i < resultset.childNodes.length; i++){
             //     console.log(resultset.childNodes.item(i).nodeName);
             //     if(resultset.childNodes.item(i).nodeName=="about"){
@@ -100,8 +100,8 @@ function getAbouts(){
             //         str += `</div>`;
             //         str += `</div>`;
             //     }
-            //     document.getElementById("abouts").innerHTML = str;
             // }
+            // document.getElementById("abouts").innerHTML = str;
         },
         error: function (error) {
             alert(`Något gick fel. Testa ladda om sidan.`);
