@@ -20,6 +20,8 @@
             $img = $fileName;
         }
 
+        $text = preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $info);
+
         $query="INSERT INTO horses(horseName,nickname,color,breed,height,yearOfBirth,img,longInfo) values (:HORSE,:NICK,:COLOR,:BREED,:HEIGHT,:YOB,:IMG,:INFO);";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":HORSE",$name);
@@ -29,7 +31,7 @@
         $stmt->bindParam(":HEIGHT",$height);
         $stmt->bindParam(":YOB",$year);
         $stmt->bindParam(":IMG",$img);
-        $stmt->bindParam(":INFO",$info);
+        $stmt->bindParam(":INFO",$text);
         $stmt->execute();
 
         header ("Content-Type:text/xml; charset=utf-8");

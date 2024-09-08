@@ -15,11 +15,13 @@
             $img = $fileName;
         }
 
+        $text = preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $info);
+
         $query="INSERT INTO activities(activityName,activityInfo,img) values (:TITLE,:INFO,:IMG);";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":TITLE",$title);
         $stmt->bindParam(":IMG",$img);
-        $stmt->bindParam(":INFO",$info);
+        $stmt->bindParam(":INFO",$text);
         $stmt->execute();
 
         header ("Content-Type:text/xml; charset=utf-8");

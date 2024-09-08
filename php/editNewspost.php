@@ -3,9 +3,10 @@
 
     $id = $_POST["postId"];
     $title = $_POST["title"];
-    $text = $_POST["description"];
+    $info = $_POST["description"];
 
     try{
+        $text = preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $info);
 
         $query="UPDATE newsposts SET title=:TITLE, article=:ARTICLE WHERE id=:ID;";
         $stmt = $pdo->prepare($query);

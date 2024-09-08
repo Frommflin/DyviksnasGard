@@ -29,6 +29,8 @@
             }
         }
 
+        $text = preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $info);
+
         $query="UPDATE horses SET horseName=:HORSE, nickname=:NICK, color=:COLOR, breed=:BREED, height=:HEIGHT, yearOfBirth=:YOB, img=:IMG, longInfo=:INFO WHERE id=:ID;";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":ID",$id);
@@ -39,7 +41,7 @@
         $stmt->bindParam(":HEIGHT",$height);
         $stmt->bindParam(":YOB",$year);
         $stmt->bindParam(":IMG",$newImg);
-        $stmt->bindParam(":INFO",$info);
+        $stmt->bindParam(":INFO",$text);
         $stmt->execute();
 
         header ("Content-Type:text/xml; charset=utf-8");

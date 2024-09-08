@@ -11,10 +11,12 @@
         foreach($decodedImages as $image){
             if($image["name"] != ""){
 
+                $text = preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $image["description"]);
+
                 $query="INSERT INTO galleries(img,imgDescription,album) values (:IMG,:IMGDESC,:ALBUM);";
                 $stmt = $pdo->prepare($query);
                 $stmt->bindParam(":IMG",$image["name"]);
-                $stmt->bindParam(":IMGDESC",$image["description"]);
+                $stmt->bindParam(":IMGDESC",$text);
                 $stmt->bindParam(":ALBUM",$album);
                 $stmt->execute();
 

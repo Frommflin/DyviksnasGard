@@ -5,10 +5,12 @@
     $description = $_POST["albumDescription"];
 
     try{
+        $text = preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $description);
+
         $query="INSERT INTO albums(albumName,albumDescription) values (:ALBUM,:ALBUMDESC);";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":ALBUM",$name);
-        $stmt->bindParam(":ALBUMDESC",$description);
+        $stmt->bindParam(":ALBUMDESC",$text);
         $stmt->execute();
 
         header ("Content-Type:text/xml; charset=utf-8");  

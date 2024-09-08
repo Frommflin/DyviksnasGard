@@ -23,10 +23,12 @@
             }
         }
 
+        $text = preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $info);
+
         $query="UPDATE abouts SET aboutDescription=:INFO, img=:IMG WHERE id=:ID;";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":ID",$id);
-        $stmt->bindParam(":INFO",$info);
+        $stmt->bindParam(":INFO",$text);
         $stmt->bindParam(":IMG",$newImg);
         $stmt->execute();
 

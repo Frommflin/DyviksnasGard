@@ -17,11 +17,13 @@
                 $image = $fileName;
             }
         }
+
+        $text = preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $description);
         
         $query="INSERT INTO newsposts(title,article,author,postDate,img) values (:TITLE,:ARTICLE,:AUTHOR,:POSTDATE,:IMG);";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":TITLE",$title);
-        $stmt->bindParam(":ARTICLE",$description);
+        $stmt->bindParam(":ARTICLE",$text);
         $stmt->bindParam(":AUTHOR",$author);
         $stmt->bindParam(":POSTDATE",$postDate);
         $stmt->bindParam(":IMG",$image);

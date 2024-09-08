@@ -17,13 +17,15 @@
             $img = $fileName;
         }
 
+        $text = preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $info);
+
         $query="INSERT INTO animals(petName,petBreed,petYOB,petImg,petInfo) values (:ANIMAL,:BREED,:YOB,:IMG,:INFO);";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":ANIMAL",$name);
         $stmt->bindParam(":BREED",$breed);
         $stmt->bindParam(":YOB",$year);
         $stmt->bindParam(":IMG",$img);
-        $stmt->bindParam(":INFO",$info);
+        $stmt->bindParam(":INFO",$text);
         $stmt->execute();
 
         header ("Content-Type:text/xml; charset=utf-8");

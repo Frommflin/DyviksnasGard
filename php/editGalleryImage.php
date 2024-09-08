@@ -6,10 +6,12 @@
 
     try{
 
+        $text = preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $newText);
+
         $query="UPDATE galleries SET imgDescription=:NEWDESC WHERE img=:IMG;";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":IMG",$fileName);
-        $stmt->bindParam(":NEWDESC",$newText);
+        $stmt->bindParam(":NEWDESC",$text);
         $stmt->execute();
 
         header ("Content-Type:text/xml; charset=utf-8");
