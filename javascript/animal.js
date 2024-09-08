@@ -106,7 +106,7 @@ function editAnimalForm(id, name, breed, year, img, text){
     showPage(9);
 }
 
-function deleteHorse(id, img){
+function deleteAnimal(id, img){
     let str = ``;
 
     str += `<div class="popupBox">`;
@@ -205,7 +205,7 @@ function getAnimals(){
                         str += `<img src="./icons/editpet-white.png" />`;
                         str += `Redigera`;
                         str += `</button>`;
-                        str += `<button class="crudBtn" onclick="deleteHorse(${animal.attributes["id"].nodeValue},'${animal.attributes["img"].nodeValue}')">`;
+                        str += `<button class="crudBtn" onclick="deleteAnimal(${animal.attributes["id"].nodeValue},'${animal.attributes["img"].nodeValue}')">`;
                         str += `<img src="./icons/bin-white.png" />`;
                         str += `Ta bort`;
                         str += `</button>`;
@@ -276,7 +276,6 @@ $(document).on("click", "#confirmAnimalDelete", function(event){
     let id = document.querySelector("input[name='animalDeleteId']").value;
     let img = document.querySelector("input[name='animalDeleteImg']").value;
 
-    // First delete all images in table using horse as foreign key
     $.ajax({
         url: "./php/deleteAnimal.php",
         method: "POST",
