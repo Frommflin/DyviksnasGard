@@ -29,7 +29,7 @@ function showNewHorseForm(){
     str += `<div class="input-group-prepend">`;
     str += `<span class="input-group-text">Ras *</span>`;
     str += `</div>`;
-    str += `<input type="text" class="form-control" name="breed" maxlength="20" required>`;
+    str += `<input type="text" class="form-control" name="breed" maxlength="40" required>`;
     str += `</div>`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
@@ -195,7 +195,7 @@ function editHorseForm(){
     str += `<div class="input-group-prepend">`;
     str += `<span class="input-group-text">Ras *</span>`;
     str += `</div>`;
-    str += `<input type="text" class="form-control" name="updateBreed" maxlength="20" value="${horse.breed}" required>`;
+    str += `<input type="text" class="form-control" name="updateBreed" maxlength="40" value="${horse.breed}" required>`;
     str += `</div>`;
     str += `<div class="input-group">`;
     str += `<div class="input-group-prepend">`;
