@@ -42,6 +42,31 @@ function showNewEventForm(){
     showPage(9);
 }
 
+function addActivityPriceForm(id){
+    //Disable button to prevent multiple instances of new price group form
+    document.getElementById("newPriceBtn").disabled = true;
+
+    //Creating inputs for adding new price group
+    let str = ``;
+
+    str += `<tr>`;
+    str += `<td>`;
+    str += `<input type="number" class="form-control" name="newActivityGroup" min="2" value="2" required>`;
+    str += `</td>`;
+    str += `<td>`;
+    str += `<input type="number" class="form-control" name="newActivityPrice" min="1" value="1" required>`;
+    str += `</td>`;
+    str += `<td class="btnCol">`;
+    str += `<button class="crudBtn" onclick="addActivityPrice()">`;
+    str += `<img src="./icons/save-white.png" />`;
+    str += `</button>`;
+    str += `</td>`;
+    str += `<input type="hidden" name="activityId" value="${id}">`;
+    str += `</tr>`;
+
+    document.getElementById("priceForm").innerHTML = str;
+}
+
 // --------------------------------------------------
 // --------------      AJAX CALLS      --------------
 // --------------------------------------------------
@@ -167,17 +192,23 @@ function getActivity(id){
                     str += `<div id="activityData">`;
                     str += `<img src="./images/activityUploads/${activity.attributes["image"].nodeValue}">`;
                     str += `<table id="priceTable">`;
+                    str += `<thead>`;
                     str += `<tr>`;
                     str += `<th>Tillfällen</th>`;
                     str += `<th>Pris</th>`;
                     if(localStorage.getItem("userRole") == "Admin"){
                         str += `<th class="btnCol">`;
-                        str += `<button class="crudBtn" onclick="">`;
+                        str += `<button id="newPriceBtn" class="crudBtn" onclick="addActivityPriceForm(${activity.attributes["id"].nodeValue})">`;
                         str += `<img src="./icons/add-white.png" />`;
                         str += `</button>`;
                         str += `</th>`;
                     }
                     str += `</tr>`;
+                    str += `</thead>`;
+                    str += `<tbody id="priceContent">`;
+                    str += `</tbody>`;
+                    str += `<tfoot id="priceForm">`;
+                    str += `</tfoot>`;
                     str += `</table>`;
                     str += `</div>`;
                     str += `<div id="activityInfo">`;
@@ -228,13 +259,39 @@ function getActivityPrices(id){
                         str += `</td>`;
                     }
                     str += `</tr>`;
-                    str += `<tr>`;
                 }
             }
-            document.getElementById("priceTable").innerHTML += str;
+            document.getElementById("priceContent").innerHTML = str;
         },
         error: function (error) {
             alert(`Något gick fel. Testa ladda om sidan.`);
+        }
+    })
+}
+
+function addActivityPrice(){
+    let activityId = document.querySelector("input[name='activityId']").value;
+    let group = document.querySelector("input[name='newActivityGroup']").value;
+    let price = document.querySelector("input[name='newActivityPrice']").value;
+
+    let formData = new FormData();
+    formData.append("id",activityId);
+    formData.append("lessons",group);
+    formData.append("price",price);
+
+    $.ajax({
+        url: "./php/createActivityPrice.php",
+        method: "POST",
+        data: formData,
+        contentType:false,
+        processData:false,
+        success: function(data){
+            document.getElementById("priceForm").innerHTML = "";
+            document.getElementById("newPriceBtn").disabled = false;
+            getActivityPrices(activityId);
+        },
+        error: function (error) {
+            ajaxError(error);
         }
     })
 }

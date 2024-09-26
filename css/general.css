@@ -124,6 +124,9 @@ button img {
 button:hover img {
   opacity: 1;
 }
+button:disabled {
+  pointer-events: none;
+}
 
 .btn {
   color: rgba(255, 255, 255, 0.7);
