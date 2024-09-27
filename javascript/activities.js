@@ -43,8 +43,7 @@ function showNewEventForm(){
 }
 
 function addActivityPriceForm(id){
-    //Disable button to prevent multiple instances of new price group form
-    document.getElementById("newPriceBtn").disabled = true;
+    toggleTableButtons(true);
 
     //Creating inputs for adding new price group
     let str = ``;
@@ -65,6 +64,30 @@ function addActivityPriceForm(id){
     str += `</tr>`;
 
     document.getElementById("priceForm").innerHTML = str;
+}
+
+function editPrice(groupId,activityId,lessons,price){
+    toggleTableButtons(true);
+
+    let str = ``;
+
+    str += `<tr>`;
+    str += `<td>`;
+    str += `<input type="number" class="form-control" name="editActivityGroup" min="2" value="${lessons}" required>`;
+    str += `</td>`;
+    str += `<td>`;
+    str += `<input type="number" class="form-control" name="editActivityPrice" min="1" value="${price}" required>`;
+    str += `</td>`;
+    str += `<td class="btnCol">`;
+    str += `<button class="crudBtn" onclick="editActivityPrice()">`;
+    str += `<img src="./icons/save-white.png" />`;
+    str += `</button>`;
+    str += `</td>`;
+    str += `<input type="hidden" name="editActivityId" value="${activityId}">`;
+    str += `<input type="hidden" name="activityGroupId" value="${groupId}">`;
+    str += `</tr>`;
+
+    document.getElementById("priceRow" + groupId).innerHTML = str;
 }
 
 // --------------------------------------------------
@@ -198,7 +221,7 @@ function getActivity(id){
                     str += `<th>Pris</th>`;
                     if(localStorage.getItem("userRole") == "Admin"){
                         str += `<th class="btnCol">`;
-                        str += `<button id="newPriceBtn" class="crudBtn" onclick="addActivityPriceForm(${activity.attributes["id"].nodeValue})">`;
+                        str += `<button id="newPriceBtn" class="crudBtn priceTblBtn" onclick="addActivityPriceForm(${activity.attributes["id"].nodeValue})">`;
                         str += `<img src="./icons/add-white.png" />`;
                         str += `</button>`;
                         str += `</th>`;
@@ -248,12 +271,12 @@ function getActivityPrices(id){
                         lessons = row.attributes["lesson"].nodeValue + " tillfälle";
                     }
 
-                    str += `<tr>`;
+                    str += `<tr id="priceRow${row.attributes["groupId"].nodeValue}">`;
                     str += `<td>${lessons}</td>`;
                     str += `<td>${row.attributes["price"].nodeValue} kr</td>`;
                     if(localStorage.getItem("userRole") == "Admin"){
                         str += `<td class="btnCol">`;
-                        str += `<button class="crudBtn" onclick="">`;
+                        str += `<button class="crudBtn priceTblBtn" onclick="editPrice(${row.attributes["groupId"].nodeValue},${id},${row.attributes["lesson"].nodeValue},${row.attributes["price"].nodeValue})">`;
                         str += `<img src="./icons/edit-white.png" />`;
                         str += `</button>`;
                         str += `</td>`;
@@ -262,6 +285,7 @@ function getActivityPrices(id){
                 }
             }
             document.getElementById("priceContent").innerHTML = str;
+            toggleTableButtons(false);
         },
         error: function (error) {
             alert(`Något gick fel. Testa ladda om sidan.`);
@@ -287,7 +311,33 @@ function addActivityPrice(){
         processData:false,
         success: function(data){
             document.getElementById("priceForm").innerHTML = "";
-            document.getElementById("newPriceBtn").disabled = false;
+            getActivityPrices(activityId);
+        },
+        error: function (error) {
+            ajaxError(error);
+        }
+    })
+}
+
+function editActivityPrice(){
+    let activityId = document.querySelector("input[name='editActivityId']").value;
+    let groupId = document.querySelector("input[name='activityGroupId']").value;
+    let price = document.querySelector("input[name='editActivityPrice']").value;
+    let lessons = document.querySelector("input[name='editActivityGroup']").value;
+
+    let formData = new FormData();
+    formData.append("activityId",activityId);
+    formData.append("groupId",groupId);
+    formData.append("price",price);
+    formData.append("lessons",lessons);
+
+    $.ajax({
+        url: "./php/editActivityPrice.php",
+        method: "POST",
+        data: formData,
+        contentType:false,
+        processData:false,
+        success: function(data){
             getActivityPrices(activityId);
         },
         error: function (error) {

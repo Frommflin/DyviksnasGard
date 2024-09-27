@@ -13,6 +13,7 @@
         $output="<activity>\n";
         foreach($stmt as $key => $row){
                 $output.="<lesson \n";
+                $output.="    groupId='".$row["groupId"]."'\n";
                 $output.="    lesson='".$row["lessons"]."'\n";
                 $output.="    price='".$row["price"]."'\n";
                 $output.=" />\n";

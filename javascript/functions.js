@@ -40,3 +40,11 @@ function ajaxError(error){
     console.log(`Error: ${error.responseText}`);
     alert(`Något gick fel. Testa ladda om sidan och försök igen, annars skicka bild på följande felkod till Klara. \n\n Error: ${error.responseText}`);
 }
+
+function toggleTableButtons(state){
+    //Disable or enable button in table to prevent attempts at multiple changes
+    let priceTableButtons = document.getElementsByClassName("priceTblBtn");
+    for (let i = 0; i < priceTableButtons.length; i++) {
+        priceTableButtons[i].disabled = state;
+    }
+}
