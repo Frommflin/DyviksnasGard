@@ -220,7 +220,7 @@ function getActivity(id){
                     str += `<th>Tillfällen</th>`;
                     str += `<th>Pris</th>`;
                     if(localStorage.getItem("userRole") == "Admin"){
-                        str += `<th class="btnCol">`;
+                        str += `<th class="btnCol" colspan="2">`;
                         str += `<button id="newPriceBtn" class="crudBtn priceTblBtn" onclick="addActivityPriceForm(${activity.attributes["id"].nodeValue})">`;
                         str += `<img src="./icons/add-white.png" />`;
                         str += `</button>`;
@@ -275,9 +275,17 @@ function getActivityPrices(id){
                     str += `<td>${lessons}</td>`;
                     str += `<td>${row.attributes["price"].nodeValue} kr</td>`;
                     if(localStorage.getItem("userRole") == "Admin"){
+                        // Edit button
                         str += `<td class="btnCol">`;
                         str += `<button class="crudBtn priceTblBtn" onclick="editPrice(${row.attributes["groupId"].nodeValue},${id},${row.attributes["lesson"].nodeValue},${row.attributes["price"].nodeValue})">`;
                         str += `<img src="./icons/edit-white.png" />`;
+                        str += `</button>`;
+                        str += `</td>`;
+
+                        // Delete button
+                        str += `<td class="btnCol">`;
+                        str += `<button class="crudBtn priceTblBtn" onclick="deletePrice(${row.attributes["groupId"].nodeValue},${id})">`;
+                        str += `<img src="./icons/bin-white.png" />`;
                         str += `</button>`;
                         str += `</td>`;
                     }
@@ -333,6 +341,26 @@ function editActivityPrice(){
 
     $.ajax({
         url: "./php/editActivityPrice.php",
+        method: "POST",
+        data: formData,
+        contentType:false,
+        processData:false,
+        success: function(data){
+            getActivityPrices(activityId);
+        },
+        error: function (error) {
+            ajaxError(error);
+        }
+    })
+}
+
+function deletePrice(groupId,activityId){
+    let formData = new FormData();
+    formData.append("activityId",activityId);
+    formData.append("groupId",groupId);
+
+    $.ajax({
+        url: "./php/deleteActivityPrice.php",
         method: "POST",
         data: formData,
         contentType:false,

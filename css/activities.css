@@ -47,6 +47,7 @@
 }
 #activityData #priceTable button {
   height: 25px;
+  width: 45px;
   background-color: #edb977;
 }
 #activityData #priceTable button img {
