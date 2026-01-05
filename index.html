@@ -1,353 +1,523 @@
 <!DOCTYPE html>
 <html lang="sv">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Dyviksnäs Gård</title>
-        <link rel="icon" href="./icons/PrimaryLogo.png" >
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="./css/general.css">
-        <link rel="stylesheet" href="./css/news.css">
-        <link rel="stylesheet" href="./css/horses.css">
-        <link rel="stylesheet" href="./css/contact.css">
-        <link rel="stylesheet" href="./css/gallery.css">
-        <link rel="stylesheet" href="./css/login.css">
-        <link rel="stylesheet" href="./css/about.css">
-        <link rel="stylesheet" href="./css/activities.css">
-        <link rel="stylesheet" href="./css/animals.css">
-        <script src="./javascript/functions.js"></script>
-        <script src="./javascript/navigation.js"></script>
-        <script src="./javascript/horsePage.js"></script>
-        <script src="./javascript/animal.js"></script>
-        <script src="./javascript/gallery.js"></script>
-        <script src="./javascript/news.js"></script>
-        <script src="./javascript/login.js"></script>
-        <script src="./javascript/contact.js"></script>
-        <script src="./javascript/about.js"></script>
-        <script src="./javascript/activities.js"></script>
-    </head>
-    <body onload="showPage(1); getPosts(); getHorses(); getAlbums(); checkUser(); getAbouts(); getAnimals(); getActivities();">
-        <header>
-            <div id="logoBanner">
-                <img id="bannerLogo" src="./icons/PrimaryLogo.png" alt="Dyviksnäs Gårds Logga" />
-                <h1>Dyviksnäs Gård</h1>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dyviksnäs Gård</title>
+    <link rel="icon" href="./icons/PrimaryLogo.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/general.css" />
+    <link rel="stylesheet" href="./css/news.css" />
+    <link rel="stylesheet" href="./css/horses.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
+    <link rel="stylesheet" href="./css/gallery.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="./css/about.css" />
+    <link rel="stylesheet" href="./css/activities.css" />
+    <link rel="stylesheet" href="./css/animals.css" />
+    <script src="./javascript/functions.js"></script>
+    <script src="./javascript/navigation.js"></script>
+    <script src="./javascript/horsePage.js"></script>
+    <script src="./javascript/animal.js"></script>
+    <script src="./javascript/gallery.js"></script>
+    <script src="./javascript/news.js"></script>
+    <script src="./javascript/login.js"></script>
+    <script src="./javascript/contact.js"></script>
+    <script src="./javascript/about.js"></script>
+    <script src="./javascript/activities.js"></script>
+  </head>
+  <body
+    onload="showPage(1); getPosts(); getHorses(); getAlbums(); checkUser(); getAbouts(); getAnimals(); getActivities();"
+  >
+    <header>
+      <div id="logoBanner">
+        <img
+          id="bannerLogo"
+          src="./icons/PrimaryLogo.png"
+          alt="Dyviksnäs Gårds Logga"
+        />
+        <h1>Dyviksnäs Gård</h1>
+      </div>
+      <div id="imgBanner">
+        <img
+          id="bannerImg"
+          src="./images/summerBanner.png"
+          alt="Dyviksnäs Gårds Banner"
+        />
+      </div>
+      <nav id="navbar" class="navbar navbar-dark navbar-expand-lg">
+        <div class="container-fluid">
+          <div id="navStart">
+            <img
+              id="invertedLogo"
+              class="navbar-brand"
+              src="./icons/InvertedLogo.png"
+              alt="Iverted Logo"
+            />
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div id="loginNav" class="navbar-nav">
+            <div id="welcomeUser" class="nav-link"></div>
+            <a id="logOutLink" class="nav-link" href="#" onclick="logOut()"
+              >Logga ut</a
+            >
+            <a
+              id="link8"
+              class="nav-link spaLink"
+              href="#"
+              onclick="showPage(8);showLogin()"
+              >Logga in / Skapa konto</a
+            >
+          </div>
+          <div id="navbarNav" class="collapse navbar-collapse navbar-nav">
+            <a
+              id="link1"
+              class="nav-link spaLink"
+              aria-current="page"
+              href="#"
+              onclick="showPage(1)"
+              >Aktuellt</a
+            >
+            <a
+              id="link2"
+              class="nav-link spaLink"
+              href="#"
+              onclick="showPage(2)"
+              >Om oss</a
+            >
+            <div class="nav-item dropdown">
+              <a
+                id="activityCollectionLink"
+                class="nav-link dropdown-toggle spaLink"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Aktiviteter
+              </a>
+              <div class="dropdown-menu">
+                <div id="addActivityBox"></div>
+                <hr class="dropdown-divider" />
+                <div id="activityLinks"></div>
+              </div>
             </div>
-            <div id="imgBanner">
-                <img id="bannerImg" src="./images/summerBanner.png" alt="Dyviksnäs Gårds Banner" />
+            <div class="nav-item dropdown">
+              <a
+                id="horseCollectionLink"
+                class="nav-link dropdown-toggle spaLink"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Träffa hästarna
+              </a>
+              <div class="dropdown-menu">
+                <a
+                  id="nestedHorseLink0"
+                  class="dropdown-item spaLink"
+                  href="#"
+                  onclick="showPage(4,0)"
+                  >Alla Hästar</a
+                >
+                <hr class="dropdown-divider" />
+                <div id="horseLinks"></div>
+              </div>
             </div>
-            <nav id="navbar" class="navbar navbar-dark navbar-expand-lg">
-                <div class="container-fluid">
-                    <div id="navStart">
-                        <img id="invertedLogo" class="navbar-brand" src="./icons/InvertedLogo.png" alt="Iverted Logo">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </div>
-                    <div id="loginNav" class="navbar-nav">
-                        <div id="welcomeUser" class="nav-link"></div>
-                        <a id="logOutLink" class="nav-link" href="#" onclick="logOut()">Logga ut</a>
-                        <a id="link8" class="nav-link spaLink" href="#" onclick="showPage(8);showLogin()">Logga in / Skapa konto</a>
-                    </div>
-                    <div id="navbarNav" class="collapse navbar-collapse navbar-nav">
-                        <a id="link1" class="nav-link spaLink" aria-current="page" href="#" onclick="showPage(1)">Aktuellt</a>
-                        <a id="link2" class="nav-link spaLink" href="#" onclick="showPage(2)">Om oss</a>
-                        <div class="nav-item dropdown">
-                            <a id="activityCollectionLink" class="nav-link dropdown-toggle spaLink" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Aktiviteter
-                            </a>
-                            <div class="dropdown-menu">
-                                <div id="addActivityBox"></div>
-                                <hr class="dropdown-divider">
-                                <div id="activityLinks"></div>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a id="horseCollectionLink" class="nav-link dropdown-toggle spaLink" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Träffa hästarna
-                            </a>
-                            <div class="dropdown-menu">
-                                <a id="nestedHorseLink0" class="dropdown-item spaLink" href="#" onclick="showPage(4,0)">Alla Hästar</a>
-                                <hr class="dropdown-divider">
-                                <div id="horseLinks"></div>
-                            </div>
-                        </div>
-                        <a id="link10" class="nav-link spaLink" href="#" onclick="showPage(10)">Träffa Smådjuren</a>
-                        <a id="link6" class="nav-link spaLink" href="#" onclick="showPage(6)">Galleri</a>
-                        <a id="link3" class="nav-link spaLink" href="#" onclick="showPage(3)">Kontakt</a>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <div id="content" class="container">
-            <div id="page1" class="page"> <!-- News -->
-                <div class="topRow">
-                    <h1>Aktuellt på Dyviksnäs Gård</h1>
-                    <div id="post"></div>
-                </div>
-                <div id="newsLetter"></div>
-            </div> <!--  End of page 1 -->
-            <div id="page2" class="page"> <!-- About Us -->
-                <h1>Om Oss</h1>
-                <div id="abouts"></div>
-            </div> <!--  End of page 2 -->
-            <div id="page3" class="page"> <!-- Contact -->
-                <div class="container">
-                    <div class="row">
-                        <div id="contact" class="col-12 col-md-6">
-                            <h1>Kontakta Oss</h1>
-                            <p>För frågor gällande gården kontakta oss på <span class="email">stallet@dyviksnas.se</span></p>
-                            <p>För frågor gällande föreningen Häst & Hälsa kontakta oss på <span class="email">hastochhalsa@dyviksnas.se</span></p>
-                            <form id="contactForm" class="col col-xs-6" method="post">
-                                <fieldset disabled>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Namn</span>
-                                        </div>
-                                        <input type="text" class="form-control" name="senderName" placeholder="Ditt namn" required>
-                                    </div>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Email</span>
-                                        </div>
-                                        <input type="email" class="form-control" name="senderEmail" placeholder="Din email" required>
-                                    </div>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Ämne</span>
-                                        </div>
-                                        <input type="text" class="form-control" name="subject" placeholder="Rubrik på mailet" required>
-                                    </div>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Mottagare</span>
-                                        </div>
-                                        <select class="form-control" id="recipient" name="recipient" required>
-                                            <option disabled selected value="">Välj mottagare</option>
-                                            <option value="stallet@dyviksnas.se">stallet@dyviksnas.se</option>
-                                            <option value="hastochhalsa@dyviksnas.se">hastochhalsa@dyviksnas.se</option>
-                                        </select>
-                                    </div>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Meddelande</span>
-                                        </div>
-                                        <textarea class="form-control" name="message" placeholder="Skriv ditt meddelande här" required></textarea>
-                                    </div>
-                                    <input type="submit" value="Skicka" class="btn" />
-                                </fieldset>
-                            </form>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <h1>Hitta hit</h1>
-                            <div>
-                                <p>
-                                    Stallet har ingen adress men ligger på Södra Rörängsslingan, väl synligt från Dyviksvägen.
-                                    Den adress som kan användas som riktlinje är Dyviksvägen 110.
-                                </p>
-                                <p>
-                                    Om ni åker från Åkersberga kör ni 276:an mot Norrtälje. Tag höger vid Åsättra mot Dyvik. Vägen svänger 90grader åt vänster vid Bammarboda korsningen. Stallet ligger på höger sida i en svacka innan marinan.
-                                </p>
-                                <p>
-                                    Kommer ni från Norrtälje så kan ni även svänga av 276:an vid Björnhuvud och följa skyltarna mot Dyvik. (Tag 90 grader höger när ni kommer till Dyviksvägen. Tydlig T-korsning.) Då passerar ni Marinan, sen ligger stallet i nästa svacka på vänster sida.
-                                </p>
-                                <p>
-                                    Åker ni buss så stannar buss 620 Norrtälje/Åkersberga precis intill stallet på hållplatsen Fåfängan. På SL appen eller hemsidan söker ni på Fåfängan(Österåker).
-                                </p>
-                                <p>
-                                    Välkomna! 🤗
-                                </p>
-                            </div>
-                            <iframe id="gmapIframe" src="https://maps.google.com/maps?q=59.521576, 18.499326&amp;hl=sv&amp;t=m&amp;z=16&amp;iwloc=B&amp;output=embed" title="Dyviksnäs Gård, Åkersberga" aria-label="Dyviksnäs Gård, Åkersberga"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div> <!--  End of page 3 -->
-            <div id="page4" class="page"> <!-- All Horses -->
-                <div class="topRow">
-                    <h1>Träffa våra hästar</h1>
-                    <div id="horse"></div>
-                </div>
-                <div id="cardContainer"></div>
-            </div> <!--  End of page 4 -->
-            <div id="page5" class="page"> <!-- Selected horse -->
-                <div id="horseContainer">
-                    <div>
-                        <div id="carouselContainer">
-                            <div id="carouselIndicators" class="carousel slide carousel-dark">
-                                <div id="indicators" class="carousel-indicators"></div>
-                                <div id="carouselImages" class="carousel-inner"></div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                        </div> <!--  End of carousel -->
-                        <h1 id="name"></h1>
-                        <h5 id="nickname"></h5>
-                        <div>
-                            Född: <span id="year"></span> (<span id="age"></span>år)
-                        </div>
-                        <div>
-                            Färg: <span id="color"></span>
-                        </div>
-                        <div>
-                            Ras: <span id="breed"></span>
-                        </div>
-                        <div>
-                            Mankhöjd: <span id="height"></span>cm
-                        </div>
-                        <div id="description"></div>
-                    </div>
-                    <div id="btnBox"></div>
-                </div>
-                <div id="imgDeleteBox"></div>
-            </div> <!--  End of page 5 -->
-            <div id="page6" class="page"> <!-- Gallery -->
-                <div class="topRow">
-                    <h1>Galleri</h1>
-                    <div id="album"></div>
-                </div>
-                <div id="galleryNav"></div>
-                <div id="galleryBtns"></div>
-                <div id="galleryDescription"></div>
-                <div id="galleryBox"></div>
-            </div> <!--  End of page 6 -->
-            <div id="page7" class="page"> <!-- Activities -->
-                <div id="activities"></div>
-            </div> <!--  End of page 7 -->
-            <div id="page8" class="page"> <!-- Log in / Create account -->
-                <div id="loginBox">
-                    <form id="loginForm" class="item" method="post">
-                        <h1>Logga in</h1>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Email</span>
-                            </div>
-                            <input type="email" class="form-control" name="loginEmail" required>
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Lösenord</span>
-                            </div>
-                            <input type="password" class="form-control" name="loginPwd" required>
-                        </div>
-                        <div id="forgotPwdLink">
-                            <a href="#" onclick="changePwd()">Glömt lösenord?</a>
-                        </div>
-                        <button class="btn"> Logga in </button>
-                    </form>
-                    <h1 class="item"> eller </h1>
-                    <form id="newAccountForm" class="item" method="post">
-                        <h1>Skapa ett konto</h1>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Email</span>
-                            </div>
-                            <input type="email" class="form-control" name="createEmail" id="createEmail" required>
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Namn</span>
-                            </div>
-                            <input type="text" class="form-control" name="createName" id="createName" maxlength="50" required>
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Lösenord</span>
-                            </div>
-                            <input type="password" class="form-control" name="createAccPwd1" id="createAccPwd1" required>
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Bekräfta lösenord</span>
-                            </div>
-                            <input type="password" class="form-control" name="createAccPwd2" id="createAccPwd2" onchange="comparePwds('createAcc')" required>
-                        </div>
-                        <div id="createAccPwdError" class="error">Lösenorden matchar inte</div>
-                        <button id="createAccBtn" class="btn" disabled> Skapa och logga in </button>
-                    </form>
-                </div>
-                <div id="forgotPwdBox">
-                    <form id="forgotPwdForm" method="post">
-                        <h1>
-                            <img src="./icons/forgotPassword-black.png" />
-                            Nytt lösenord
-                        </h1>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Email</span>
-                            </div>
-                            <input type="email" class="form-control" name="forgotEmail" required>
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Nytt lösenord</span>
-                            </div>
-                            <input type="password" class="form-control" name="forgotPwd1" id="forgotPwd1" required>
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Bekräfta Lösenord</span>
-                            </div>
-                            <input type="password" class="form-control" name="forgotPwd2" id="forgotPwd2" onchange="comparePwds('forgot')" required>
-                        </div>
-                        <div id="forgotPwdError" class="error">Lösenorden matchar inte</div>
-                        <button id="forgotBtn" class="btn" disabled>Spara nytt lösenord</button>
-                    </form>
-                </div>
-            </div> <!--  End of page 8 -->
-            <div id="page9" class="page"> <!-- Forms -->
-                <div id="formBox"></div>
-            </div> <!--  End of page 9 -->
-            <div id="page10" class="page"> <!-- Small Animals -->
-                <div class="topRow">
-                    <h1>Smådjuren</h1>
-                    <div id="animal"></div>
-                </div>
-                <div id="animalBox"></div>
-            </div> <!--  End of page 10 -->
+            <a
+              id="link10"
+              class="nav-link spaLink"
+              href="#"
+              onclick="showPage(10)"
+              >Träffa Smådjuren</a
+            >
+            <a
+              id="link6"
+              class="nav-link spaLink"
+              href="#"
+              onclick="showPage(6)"
+              >Galleri</a
+            >
+            <a
+              id="link3"
+              class="nav-link spaLink"
+              href="#"
+              onclick="showPage(3)"
+              >Kontakt</a
+            >
+          </div>
         </div>
-        <div id="popup"></div>
-        <footer>
-            <div id="footerLinks">
-                <div>
-                    <h6>Följ oss på sociala medier</h6>
-                    <ul>
-                        <li>
-                            Dyviksnäs Gård 
-                            <a href="https://www.instagram.com/dyviksnas_gard/" target="_blank">
-                                <img src="./icons/instagram-white.png" alt="Instagram" /> 
-                            </a>
-                            <a href="https://www.facebook.com/profile.php?id=100064250402634" target="_blank">
-                                <img src="./icons/facebook-white.png" alt="Facebook" /> 
-                            </a>
-                        </li>
-                        <li>
-                            Dyviksnäs Häst &amp; Hälsa 
-                            <a href="#" target="_blank">
-                                <img src="./icons/instagram-white.png" alt="Instagram" /> 
-                            </a>
-                            <a href="#" target="_blank">
-                                <img src="./icons/facebook-white.png" alt="Facebook" /> 
-                            </a>
-                        </li>
-                    </ul>
-                </div> 
+      </nav>
+    </header>
+    <div id="content" class="container">
+      <div id="page1" class="page">
+        <!-- News -->
+        <div class="topRow">
+          <h1>Aktuellt på Dyviksnäs Gård</h1>
+          <div id="post"></div>
+        </div>
+        <div id="newsLetter"></div>
+      </div>
+      <!--  End of page 1 -->
+      <div id="page2" class="page">
+        <!-- About Us -->
+        <h1>Om Oss</h1>
+        <div id="abouts"></div>
+      </div>
+      <!--  End of page 2 -->
+      <div id="page3" class="page">
+        <!-- Contact -->
+        <div class="container">
+          <div class="row">
+            <div id="contact" class="col-12 col-md-6">
+              <h1>Kontakta Oss</h1>
+              <p>
+                För frågor gällande gården kontakta oss på
+                <a href="mailto:stallet@dyviksnas.se" class="email"
+                  >stallet@dyviksnas.se</a
+                >
+              </p>
+              <p>
+                För frågor gällande föreningen Häst & Hälsa kontakta oss på
+                <a href="mailto:hastochhalsa@dyviksnas.se" class="email"
+                  >hastochhalsa@dyviksnas.se</a
+                >
+              </p>
             </div>
-            <div id="copyrights">
-                <div>
-                    Bilder © Dyviksnäs Gård
-                </div>
-                <div>
-                    Webbdesign © Klara Frommelin - 2024
-                </div>
+            <div class="col-12 col-md-6">
+              <h1>Hitta hit</h1>
+              <div>
+                <p>
+                  Stallet har ingen adress men ligger på Södra Rörängsslingan,
+                  väl synligt från Dyviksvägen. Den adress som kan användas som
+                  riktlinje är Dyviksvägen 110.
+                </p>
+                <p>
+                  Om ni åker från Åkersberga kör ni 276:an mot Norrtälje. Tag
+                  höger vid Åsättra mot Dyvik. Vägen svänger 90grader åt vänster
+                  vid Bammarboda korsningen. Stallet ligger på höger sida i en
+                  svacka innan marinan.
+                </p>
+                <p>
+                  Kommer ni från Norrtälje så kan ni även svänga av 276:an vid
+                  Björnhuvud och följa skyltarna mot Dyvik. (Tag 90 grader höger
+                  när ni kommer till Dyviksvägen. Tydlig T-korsning.) Då
+                  passerar ni Marinan, sen ligger stallet i nästa svacka på
+                  vänster sida.
+                </p>
+                <p>
+                  Åker ni buss så stannar buss 620 Norrtälje/Åkersberga precis
+                  intill stallet på hållplatsen Fåfängan. På SL appen eller
+                  hemsidan söker ni på Fåfängan(Österåker).
+                </p>
+                <p>Välkomna! 🤗</p>
+              </div>
+              <iframe
+                id="gmapIframe"
+                src="https://maps.google.com/maps?q=59.521576, 18.499326&amp;hl=sv&amp;t=m&amp;z=16&amp;iwloc=B&amp;output=embed"
+                title="Dyviksnäs Gård, Åkersberga"
+                aria-label="Dyviksnäs Gård, Åkersberga"
+              ></iframe>
             </div>
-        </footer>
-    </body>
+          </div>
+        </div>
+      </div>
+      <!--  End of page 3 -->
+      <div id="page4" class="page">
+        <!-- All Horses -->
+        <div class="topRow">
+          <h1>Träffa våra hästar</h1>
+          <div id="horse"></div>
+        </div>
+        <div id="cardContainer"></div>
+      </div>
+      <!--  End of page 4 -->
+      <div id="page5" class="page">
+        <!-- Selected horse -->
+        <div id="horseContainer">
+          <div>
+            <div id="carouselContainer">
+              <div id="carouselIndicators" class="carousel slide carousel-dark">
+                <div id="indicators" class="carousel-indicators"></div>
+                <div id="carouselImages" class="carousel-inner"></div>
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#carouselIndicators"
+                  data-bs-slide="prev"
+                >
+                  <span
+                    class="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button
+                  class="carousel-control-next"
+                  type="button"
+                  data-bs-target="#carouselIndicators"
+                  data-bs-slide="next"
+                >
+                  <span
+                    class="carousel-control-next-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+            <!--  End of carousel -->
+            <h1 id="name"></h1>
+            <h5 id="nickname"></h5>
+            <div>Född: <span id="year"></span> (<span id="age"></span>år)</div>
+            <div>Färg: <span id="color"></span></div>
+            <div>Ras: <span id="breed"></span></div>
+            <div>Mankhöjd: <span id="height"></span>cm</div>
+            <div id="description"></div>
+          </div>
+          <div id="btnBox"></div>
+        </div>
+        <div id="imgDeleteBox"></div>
+      </div>
+      <!--  End of page 5 -->
+      <div id="page6" class="page">
+        <!-- Gallery -->
+        <div class="topRow">
+          <h1>Galleri</h1>
+          <div id="album"></div>
+        </div>
+        <div id="galleryNav"></div>
+        <div id="galleryBtns"></div>
+        <div id="galleryDescription"></div>
+        <div id="galleryBox"></div>
+      </div>
+      <!--  End of page 6 -->
+      <div id="page7" class="page">
+        <!-- Activities -->
+        <div id="activities"></div>
+      </div>
+      <!--  End of page 7 -->
+      <div id="page8" class="page">
+        <!-- Log in / Create account -->
+        <div id="loginBox">
+          <form id="loginForm" class="item" method="post">
+            <h1>Logga in</h1>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Email</span>
+              </div>
+              <input
+                type="email"
+                class="form-control"
+                name="loginEmail"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Lösenord</span>
+              </div>
+              <input
+                type="password"
+                class="form-control"
+                name="loginPwd"
+                required
+              />
+            </div>
+            <div id="forgotPwdLink">
+              <a href="#" onclick="changePwd()">Glömt lösenord?</a>
+            </div>
+            <button class="btn">Logga in</button>
+          </form>
+          <h1 class="item">eller</h1>
+          <form id="newAccountForm" class="item" method="post">
+            <h1>Skapa ett konto</h1>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Email</span>
+              </div>
+              <input
+                type="email"
+                class="form-control"
+                name="createEmail"
+                id="createEmail"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Namn</span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                name="createName"
+                id="createName"
+                maxlength="50"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Lösenord</span>
+              </div>
+              <input
+                type="password"
+                class="form-control"
+                name="createAccPwd1"
+                id="createAccPwd1"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Bekräfta lösenord</span>
+              </div>
+              <input
+                type="password"
+                class="form-control"
+                name="createAccPwd2"
+                id="createAccPwd2"
+                onchange="comparePwds('createAcc')"
+                required
+              />
+            </div>
+            <div id="createAccPwdError" class="error">
+              Lösenorden matchar inte
+            </div>
+            <button id="createAccBtn" class="btn" disabled>
+              Skapa och logga in
+            </button>
+          </form>
+        </div>
+        <div id="forgotPwdBox">
+          <form id="forgotPwdForm" method="post">
+            <h1>
+              <img src="./icons/forgotPassword-black.png" />
+              Nytt lösenord
+            </h1>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Email</span>
+              </div>
+              <input
+                type="email"
+                class="form-control"
+                name="forgotEmail"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Nytt lösenord</span>
+              </div>
+              <input
+                type="password"
+                class="form-control"
+                name="forgotPwd1"
+                id="forgotPwd1"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Bekräfta Lösenord</span>
+              </div>
+              <input
+                type="password"
+                class="form-control"
+                name="forgotPwd2"
+                id="forgotPwd2"
+                onchange="comparePwds('forgot')"
+                required
+              />
+            </div>
+            <div id="forgotPwdError" class="error">Lösenorden matchar inte</div>
+            <button id="forgotBtn" class="btn" disabled>
+              Spara nytt lösenord
+            </button>
+          </form>
+        </div>
+      </div>
+      <!--  End of page 8 -->
+      <div id="page9" class="page">
+        <!-- Forms -->
+        <div id="formBox"></div>
+      </div>
+      <!--  End of page 9 -->
+      <div id="page10" class="page">
+        <!-- Small Animals -->
+        <div class="topRow">
+          <h1>Smådjuren</h1>
+          <div id="animal"></div>
+        </div>
+        <div id="animalBox"></div>
+      </div>
+      <!--  End of page 10 -->
+    </div>
+    <div id="popup"></div>
+    <footer>
+      <div id="footerLinks">
+        <div>
+          <h6>Följ oss på sociala medier</h6>
+          <ul>
+            <li>
+              Dyviksnäs Gård
+              <a
+                href="https://www.instagram.com/dyviksnas_gard/"
+                target="_blank"
+              >
+                <img src="./icons/instagram-white.png" alt="Instagram" />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=100064250402634"
+                target="_blank"
+              >
+                <img src="./icons/facebook-white.png" alt="Facebook" />
+              </a>
+            </li>
+            <li>
+              Dyviksnäs Häst &amp; Hälsa
+              <a href="#" target="_blank">
+                <img src="./icons/instagram-white.png" alt="Instagram" />
+              </a>
+              <a href="#" target="_blank">
+                <img src="./icons/facebook-white.png" alt="Facebook" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="copyrights">
+        <div>Bilder © Dyviksnäs Gård</div>
+        <div>Webbdesign © Klara Frommelin - 2024</div>
+      </div>
+    </footer>
+  </body>
 </html>
