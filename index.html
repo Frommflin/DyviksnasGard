@@ -91,7 +91,7 @@
               class="nav-link spaLink"
               href="#"
               onclick="showPage(8);showLogin()"
-              >Logga in / Skapa konto</a
+              >Logga in</a
             >
           </div>
           <div id="navbarNav" class="collapse navbar-collapse navbar-nav">
@@ -324,7 +324,7 @@
       </div>
       <!--  End of page 7 -->
       <div id="page8" class="page">
-        <!-- Log in / Create account -->
+        <!-- Log in  -->
         <div id="loginBox">
           <form id="loginForm" class="item" method="post">
             <h1>Logga in</h1>
@@ -354,66 +354,6 @@
               <a href="#" onclick="changePwd()">Glömt lösenord?</a>
             </div>
             <button class="btn">Logga in</button>
-          </form>
-          <h1 class="item">eller</h1>
-          <form id="newAccountForm" class="item" method="post">
-            <h1>Skapa ett konto</h1>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Email</span>
-              </div>
-              <input
-                type="email"
-                class="form-control"
-                name="createEmail"
-                id="createEmail"
-                required
-              />
-            </div>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Namn</span>
-              </div>
-              <input
-                type="text"
-                class="form-control"
-                name="createName"
-                id="createName"
-                maxlength="50"
-                required
-              />
-            </div>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Lösenord</span>
-              </div>
-              <input
-                type="password"
-                class="form-control"
-                name="createAccPwd1"
-                id="createAccPwd1"
-                required
-              />
-            </div>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Bekräfta lösenord</span>
-              </div>
-              <input
-                type="password"
-                class="form-control"
-                name="createAccPwd2"
-                id="createAccPwd2"
-                onchange="comparePwds('createAcc')"
-                required
-              />
-            </div>
-            <div id="createAccPwdError" class="error">
-              Lösenorden matchar inte
-            </div>
-            <button id="createAccBtn" class="btn" disabled>
-              Skapa och logga in
-            </button>
           </form>
         </div>
         <div id="forgotPwdBox">

@@ -5,33 +5,23 @@
     width: 9rem
 
 #loginBox
-    display: flex
-    align-items: center
-    flex-direction: column
-    justify-content: space-evenly
+  width: 100%
+  max-width: 500px
 
-    #loginForm
-        .input-group-text
-            width: 6rem
-
-    #newAccountForm
-        .input-group-text
-            @extend %wideFormLabel
-            
-    #forgotPwdLink
-        margin-top: -8px
-        text-align: right
-        font-size: 12px
-        padding-right: 10px
-        a
-            color: shared.$black-50
-            text-decoration: none
-            &:hover
-                text-decoration: underline
-
-@media screen and ( min-width: map.get(shared.$breakpoints, lg) )
-    #loginBox
-        flex-direction: row
+  #loginForm
+      .input-group-text
+          width: 6rem
+          
+  #forgotPwdLink
+      margin-top: -8px
+      text-align: right
+      font-size: 12px
+      padding-right: 10px
+      a
+          color: shared.$black-50
+          text-decoration: none
+          &:hover
+              text-decoration: underline
 
 #forgotPwdBox
     display: none

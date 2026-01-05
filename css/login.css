@@ -11,15 +11,13 @@
 /* ---------------------------------
  * ------------- Fonts -------------
  * --------------------------------- */
-#forgotPwdBox .input-group-text, #loginBox #newAccountForm .input-group-text {
+#forgotPwdBox .input-group-text {
   width: 9rem;
 }
 
 #loginBox {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-evenly;
+  width: 100%;
+  max-width: 500px;
 }
 #loginBox #loginForm .input-group-text {
   width: 6rem;
@@ -38,11 +36,6 @@
   text-decoration: underline;
 }
 
-@media screen and (min-width: 992px) {
-  #loginBox {
-    flex-direction: row;
-  }
-}
 #forgotPwdBox {
   display: none;
   max-width: 500px;
